@@ -112,6 +112,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         inv_frame.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -379,7 +380,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(inv_med_remarkLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_med_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                .addComponent(inv_med_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(inv_med_insertbtn)
                 .addGap(28, 28, 28)
@@ -676,7 +677,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(inv_equip_remarkLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_equip_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                .addComponent(inv_equip_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(inv_equip_insertbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
@@ -758,7 +759,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
         int_delmedicineLayout.setVerticalGroup(
             int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 622, Short.MAX_VALUE)
+            .addGap(0, 626, Short.MAX_VALUE)
             .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delmedicineLayout.createSequentialGroup()
                     .addContainerGap()
@@ -813,7 +814,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
         int_delequipmentsLayout.setVerticalGroup(
             int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 622, Short.MAX_VALUE)
+            .addGap(0, 626, Short.MAX_VALUE)
             .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delequipmentsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -824,7 +825,6 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_inventorymanager.addTab("RECENTLY DELETED EQUIPMENT", int_delequipments);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home (1).png"))); // NOI18N
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
