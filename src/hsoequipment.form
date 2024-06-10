@@ -58,7 +58,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="md_infoPanel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="md_infoPanel" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -131,161 +131,177 @@
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="eq_searchPatientID" min="-2" pref="117" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="eq_searchPatientLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="eq_updatebtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                              <Component id="eq_submitbtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="eq_searchIdLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="eq_searchID" min="-2" pref="114" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="eq_dateLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="eq_date" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="eq_timeLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="eq_txtTimeBorrowed" min="-2" pref="191" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="eq_timeBorrowedbtn" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="eq_id" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <Component id="eq_idLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="eq_department" min="-2" pref="258" max="-2" attributes="0"/>
-                                          <Component id="eq_departmentLabel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="eq_equipmentLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="eq_equipment" min="-2" pref="256" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="eq_fname" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                  <Component id="eq_fnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="eq_timeLabel1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="eq_txtTimeReturned" min="-2" pref="191" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="eq_timeReturnedbtn" min="-2" pref="40" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="eq_id" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
-                                  <Component id="eq_idLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="eq_dateLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="eq_genderLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="eq_gender" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="eq_timeLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="eq_designationLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="eq_designation" min="-2" pref="258" max="-2" attributes="0"/>
+                                  <Component id="eq_designation" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="eq_equipment" max="32767" attributes="0"/>
+                                          <Component id="eq_fname" alignment="1" pref="250" max="32767" attributes="0"/>
+                                          <Component id="eq_equipmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="eq_txtTimeReturned" min="-2" pref="191" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="eq_timeReturnedbtn" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="1" groupAlignment="1" attributes="0">
+                                              <Component id="eq_departmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="eq_department" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="eq_date" min="-2" pref="250" max="-2" attributes="0"/>
+                                          <Component id="eq_fnameLabel" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="eq_timeLabel1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="eq_txtTimeBorrowed" min="-2" pref="191" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="eq_timeBorrowedbtn" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="eq_searchPatientLabel" max="32767" attributes="0"/>
+                                          <Component id="eq_searchPatientID" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="eq_searchIdLabel" max="32767" attributes="0"/>
+                                          <Component id="eq_searchID" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="eq_updatebtn" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="eq_submitbtn" min="-2" pref="90" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="402" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="eq_idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="eq_genderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="eq_designationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="eq_id" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="eq_designation" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="eq_gender" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="eq_dateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="eq_timeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="eq_departmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="eq_timeBorrowedbtn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="eq_txtTimeBorrowed" alignment="0" max="32767" attributes="0"/>
-                          <Component id="eq_date" alignment="0" max="32767" attributes="0"/>
-                          <Component id="eq_department" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="eq_fnameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="eq_timeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="eq_equipmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="eq_txtTimeReturned" alignment="0" max="32767" attributes="0"/>
-                              <Component id="eq_fname" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="eq_timeReturnedbtn" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="eq_equipment" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="eq_searchID" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="eq_submitbtn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="eq_searchIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="eq_updatebtn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="eq_searchPatientLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="eq_searchPatientID" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="eq_idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="eq_genderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="eq_id" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="eq_gender" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="eq_designation" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="eq_dateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="eq_timeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="eq_date" min="-2" pref="35" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="eq_timeBorrowedbtn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="eq_txtTimeBorrowed" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="eq_fnameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="eq_timeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="eq_fname" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="eq_equipmentLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="eq_departmentLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="eq_timeReturnedbtn" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="eq_equipment" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="eq_department" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="eq_txtTimeReturned" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Component id="eq_designationLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="eq_searchPatientLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="eq_searchIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="eq_searchPatientID" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="eq_searchID" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="eq_submitbtn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="eq_updatebtn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jScrollPane2" min="-2" pref="266" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -636,7 +652,7 @@
                   <Color blue="0" green="66" red="33" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Monospaced" size="23" style="0"/>
+                  <Font name="Monospaced" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -722,7 +738,7 @@
                   <Color blue="0" green="66" red="33" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Monospaced" size="23" style="0"/>
+                  <Font name="Monospaced" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -791,9 +807,9 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="eq_searchNameLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="eq_searchName" pref="274" max="32767" attributes="0"/>
+                      <Component id="eq_searchName" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="eq_searchEquipment" pref="297" max="32767" attributes="0"/>
+                      <Component id="eq_searchEquipment" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="eq_searchEquipmentLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -810,7 +826,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="homeButton" min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="eq_searchNameLabel" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -818,15 +834,11 @@
                               <Component id="eq_searchEquipment" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="eq_searchEquipmentLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="exitButton" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="resizeButton" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="minimizeButton" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="EquipemtnExportTable" alignment="0" max="32767" attributes="0"/>
-                              <Component id="refreshButton" alignment="0" pref="32" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="exitButton" alignment="0" pref="38" max="32767" attributes="0"/>
+                          <Component id="resizeButton" alignment="0" pref="38" max="32767" attributes="0"/>
+                          <Component id="minimizeButton" alignment="0" pref="38" max="32767" attributes="0"/>
+                          <Component id="refreshButton" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="EquipemtnExportTable" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
