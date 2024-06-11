@@ -11,12 +11,12 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
-public class updateMedicine extends javax.swing.JFrame {
+public class deleteMedicine extends javax.swing.JFrame {
 
     hsoinventorymanagement hsoinventory = new hsoinventorymanagement();
     Date date = new Date();
 
-    public updateMedicine() {
+    public deleteMedicine() {
         initComponents();
         inv_med_date.setMinSelectableDate(date);
     }
@@ -37,7 +37,7 @@ public class updateMedicine extends javax.swing.JFrame {
         inv_med_remark = new javax.swing.JTextArea();
         inv_med_inventoryLabel = new javax.swing.JLabel();
         inv_med_medicineLabel = new javax.swing.JLabel();
-        update = new javax.swing.JButton();
+        remove = new javax.swing.JButton();
         inv_med_expiryLabel1 = new javax.swing.JLabel();
         inv_med_year = new com.toedter.calendar.JYearChooser();
         inv_med_month = new com.toedter.calendar.JMonthChooser();
@@ -113,13 +113,13 @@ public class updateMedicine extends javax.swing.JFrame {
         inv_med_medicineLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         inv_med_medicineLabel.setText("MEDICINE");
 
-        update.setBackground(new java.awt.Color(51, 102, 0));
-        update.setFont(new java.awt.Font("Monospaced", 0, 21)); // NOI18N
-        update.setForeground(new java.awt.Color(255, 255, 255));
-        update.setText("UPDATE");
-        update.addActionListener(new java.awt.event.ActionListener() {
+        remove.setBackground(new java.awt.Color(51, 102, 0));
+        remove.setFont(new java.awt.Font("Monospaced", 0, 21)); // NOI18N
+        remove.setForeground(new java.awt.Color(255, 255, 255));
+        remove.setText("REMOVE");
+        remove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateActionPerformed(evt);
+                removeActionPerformed(evt);
             }
         });
 
@@ -169,7 +169,7 @@ public class updateMedicine extends javax.swing.JFrame {
                     .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                            .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
                             .addComponent(inv_med_medicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(inv_med_remarkLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
@@ -184,10 +184,9 @@ public class updateMedicine extends javax.swing.JFrame {
                                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                                         .addGap(50, 50, 50)
-                                        .addComponent(inv_med_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(inv_med_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                                         .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(inv_med_dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(inv_med_disposedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -208,7 +207,7 @@ public class updateMedicine extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                 .addGap(157, 157, 157)
-                .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(remove, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inv_med_infopanelLayout.setVerticalGroup(
@@ -253,7 +252,7 @@ public class updateMedicine extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_md_searchID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(update)
+                .addComponent(remove)
                 .addGap(43, 43, 43))
         );
 
@@ -279,7 +278,7 @@ public class updateMedicine extends javax.swing.JFrame {
         inv_med_medicineLabel1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         inv_med_medicineLabel1.setForeground(new java.awt.Color(0, 0, 0));
         inv_med_medicineLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_med_medicineLabel1.setText("UPDATE MEDICINE");
+        inv_med_medicineLabel1.setText("REMOVE MEDICINE");
 
         javax.swing.GroupLayout homebarLayout = new javax.swing.GroupLayout(homebar);
         homebar.setLayout(homebarLayout);
@@ -327,9 +326,7 @@ public class updateMedicine extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-String item, remarks;
-        int quantity, totalquantity, disposed, year, month;
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
         Date date = inv_med_date.getDate();
         String formattedDate;
         if (date != null) {
@@ -344,7 +341,7 @@ String item, remarks;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            url = "jdbc:MySQL://localhost:3306/hso_database";
+            url = "jdbc:mysql://localhost:3306/hso_database";
             user = "root";
             pass = "";
 
@@ -362,27 +359,27 @@ String item, remarks;
                     String sql = "SELECT * FROM medicine_inventory WHERE md_id = " + ID;
                     ResultSet rs = st.executeQuery(sql);
 
-                    Statement stUpdate = con.createStatement();
-
-                    while (rs.next()) {
-
-                        item = inv_med_name.getText();
-                        year = (int) inv_med_year.getYear();
-                        month = inv_med_month.getMonth();
-                        remarks = inv_med_remark.getText();
-                        disposed = (int) inv_med_dispensed.getValue();
-                        quantity = (int) inv_med_quantity.getValue() - disposed;
-                        totalquantity = (int) inv_med_quantity.getValue();
-
-                        String updateSql = "UPDATE medicine_inventory SET md_date = '" + formattedDate + "', md_item = '" + item + "', md_quantity = '" + quantity + "', md_disposed = '" + disposed + "', md_year_expiry = '" + year + "', md_month_expiry = '" + month + "', md_remarks = '" + remarks + "', md_totalquantity = '" + totalquantity + "' WHERE md_id = " + ID;
-                        stUpdate.executeUpdate(updateSql);
-
+                    if (rs.next()) {
                         notFound = 1;
 
-                        JOptionPane.showMessageDialog(new JFrame(), "Update Successful!", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
+                        sql = "INSERT INTO removed_medicine (md_id, md_date, md_item, md_quantity, md_dispensed, md_year_expiry, md_month_expiry, md_remarks, md_totalquantity) VALUES (?,?,?,?,?,?,?,?,?)";
+                        PreparedStatement pst = con.prepareStatement(sql);
+                        pst.setString(1, ID);
+                        pst.setString(2, formattedDate);
+                        pst.setString(3, inv_med_name.getText());
+                        pst.setInt(4, (int) inv_med_quantity.getValue() - (int) inv_med_dispensed.getValue());
+                        pst.setInt(5, (int) inv_med_dispensed.getValue());
+                        pst.setInt(6, (int) inv_med_year.getYear());
+                        pst.setInt(7, inv_med_month.getMonth());
+                        pst.setString(8, inv_med_remark.getText());
+                        pst.setInt(9, (int) inv_med_quantity.getValue());
+                        pst.executeUpdate();
+
+                        sql = "DELETE FROM medicine_inventory WHERE md_id = " + ID;
+                        st.executeUpdate(sql);
 
                         inv_med_name.setText("");
-                        inv_med_year.setYear(0);
+                        inv_med_year.setYear(2024);
                         inv_med_month.setMonth(0);
                         inv_med_remark.setText("");
                         inv_med_quantity.setValue(0);
@@ -390,14 +387,16 @@ String item, remarks;
 
                         inv_md_searchID.setText("");
 
+                        JOptionPane.showMessageDialog(new JFrame(), "Selected ID of medicine removed from inventory.", "UPDATE: ID", JOptionPane.INFORMATION_MESSAGE);
+
+                        hsoinventory.removed_medsLoadData();
                         hsoinventory.loadData();
+                        
+                        con.close();
                         
                         dispose();
 
-                    }
-                    rs.close();
-                    st.close();
-                    if (notFound == 0) {
+                    } else {
                         JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
                     }
                 }
@@ -406,7 +405,7 @@ String item, remarks;
         } catch (Exception e) {
             System.out.println("Error " + e.getMessage());
         }
-    }//GEN-LAST:event_updateActionPerformed
+    }//GEN-LAST:event_removeActionPerformed
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
@@ -529,6 +528,10 @@ String item, remarks;
     private javax.swing.JScrollPane inv_med_txt;
     private com.toedter.calendar.JYearChooser inv_med_year;
     private javax.swing.JLabel minimizeButton;
-    private javax.swing.JButton update;
+    private javax.swing.JButton remove;
     // End of variables declaration//GEN-END:variables
+
+    void showVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

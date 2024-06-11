@@ -191,29 +191,25 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_med_infopanel.setLayout(inv_med_infopanelLayout);
         inv_med_infopanelLayout.setHorizontalGroup(
             inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inv_med_updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inv_med_insertbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61))
             .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
-                                .addComponent(inv_med_removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
-                                .addComponent(exportMedicineTable)
-                                .addContainerGap())))
+                        .addComponent(exportMedicineTable)
+                        .addContainerGap())
                     .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                         .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inv_med_medicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(inv_med_updatebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(inv_med_insertbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inv_med_removebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
         inv_med_infopanelLayout.setVerticalGroup(
             inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,11 +222,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(inv_med_insertbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(52, 52, 52)
                 .addComponent(inv_med_updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(inv_med_removebtn)
-                .addContainerGap())
+                .addGap(56, 56, 56)
+                .addComponent(inv_med_removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout inv_medicineLayout = new javax.swing.GroupLayout(inv_medicine);
@@ -281,8 +277,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        inv_equipmentTable.setRowHeight(30);
         inv_equipmentTable.setRowSelectionAllowed(false);
-        inv_equipmentTable.setShowGrid(true);
+        inv_equipmentTable.setSelectionBackground(new java.awt.Color(51, 102, 0));
+        inv_equipmentTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        inv_equipmentTable.setShowGrid(false);
         inv_equipmentTable.getTableHeader().setResizingAllowed(false);
         inv_equipmentTable.getTableHeader().setReorderingAllowed(false);
         inv_equip_table.setViewportView(inv_equipmentTable);
@@ -579,8 +578,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
         inv_recent_medtable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        inv_recent_medtable.setRowHeight(30);
         inv_recent_medtable.setRowSelectionAllowed(false);
-        inv_recent_medtable.setShowGrid(true);
+        inv_recent_medtable.setSelectionBackground(new java.awt.Color(51, 102, 0));
+        inv_recent_medtable.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        inv_recent_medtable.setShowGrid(false);
         inv_recent_medtable.getTableHeader().setResizingAllowed(false);
         inv_recent_medtable.getTableHeader().setReorderingAllowed(false);
         inv_med_table1.setViewportView(inv_recent_medtable);
@@ -634,8 +636,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
         inv_recent_equiptable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        inv_recent_equiptable.setRowHeight(30);
         inv_recent_equiptable.setRowSelectionAllowed(false);
-        inv_recent_equiptable.setShowGrid(true);
+        inv_recent_equiptable.setSelectionBackground(new java.awt.Color(51, 102, 0));
+        inv_recent_equiptable.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        inv_recent_equiptable.setShowGrid(false);
         inv_recent_equiptable.getTableHeader().setResizingAllowed(false);
         inv_recent_equiptable.getTableHeader().setReorderingAllowed(false);
         inv_equip_table1.setViewportView(inv_recent_equiptable);
@@ -759,7 +764,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             inv_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inv_frameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(inv_inventorymanager, javax.swing.GroupLayout.DEFAULT_SIZE, 1288, Short.MAX_VALUE)
+                .addComponent(inv_inventorymanager)
                 .addContainerGap())
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1331,86 +1336,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     }//GEN-LAST:event_inv_med_updatebtnActionPerformed
 
     private void inv_med_removebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inv_med_removebtnActionPerformed
-        Date date = inv_med_date.getDate();
-        String formattedDate;
-        if (date != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            formattedDate = sdf.format(date);
-        } else {
-            formattedDate = "";
-        }
-        String url, user, pass, ID;
-        int notFound = 0;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            url = "jdbc:mysql://localhost:3306/hso_database";
-            user = "root";
-            pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
-            Statement st = con.createStatement();
-
-            ID = inv_md_searchID.getText();
-            if ("".equals(ID)) {
-                JOptionPane.showMessageDialog(new JFrame(), "Medicine ID is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-            } else {
-
-                if ("".equals(inv_md_searchID.getText())) {
-                    JOptionPane.showMessageDialog(null, "Medicine ID required to proceed.", "Error: ID", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    String sql = "SELECT * FROM medicine_inventory WHERE md_id = " + ID;
-                    ResultSet rs = st.executeQuery(sql);
-
-                    if (rs.next()) {
-                        notFound = 1;
-
-                        sql = "INSERT INTO removed_medicine (md_id, md_date, md_item, md_quantity, md_dispensed, md_year_expiry, md_month_expiry, md_remarks, md_totalquantity) VALUES (?,?,?,?,?,?,?,?,?)";
-                        PreparedStatement pst = con.prepareStatement(sql);
-                        pst.setString(1, ID);
-                        pst.setString(2, formattedDate);
-                        pst.setString(3, inv_med_name.getText());
-                        pst.setInt(4, (int) inv_med_quantity.getValue() - (int) inv_med_dispensed.getValue());
-                        pst.setInt(5, (int) inv_med_dispensed.getValue());
-                        pst.setInt(6, (int) inv_med_year.getYear());
-                        pst.setInt(7, inv_med_month.getMonth());
-                        pst.setString(8, inv_med_remark.getText());
-                        pst.setInt(9, (int) inv_med_quantity.getValue());
-                        pst.executeUpdate();
-
-                        sql = "DELETE FROM medicine_inventory WHERE md_id = " + ID;
-                        st.executeUpdate(sql);
-
-                        inv_med_name.setText("");
-                        inv_med_year.setYear(2024);
-                        inv_med_month.setMonth(0);
-                        inv_med_remark.setText("");
-                        inv_med_quantity.setValue(0);
-                        inv_med_dispensed.setValue(0);
-
-                        inv_md_searchID.setText("");
-
-                        DefaultTableModel invRemovedMedsTable = (DefaultTableModel) inv_recent_medtable.getModel();
-                        invRemovedMedsTable.setRowCount(0);
-
-                        DefaultTableModel invmedTable = (DefaultTableModel) inv_medTable.getModel();
-                        invmedTable.setRowCount(0);
-
-                        JOptionPane.showMessageDialog(new JFrame(), "Selected ID of medicine removed from inventory.", "UPDATE: ID", JOptionPane.INFORMATION_MESSAGE);
-
-                        removed_medsLoadData();
-                        loadData();
-
-                    } else {
-                        JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error " + e.getMessage());
-        }
+        deleteMedicine delete = new deleteMedicine();
+        delete.setVisible(true);
     }//GEN-LAST:event_inv_med_removebtnActionPerformed
 
     /**
