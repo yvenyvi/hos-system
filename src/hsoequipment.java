@@ -97,17 +97,17 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_searchPatientID = new javax.swing.JTextField();
         eq_updatebtn = new javax.swing.JButton();
         eq_searchPatientLabel = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        refreshButton = new javax.swing.JLabel();
+        homebar = new javax.swing.JPanel();
         eq_searchName = new javax.swing.JTextField();
-        resizeButton = new javax.swing.JLabel();
-        minimizeButton = new javax.swing.JLabel();
         eq_searchNameLabel = new javax.swing.JLabel();
         eq_searchEquipment = new javax.swing.JTextField();
-        exitButton = new javax.swing.JLabel();
         eq_searchEquipmentLabel = new javax.swing.JLabel();
-        homeButton = new javax.swing.JLabel();
         EquipemtnExportTable = new javax.swing.JLabel();
+        homeButton = new javax.swing.JLabel();
+        refreshButton = new javax.swing.JLabel();
+        minimizeButton = new javax.swing.JLabel();
+        resizeButton = new javax.swing.JLabel();
+        exitButton = new javax.swing.JLabel();
 
         eq_timeBorrowed.setTextRefernce(eq_txtTimeBorrowed);
 
@@ -143,7 +143,7 @@ public class hsoequipment extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        eq_patients.setRowHeight(30);
+        eq_patients.setRowHeight(40);
         eq_patients.setSelectionBackground(new java.awt.Color(51, 102, 0));
         eq_patients.setSelectionForeground(new java.awt.Color(255, 255, 255));
         eq_patients.setShowGrid(false);
@@ -178,7 +178,7 @@ public class hsoequipment extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        eq_equipments.setRowHeight(30);
+        eq_equipments.setRowHeight(40);
         eq_equipments.setSelectionBackground(new java.awt.Color(51, 102, 0));
         eq_equipments.setSelectionForeground(new java.awt.Color(255, 255, 255));
         eq_equipments.setShowGrid(false);
@@ -397,9 +397,8 @@ public class hsoequipment extends javax.swing.JFrame {
                             .addComponent(eq_equipment, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(eq_gender, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(eq_genderLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(eq_timeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                                .addComponent(eq_timeLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(eq_timeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(eq_timeLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, md_infoPanelLayout.createSequentialGroup()
                                 .addComponent(eq_txtTimeReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -492,10 +491,11 @@ public class hsoequipment extends javax.swing.JFrame {
                             .addComponent(eq_fnameLabel)
                             .addComponent(eq_timeLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(eq_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(eq_txtTimeReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(eq_timeReturnedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(eq_timeReturnedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(eq_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(eq_txtTimeReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(eq_submitbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -508,37 +508,13 @@ public class hsoequipment extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-
-        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/refresh (1).png"))); // NOI18N
-        refreshButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                refreshButtonMouseClicked(evt);
-            }
-        });
+        homebar.setBackground(new java.awt.Color(255, 255, 255));
+        homebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         eq_searchName.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         eq_searchName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 eq_searchNameKeyReleased(evt);
-            }
-        });
-
-        resizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize (1).png"))); // NOI18N
-        resizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        resizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                resizeButtonMouseClicked(evt);
-            }
-        });
-
-        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign (1).png"))); // NOI18N
-        minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                minimizeButtonMouseClicked(evt);
             }
         });
 
@@ -553,30 +529,14 @@ public class hsoequipment extends javax.swing.JFrame {
             }
         });
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit (1).png"))); // NOI18N
-        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitButtonMouseClicked(evt);
-            }
-        });
-
         eq_searchEquipmentLabel.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         eq_searchEquipmentLabel.setForeground(new java.awt.Color(0, 0, 0));
         eq_searchEquipmentLabel.setText("SEARCH EQUIPMENT:");
 
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home (1).png"))); // NOI18N
-        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeButtonMouseClicked(evt);
-            }
-        });
-
         EquipemtnExportTable.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         EquipemtnExportTable.setForeground(new java.awt.Color(0, 0, 0));
         EquipemtnExportTable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EquipemtnExportTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/export (1).png"))); // NOI18N
+        EquipemtnExportTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/upload.png"))); // NOI18N
         EquipemtnExportTable.setToolTipText("Export patient's table");
         EquipemtnExportTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EquipemtnExportTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -586,48 +546,88 @@ public class hsoequipment extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home-button.png"))); // NOI18N
+        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeButtonMouseClicked(evt);
+            }
+        });
+
+        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reload.png"))); // NOI18N
+        refreshButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                refreshButtonMouseClicked(evt);
+            }
+        });
+
+        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
+        minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeButtonMouseClicked(evt);
+            }
+        });
+
+        resizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resize.png"))); // NOI18N
+        resizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resizeButtonMouseClicked(evt);
+            }
+        });
+
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (2).png"))); // NOI18N
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout homebarLayout = new javax.swing.GroupLayout(homebar);
+        homebar.setLayout(homebarLayout);
+        homebarLayout.setHorizontalGroup(
+            homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homebarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(EquipemtnExportTable)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eq_searchNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eq_searchName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eq_searchName, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(eq_searchEquipment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eq_searchEquipmentLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11))
+                .addComponent(resizeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exitButton)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        homebarLayout.setVerticalGroup(
+            homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homebarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(EquipemtnExportTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eq_searchNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EquipemtnExportTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(refreshButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(eq_searchNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(eq_searchName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(resizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(minimizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(minimizeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(eq_searchEquipmentLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eq_searchEquipment)
-                    .addComponent(eq_searchName, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(eq_searchEquipment))
                 .addContainerGap())
         );
 
@@ -639,17 +639,17 @@ public class hsoequipment extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(homebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(md_infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         eq_searchItemLayout.setVerticalGroup(
             eq_searchItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eq_searchItemLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(md_infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -941,58 +941,8 @@ public class hsoequipment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_eq_searchIDKeyPressed
 
-    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
-        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
-        frame.setExtendedState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_minimizeButtonMouseClicked
-
     private Dimension originalSize;
     private Point originalLocation;
-
-    private void resizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resizeButtonMouseClicked
-
-        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
-
-        if (originalSize == null) {
-            originalSize = frame.getSize();
-            originalLocation = frame.getLocation();
-        }
-
-        if (frame.getExtendedState() == JFrame.MAXIMIZED_BOTH) {
-            frame.setExtendedState(JFrame.NORMAL);
-            frame.setSize(originalSize);
-            frame.setLocation(originalLocation);
-        } else {
-            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        }
-    }//GEN-LAST:event_resizeButtonMouseClicked
-
-    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
-        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
-
-        if (confirm == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_exitButtonMouseClicked
-
-    private void refreshButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshButtonMouseClicked
-        DefaultTableModel equipTable = (DefaultTableModel) eq_equipments.getModel();
-        equipTable.setRowCount(0);
-
-        DefaultTableModel equipPatientTable = (DefaultTableModel) eq_patients.getModel();
-        equipPatientTable.setRowCount(0);
-
-        JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE: Reload", JOptionPane.INFORMATION_MESSAGE);
-
-        eq_loadData();
-        eq_loadPatientData();
-    }//GEN-LAST:event_refreshButtonMouseClicked
-
-    private void homeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeButtonMouseClicked
-        home home = new home();
-        home.show();
-        dispose();
-    }//GEN-LAST:event_homeButtonMouseClicked
 
     private void eq_searchNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchNameKeyReleased
         DefaultTableModel inv_equipBorrowerTable = (DefaultTableModel) eq_patients.getModel();
@@ -1028,6 +978,56 @@ public class hsoequipment extends javax.swing.JFrame {
     private void eq_searchPatientIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchPatientIDKeyReleased
 
     }//GEN-LAST:event_eq_searchPatientIDKeyReleased
+
+    private void homeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeButtonMouseClicked
+        home home = new home();
+        home.show();
+        dispose();
+    }//GEN-LAST:event_homeButtonMouseClicked
+
+    private void refreshButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshButtonMouseClicked
+
+        DefaultTableModel equipTable = (DefaultTableModel) eq_equipments.getModel();
+        DefaultTableModel equipPatientsTable = (DefaultTableModel) eq_patients.getModel();
+
+        equipTable.setRowCount(0);
+        equipPatientsTable.setRowCount(0);
+
+        JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE: Reload", JOptionPane.INFORMATION_MESSAGE);
+        
+        eq_loadPatientData();
+        eq_loadData();
+    }//GEN-LAST:event_refreshButtonMouseClicked
+
+    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
+        frame.setExtendedState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_minimizeButtonMouseClicked
+
+    private void resizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resizeButtonMouseClicked
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
+
+        if (originalSize == null) {
+            originalSize = frame.getSize();
+            originalLocation = frame.getLocation();
+        }
+
+        if (frame.getExtendedState() == JFrame.MAXIMIZED_BOTH) {
+            frame.setExtendedState(JFrame.NORMAL);
+            frame.setSize(originalSize);
+            frame.setLocation(originalLocation);
+        } else {
+            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        }
+    }//GEN-LAST:event_resizeButtonMouseClicked
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_exitButtonMouseClicked
 
     public void borrowedEquipment() {
         try {
@@ -1313,7 +1313,7 @@ public class hsoequipment extends javax.swing.JFrame {
     private javax.swing.JButton eq_updatebtn;
     private javax.swing.JLabel exitButton;
     private javax.swing.JLabel homeButton;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel homebar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelblocker1;

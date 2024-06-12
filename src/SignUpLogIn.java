@@ -82,6 +82,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
         lg_txtUsername.setBackground(new java.awt.Color(255, 255, 255));
         lg_txtUsername.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         lg_txtUsername.setForeground(new java.awt.Color(0, 0, 0));
+        lg_txtUsername.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         lg_txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 lg_txtUsernameKeyPressed(evt);
@@ -141,6 +142,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
         lg_txtPassword.setBackground(new java.awt.Color(255, 255, 255));
         lg_txtPassword.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         lg_txtPassword.setForeground(new java.awt.Color(0, 0, 0));
+        lg_txtPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         lg_txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 lg_txtPasswordKeyPressed(evt);
@@ -149,7 +151,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
         framePanel.add(lg_txtPassword);
         lg_txtPassword.setBounds(480, 370, 380, 50);
 
-        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign (1).png"))); // NOI18N
+        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
         minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -157,9 +159,9 @@ public class SignUpLogIn extends javax.swing.JFrame {
             }
         });
         framePanel.add(minimizeButton);
-        minimizeButton.setBounds(810, 10, 45, 26);
+        minimizeButton.setBounds(820, 0, 32, 40);
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit (1).png"))); // NOI18N
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (2).png"))); // NOI18N
         exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -167,7 +169,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
             }
         });
         framePanel.add(exitButton);
-        exitButton.setBounds(850, 10, 45, 26);
+        exitButton.setBounds(860, 0, 32, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

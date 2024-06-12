@@ -31,8 +31,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         loadData();
         eq_loadData();
         removed_medsLoadData();
-        removed_equipsLoadData();
-        inv_equip_date.setMinSelectableDate(date);
+        removed_equipsLoadData();        
     }
 
     @SuppressWarnings("unchecked")
@@ -55,26 +54,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_equip_table = new javax.swing.JScrollPane();
         inv_equipmentTable = new javax.swing.JTable();
         inv_med_infopanel1 = new javax.swing.JPanel();
-        inv_equip_itemLabel = new javax.swing.JLabel();
-        inv_equip_name = new javax.swing.JTextField();
-        inv_equip_yearexpiryLabel = new javax.swing.JLabel();
-        inv_equip_dateLabel = new javax.swing.JLabel();
-        inv_equip_date = new com.toedter.calendar.JDateChooser();
-        inv_equip_quantityLabel = new javax.swing.JLabel();
-        inv_equip_remarkLabel = new javax.swing.JLabel();
-        inv_equip_txt = new javax.swing.JScrollPane();
-        inv_equip_remark = new javax.swing.JTextArea();
         inv_equip_inventoryLabel = new javax.swing.JLabel();
         inv_equip_equipmentLabel = new javax.swing.JLabel();
         inv_equip_insertbtn = new javax.swing.JButton();
         inv_equip_deletebtn = new javax.swing.JButton();
         inv_equip_updatebtn = new javax.swing.JButton();
-        inv_equip_quantityLabel1 = new javax.swing.JLabel();
-        inv_equip_expiry = new javax.swing.JTextField();
-        inv_eq_searchID = new javax.swing.JTextField();
-        inv_equip_quantityLabel2 = new javax.swing.JLabel();
-        inv_equip_quantity = new javax.swing.JSpinner();
-        inv_equip_dispensed = new javax.swing.JSpinner();
         exportEquipmentTable = new javax.swing.JLabel();
         int_delmedicine = new javax.swing.JPanel();
         inv_med_table1 = new javax.swing.JScrollPane();
@@ -82,7 +66,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         int_delequipments = new javax.swing.JPanel();
         inv_equip_table1 = new javax.swing.JScrollPane();
         inv_recent_equiptable = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        homebar = new javax.swing.JPanel();
         homeButton = new javax.swing.JLabel();
         minimizeButton = new javax.swing.JLabel();
         eq_searchNameLabel = new javax.swing.JLabel();
@@ -123,8 +107,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        inv_medTable.setRowHeight(30);
-        inv_medTable.setRowSelectionAllowed(false);
+        inv_medTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         inv_medTable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_medTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
         inv_medTable.setShowGrid(false);
@@ -147,7 +130,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         exportMedicineTable.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         exportMedicineTable.setForeground(new java.awt.Color(0, 0, 0));
         exportMedicineTable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exportMedicineTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/export (1).png"))); // NOI18N
+        exportMedicineTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/diskette (1).png"))); // NOI18N
         exportMedicineTable.setToolTipText("Export medicine inventory");
         exportMedicineTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exportMedicineTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -194,15 +177,9 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(exportMedicineTable)
-                        .addContainerGap())
-                    .addGroup(inv_med_infopanelLayout.createSequentialGroup()
-                        .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inv_med_medicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
-                        .addContainerGap())))
+                    .addComponent(inv_med_medicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -210,6 +187,10 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                     .addComponent(inv_med_insertbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(inv_med_removebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(61, 61, 61))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exportMedicineTable)
+                .addContainerGap())
         );
         inv_med_infopanelLayout.setVerticalGroup(
             inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,7 +207,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addComponent(inv_med_updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(inv_med_removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout inv_medicineLayout = new javax.swing.GroupLayout(inv_medicine);
@@ -245,7 +226,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             .addGroup(inv_medicineLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(inv_medicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inv_med_table, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                    .addComponent(inv_med_table, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
                     .addComponent(inv_med_infopanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -277,8 +258,6 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        inv_equipmentTable.setRowHeight(30);
-        inv_equipmentTable.setRowSelectionAllowed(false);
         inv_equipmentTable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_equipmentTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
         inv_equipmentTable.setShowGrid(false);
@@ -287,50 +266,6 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_equip_table.setViewportView(inv_equipmentTable);
 
         inv_med_infopanel1.setBackground(new java.awt.Color(53, 64, 142));
-
-        inv_equip_itemLabel.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
-        inv_equip_itemLabel.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_itemLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_itemLabel.setText("ITEM NAME:");
-
-        inv_equip_name.setBackground(new java.awt.Color(255, 255, 255));
-        inv_equip_name.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_equip_name.setForeground(new java.awt.Color(0, 0, 0));
-        inv_equip_name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inv_equip_name.setToolTipText("EX: 2021-123456");
-
-        inv_equip_yearexpiryLabel.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
-        inv_equip_yearexpiryLabel.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_yearexpiryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_yearexpiryLabel.setText("ITEM EXPIRY:");
-
-        inv_equip_dateLabel.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
-        inv_equip_dateLabel.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_dateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_dateLabel.setText("DATE:");
-
-        inv_equip_date.setBackground(new java.awt.Color(255, 255, 255));
-        inv_equip_date.setForeground(new java.awt.Color(0, 0, 0));
-        inv_equip_date.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-
-        inv_equip_quantityLabel.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
-        inv_equip_quantityLabel.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_quantityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_quantityLabel.setText("TOTAL QUANTITY:");
-
-        inv_equip_remarkLabel.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
-        inv_equip_remarkLabel.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_remarkLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_remarkLabel.setText("REMARKS:");
-
-        inv_equip_remark.setBackground(new java.awt.Color(255, 255, 255));
-        inv_equip_remark.setColumns(20);
-        inv_equip_remark.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_equip_remark.setForeground(new java.awt.Color(0, 0, 0));
-        inv_equip_remark.setLineWrap(true);
-        inv_equip_remark.setRows(5);
-        inv_equip_remark.setWrapStyleWord(true);
-        inv_equip_txt.setViewportView(inv_equip_remark);
 
         inv_equip_inventoryLabel.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
         inv_equip_inventoryLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -372,45 +307,10 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
 
-        inv_equip_quantityLabel1.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
-        inv_equip_quantityLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_quantityLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_quantityLabel1.setText("ITEM DISPENSED:");
-
-        inv_equip_expiry.setBackground(new java.awt.Color(255, 255, 255));
-        inv_equip_expiry.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_equip_expiry.setForeground(new java.awt.Color(0, 0, 0));
-        inv_equip_expiry.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inv_equip_expiry.setToolTipText("EX: 2021-123456");
-
-        inv_eq_searchID.setBackground(new java.awt.Color(255, 255, 255));
-        inv_eq_searchID.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_eq_searchID.setForeground(new java.awt.Color(0, 0, 0));
-        inv_eq_searchID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inv_eq_searchID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                inv_eq_searchIDKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                inv_eq_searchIDKeyReleased(evt);
-            }
-        });
-
-        inv_equip_quantityLabel2.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
-        inv_equip_quantityLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_quantityLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_quantityLabel2.setText("SEARCH ID:");
-
-        inv_equip_quantity.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_equip_quantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
-        inv_equip_dispensed.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_equip_dispensed.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
         exportEquipmentTable.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         exportEquipmentTable.setForeground(new java.awt.Color(0, 0, 0));
         exportEquipmentTable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exportEquipmentTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/export (1).png"))); // NOI18N
+        exportEquipmentTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/diskette (1).png"))); // NOI18N
         exportEquipmentTable.setToolTipText("Export equipment inventory");
         exportEquipmentTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exportEquipmentTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -424,109 +324,42 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_med_infopanel1.setLayout(inv_med_infopanel1Layout);
         inv_med_infopanel1Layout.setHorizontalGroup(
             inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(inv_equip_inventoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
-                                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(inv_equip_itemLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(inv_equip_name, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inv_equip_dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inv_equip_date, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
-                                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(inv_equip_quantityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(inv_equip_quantity))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inv_equip_quantityLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(inv_equip_dispensed)))
-                            .addComponent(inv_equip_yearexpiryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18))
             .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
-                        .addComponent(inv_equip_remarkLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanel1Layout.createSequentialGroup()
-                        .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(inv_equip_txt)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inv_med_infopanel1Layout.createSequentialGroup()
-                                .addComponent(inv_equip_updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(inv_equip_deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18))))
-            .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inv_equip_quantityLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inv_equip_insertbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(inv_eq_searchID))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanel1Layout.createSequentialGroup()
-                        .addComponent(inv_equip_expiry, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanel1Layout.createSequentialGroup()
-                        .addComponent(exportEquipmentTable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inv_equip_equipmentLabel)
-                        .addGap(57, 57, 57))))
+                        .addContainerGap()
+                        .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inv_equip_inventoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inv_equip_equipmentLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
+                                .addComponent(exportEquipmentTable)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inv_equip_deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(inv_equip_insertbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                .addComponent(inv_equip_updatebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 81, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         inv_med_infopanel1Layout.setVerticalGroup(
             inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inv_med_infopanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inv_equip_equipmentLabel)
-                    .addComponent(exportEquipmentTable))
+                .addComponent(exportEquipmentTable)
+                .addGap(32, 32, 32)
+                .addComponent(inv_equip_equipmentLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_equip_inventoryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inv_equip_itemLabel)
-                    .addComponent(inv_equip_dateLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inv_equip_name, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inv_equip_date, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_equip_yearexpiryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_equip_expiry, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inv_equip_quantityLabel)
-                    .addComponent(inv_equip_quantityLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inv_equip_dispensed, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inv_equip_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(inv_equip_remarkLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_equip_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(inv_equip_insertbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(inv_equip_quantityLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_eq_searchID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inv_equip_updatebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inv_equip_deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
+                .addGap(77, 77, 77)
+                .addComponent(inv_equip_insertbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(inv_equip_updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(inv_equip_deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout inv_equipmentLayout = new javax.swing.GroupLayout(inv_equipment);
@@ -537,7 +370,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(inv_med_infopanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_equip_table, javax.swing.GroupLayout.DEFAULT_SIZE, 958, Short.MAX_VALUE)
+                .addComponent(inv_equip_table, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
                 .addContainerGap())
         );
         inv_equipmentLayout.setVerticalGroup(
@@ -546,7 +379,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(inv_equipmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inv_med_infopanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inv_equip_table))
+                    .addComponent(inv_equip_table, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -578,7 +411,6 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
         inv_recent_medtable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        inv_recent_medtable.setRowHeight(30);
         inv_recent_medtable.setRowSelectionAllowed(false);
         inv_recent_medtable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_recent_medtable.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -600,7 +432,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
         int_delmedicineLayout.setVerticalGroup(
             int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
             .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delmedicineLayout.createSequentialGroup()
                     .addContainerGap()
@@ -636,7 +468,6 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
         inv_recent_equiptable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        inv_recent_equiptable.setRowHeight(30);
         inv_recent_equiptable.setRowSelectionAllowed(false);
         inv_recent_equiptable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_recent_equiptable.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -658,7 +489,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
         int_delequipmentsLayout.setVerticalGroup(
             int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
             .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delequipmentsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -668,9 +499,10 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
 
         inv_inventorymanager.addTab("RECENTLY DELETED EQUIPMENT", int_delequipments);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        homebar.setBackground(new java.awt.Color(255, 255, 255));
+        homebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home (1).png"))); // NOI18N
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home-button.png"))); // NOI18N
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         homeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -678,7 +510,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
 
-        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign (1).png"))); // NOI18N
+        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
         minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -690,7 +522,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         eq_searchNameLabel.setForeground(new java.awt.Color(0, 0, 0));
         eq_searchNameLabel.setText("SEARCH MEDICINE/EQUIPMENT:");
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit (1).png"))); // NOI18N
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (2).png"))); // NOI18N
         exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -698,7 +530,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
 
-        resizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize (1).png"))); // NOI18N
+        resizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resize.png"))); // NOI18N
         resizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         resizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -706,7 +538,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
 
-        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/refresh (1).png"))); // NOI18N
+        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reload.png"))); // NOI18N
         refreshButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -721,40 +553,43 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout homebarLayout = new javax.swing.GroupLayout(homebar);
+        homebar.setLayout(homebarLayout);
+        homebarLayout.setHorizontalGroup(
+            homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homebarLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eq_searchNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_searchName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resizeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
+                .addComponent(exitButton)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        homebarLayout.setVerticalGroup(
+            homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homebarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(resizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(minimizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(inv_searchName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eq_searchNameLabel))
-                    .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(inv_searchName)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(homebarLayout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(eq_searchNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(resizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(minimizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -766,12 +601,12 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(inv_inventorymanager)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(homebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         inv_frameLayout.setVerticalGroup(
             inv_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_frameLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_inventorymanager)
                 .addContainerGap())
@@ -942,68 +777,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     }
 
     private void inv_equip_insertbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inv_equip_insertbtnActionPerformed
-
-        String url, user, pass, query;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            url = "jdbc:MySQL://localhost:3306/hso_database";
-            user = "root";
-            pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
-            PreparedStatement st = con.prepareStatement("INSERT INTO equipment_inventory(eq_date, eq_item, eq_quantity, eq_disposed, eq_expiry, eq_remarks) VALUES (?,?,?,?,?,?)");
-
-            Date equip_date = inv_equip_date.getDate();
-            String formattedDate;
-
-            if (equip_date != null) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                formattedDate = sdf.format(equip_date);
-            } else {
-                formattedDate = "";
-            }
-
-            if (inv_equip_date.getDate() == null) {
-                JOptionPane.showMessageDialog(new JFrame(), "Date added of item is required to proceed.", "ERROR: Date.", JOptionPane.ERROR_MESSAGE);
-            } else if ("".equals(inv_equip_name.getText())) {
-                JOptionPane.showMessageDialog(new JFrame(), "Item name is required to proceed.", "ERROR: Item Name.", JOptionPane.ERROR_MESSAGE);
-            } else if ("".equals(inv_equip_quantity.getValue())) {
-                JOptionPane.showMessageDialog(new JFrame(), "Item quantity is required to proceed.", "ERROR: Item Quantity.", JOptionPane.ERROR_MESSAGE);
-            } else if ("".equals(inv_equip_dispensed.getValue())) {
-                JOptionPane.showMessageDialog(new JFrame(), "Item quantity is required to proceed.", "ERROR: Item Quantity.", JOptionPane.ERROR_MESSAGE);
-            } else {
-                int eq_quantity = (int) inv_equip_quantity.getValue();
-                int eq_disposed = (int) inv_equip_dispensed.getValue();
-                String eq_item = inv_equip_name.getText().toUpperCase();
-                String eq_remarks = inv_equip_remark.getText();
-                String eq_expiry = inv_equip_expiry.getText();
-                int eq_totalquantity = (int) inv_equip_quantity.getValue();
-
-                query = "INSERT INTO equipment_inventory (eq_date, eq_item, eq_quantity, eq_disposed, eq_expiry, eq_remarks, eq_totalquantity) " + "VALUES ('" + formattedDate + "', '" + eq_item + "', '" + eq_quantity + "', '" + eq_disposed + "', '" + eq_expiry + "' , '" + eq_remarks + "', '" + eq_totalquantity + "')";
-                st.executeUpdate(query);
-
-                inv_equip_date.setDate(null);
-                inv_equip_name.setText("");
-                inv_equip_expiry.setText("");
-                inv_equip_remark.setText("");
-                inv_equip_quantity.setValue(0);
-                inv_equip_dispensed.setValue(0);
-
-                DefaultTableModel invequipTable = (DefaultTableModel) inv_equipmentTable.getModel();
-                invequipTable.setRowCount(0);
-
-                JOptionPane.showMessageDialog(null, "Equipment successfully added to inventory!", "Success!", JOptionPane.INFORMATION_MESSAGE);
-
-                eq_loadData();
-                con.close();
-
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error " + e.getMessage());
-        }
+        addEquipment add = new addEquipment();
+        add.setVisible(true);
     }//GEN-LAST:event_inv_equip_insertbtnActionPerformed
 
     private void homeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeButtonMouseClicked
@@ -1017,13 +792,17 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         DefaultTableModel medTable = (DefaultTableModel) inv_medTable.getModel();
         DefaultTableModel equipTable = (DefaultTableModel) inv_equipmentTable.getModel();
         DefaultTableModel invRemovedMedsTable = (DefaultTableModel) inv_recent_medtable.getModel();
+        DefaultTableModel invRemovedEquipsTable = (DefaultTableModel) inv_recent_equiptable.getModel();
 
         medTable.setRowCount(0);
         invRemovedMedsTable.setRowCount(0);
         equipTable.setRowCount(0);
+        invRemovedEquipsTable.setRowCount(0);
 
         JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE: Reload", JOptionPane.INFORMATION_MESSAGE);
 
+        
+        removed_equipsLoadData();
         removed_medsLoadData();
         loadData();
         eq_loadData();
@@ -1086,216 +865,9 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
 
     }//GEN-LAST:event_inv_searchNameKeyReleased
 
-    private void inv_equip_updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inv_equip_updatebtnActionPerformed
-        String item, expiry, remarks;
-        int totalquantity, quantity, disposed;
-        Date date = inv_equip_date.getDate();
-        String formattedDate;
-        if (date != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            formattedDate = sdf.format(date);
-        } else {
-            formattedDate = "";
-        }
-        String url, user, pass, ID;
-        int notFound = 0;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            url = "jdbc:MySQL://localhost:3306/hso_database";
-            user = "root";
-            pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
-            Statement st = con.createStatement();
-
-            ID = inv_eq_searchID.getText();
-            if ("".equals(ID)) {
-                JOptionPane.showMessageDialog(new JFrame(), "Equipment ID is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-            } else {
-
-                if ("".equals(inv_eq_searchID.getText())) {
-                    JOptionPane.showMessageDialog(null, "Equipment ID required to proceed.", "Error: ID", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    String sql = "SELECT * FROM equipment_inventory WHERE eq_id = " + ID;
-                    ResultSet rs = st.executeQuery(sql);
-
-                    Statement stUpdate = con.createStatement();
-
-                    while (rs.next()) {
-
-                        item = inv_equip_name.getText();
-                        expiry = inv_equip_expiry.getText();
-                        remarks = inv_equip_remark.getText();
-                        quantity = (int) inv_equip_quantity.getValue();
-                        totalquantity = (int) inv_equip_quantity.getValue();
-                        disposed = (int) inv_equip_dispensed.getValue();
-
-                        String updateSql = "UPDATE equipment_inventory SET eq_date = '" + formattedDate + "', eq_item = '" + item + "', eq_quantity = '" + (quantity - disposed) + "', eq_disposed = '" + disposed + "', eq_expiry = '" + expiry + "', eq_remarks = '" + remarks + "', eq_totalquantity = '" + totalquantity + "' WHERE eq_id = " + ID;
-                        stUpdate.executeUpdate(updateSql);
-
-                        DefaultTableModel equipTable = (DefaultTableModel) inv_equipmentTable.getModel();
-                        equipTable.setRowCount(0);
-
-                        notFound = 1;
-
-                        JOptionPane.showMessageDialog(new JFrame(), "Update Successful!", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
-
-                        inv_equip_name.setText("");
-                        inv_equip_expiry.setText("");
-                        inv_equip_remark.setText("");
-                        inv_equip_quantity.setValue(0);
-                        inv_equip_dispensed.setValue(0);
-
-                        inv_eq_searchID.setText("");
-
-                        eq_loadData();
-
-                    }
-                    rs.close();
-                    st.close();
-                    if (notFound == 0) {
-                        JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error " + e.getMessage());
-        }
-    }//GEN-LAST:event_inv_equip_updatebtnActionPerformed
-
-    private void inv_eq_searchIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inv_eq_searchIDKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inv_eq_searchIDKeyReleased
-
-    private void inv_eq_searchIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inv_eq_searchIDKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if ("".equals(inv_eq_searchID.getText())) {
-                JOptionPane.showMessageDialog(null, "Input a valid Equipment id number to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-            } else {
-                String url, user, pass, ID;
-                int notFound = 0;
-
-                try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-
-                    url = "jdbc:MySQL://localhost:3306/hso_database";
-                    user = "root";
-                    pass = "";
-
-                    Connection con = DriverManager.getConnection(url, user, pass);
-                    Statement st = con.createStatement();
-
-                    ID = inv_eq_searchID.getText();
-                    if ("".equals(ID)) {
-                        JOptionPane.showMessageDialog(new JFrame(), "ID of the equipment is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        String sql = "SELECT * FROM equipment_inventory WHERE eq_id = " + ID;
-                        ResultSet rs = st.executeQuery(sql);
-
-                        while (rs.next()) {
-                            inv_equip_name.setText(rs.getString("eq_item"));
-                            inv_equip_date.setDate(rs.getDate("eq_date"));
-                            inv_equip_expiry.setText(rs.getString("eq_expiry"));
-                            inv_equip_quantity.setValue(rs.getInt("eq_totalquantity"));
-                            inv_equip_dispensed.setValue(rs.getInt("eq_disposed"));
-                            inv_equip_remark.setText(rs.getString("eq_remarks"));
-                            notFound = 1;
-                            JOptionPane.showMessageDialog(null, "Equipment selected.", "INFORM: Selected", JOptionPane.INFORMATION_MESSAGE);
-                        }
-                        if (notFound == 0) {
-                            JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-
-                } catch (Exception e) {
-                    System.out.println("Error " + e.getMessage());
-                }
-            }
-        }
-    }//GEN-LAST:event_inv_eq_searchIDKeyPressed
-
     private void inv_equip_deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inv_equip_deletebtnActionPerformed
-        Date date = inv_equip_date.getDate();
-        String formattedDate;
-        if (date != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            formattedDate = sdf.format(date);
-        } else {
-            formattedDate = "";
-        }
-        String url, user, pass, ID;
-        int notFound = 0;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            url = "jdbc:mysql://localhost:3306/hso_database";
-            user = "root";
-            pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
-            Statement st = con.createStatement();
-
-            ID = inv_eq_searchID.getText();
-            if ("".equals(ID)) {
-                JOptionPane.showMessageDialog(new JFrame(), "Equipment ID is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-            } else {
-
-                if ("".equals(inv_eq_searchID.getText())) {
-                    JOptionPane.showMessageDialog(null, "Equipment ID required to proceed.", "Error: ID", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    String sql = "SELECT * FROM equipment_inventory WHERE eq_id = " + ID;
-                    ResultSet rs = st.executeQuery(sql);
-
-                    if (rs.next()) {
-                        notFound = 1;
-
-                        sql = "INSERT INTO removed_equipment (eq_id, eq_date, eq_item, eq_quantity, eq_dispensed, eq_expiry, eq_remarks, eq_totalquantity) VALUES (?,?,?,?,?,?,?,?)";
-                        PreparedStatement pst = con.prepareStatement(sql);
-                        pst.setString(1, ID);
-                        pst.setString(2, formattedDate);
-                        pst.setString(3, inv_equip_name.getText());
-                        pst.setInt(4, (int) inv_equip_quantity.getValue() - (int) inv_equip_dispensed.getValue());
-                        pst.setInt(5, (int) inv_equip_dispensed.getValue());
-                        pst.setString(6, inv_equip_expiry.getText());
-                        pst.setString(7, inv_equip_remark.getText());
-                        pst.setInt(8, (int) inv_equip_quantity.getValue());
-                        pst.executeUpdate();
-
-                        sql = "DELETE FROM equipment_inventory WHERE eq_id = " + ID;
-                        st.executeUpdate(sql);
-
-                        inv_equip_name.setText("");
-                        inv_equip_expiry.setText("");
-                        inv_equip_remark.setText("");
-                        inv_equip_quantity.setValue(0);
-                        inv_equip_dispensed.setValue(0);
-
-                        inv_eq_searchID.setText("");
-
-                        DefaultTableModel invRemovedEquipTable = (DefaultTableModel) inv_recent_equiptable.getModel();
-                        invRemovedEquipTable.setRowCount(0);
-
-                        DefaultTableModel equipTable = (DefaultTableModel) inv_equipmentTable.getModel();
-                        equipTable.setRowCount(0);
-
-                        JOptionPane.showMessageDialog(new JFrame(), "Selected ID of equipment removed from inventory.", "UPDATE: ID", JOptionPane.INFORMATION_MESSAGE);
-
-                        removed_equipsLoadData();
-                        eq_loadData();
-
-                    } else {
-                        JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error " + e.getMessage());
-        }
+       deleteEquipment delete = new deleteEquipment();
+       delete.setVisible(true);
     }//GEN-LAST:event_inv_equip_deletebtnActionPerformed
 
     private void exportMedicineTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exportMedicineTableMouseClicked
@@ -1339,6 +911,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         deleteMedicine delete = new deleteMedicine();
         delete.setVisible(true);
     }//GEN-LAST:event_inv_med_removebtnActionPerformed
+
+    private void inv_equip_updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inv_equip_updatebtnActionPerformed
+       updateEquipment update = new updateEquipment();
+       update.setVisible(true);
+    }//GEN-LAST:event_inv_equip_updatebtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1384,30 +961,16 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     private javax.swing.JLabel exportEquipmentTable;
     private javax.swing.JLabel exportMedicineTable;
     private javax.swing.JLabel homeButton;
+    private javax.swing.JPanel homebar;
     private javax.swing.JPanel int_delequipments;
     private javax.swing.JPanel int_delmedicine;
-    private javax.swing.JTextField inv_eq_searchID;
-    private com.toedter.calendar.JDateChooser inv_equip_date;
-    private javax.swing.JLabel inv_equip_dateLabel;
     private javax.swing.JButton inv_equip_deletebtn;
-    private javax.swing.JSpinner inv_equip_dispensed;
     private javax.swing.JLabel inv_equip_equipmentLabel;
-    private javax.swing.JTextField inv_equip_expiry;
     private javax.swing.JButton inv_equip_insertbtn;
     private javax.swing.JLabel inv_equip_inventoryLabel;
-    private javax.swing.JLabel inv_equip_itemLabel;
-    private javax.swing.JTextField inv_equip_name;
-    private javax.swing.JSpinner inv_equip_quantity;
-    private javax.swing.JLabel inv_equip_quantityLabel;
-    private javax.swing.JLabel inv_equip_quantityLabel1;
-    private javax.swing.JLabel inv_equip_quantityLabel2;
-    private javax.swing.JTextArea inv_equip_remark;
-    private javax.swing.JLabel inv_equip_remarkLabel;
     private javax.swing.JScrollPane inv_equip_table;
     private javax.swing.JScrollPane inv_equip_table1;
-    private javax.swing.JScrollPane inv_equip_txt;
     private javax.swing.JButton inv_equip_updatebtn;
-    private javax.swing.JLabel inv_equip_yearexpiryLabel;
     private javax.swing.JPanel inv_equipment;
     private javax.swing.JTable inv_equipmentTable;
     private javax.swing.JPanel inv_frame;
@@ -1426,7 +989,6 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     private javax.swing.JTable inv_recent_equiptable;
     private javax.swing.JTable inv_recent_medtable;
     private javax.swing.JTextField inv_searchName;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel minimizeButton;
     private javax.swing.JLabel refreshButton;
     private javax.swing.JLabel resizeButton;

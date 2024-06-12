@@ -51,7 +51,7 @@ public class home extends javax.swing.JFrame {
         imagePanel.add(equipmentLabel);
         equipmentLabel.setBounds(120, 370, 160, 50);
 
-        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign (1).png"))); // NOI18N
+        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
         minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -59,9 +59,9 @@ public class home extends javax.swing.JFrame {
             }
         });
         imagePanel.add(minimizeButton);
-        minimizeButton.setBounds(580, 10, 40, 26);
+        minimizeButton.setBounds(580, 0, 40, 50);
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit (1).png"))); // NOI18N
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (2).png"))); // NOI18N
         exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -69,7 +69,7 @@ public class home extends javax.swing.JFrame {
             }
         });
         imagePanel.add(exitButton);
-        exitButton.setBounds(620, 10, 40, 26);
+        exitButton.setBounds(622, 0, 40, 50);
 
         nutxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/left (1).png"))); // NOI18N
         imagePanel.add(nutxt);

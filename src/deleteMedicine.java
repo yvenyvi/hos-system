@@ -47,9 +47,9 @@ public class deleteMedicine extends javax.swing.JFrame {
         inv_equip_quantityLabel3 = new javax.swing.JLabel();
         inv_md_searchID = new javax.swing.JTextField();
         homebar = new javax.swing.JPanel();
+        inv_med_medicineLabel1 = new javax.swing.JLabel();
         minimizeButton = new javax.swing.JLabel();
         exitButton = new javax.swing.JLabel();
-        inv_med_medicineLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -177,10 +177,12 @@ public class deleteMedicine extends javax.swing.JFrame {
                                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(inv_med_quantityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(inv_med_quantity)
-                                    .addComponent(inv_med_year, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(inv_med_expiryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(inv_med_name)
-                                    .addComponent(inv_med_itemLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(inv_med_itemLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(inv_med_infopanelLayout.createSequentialGroup()
+                                        .addGap(30, 30, 30)
+                                        .addComponent(inv_med_year, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                                         .addGap(50, 50, 50)
@@ -259,7 +261,12 @@ public class deleteMedicine extends javax.swing.JFrame {
         homebar.setBackground(new java.awt.Color(255, 255, 255));
         homebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(238, 215, 83), 4));
 
-        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign (1).png"))); // NOI18N
+        inv_med_medicineLabel1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        inv_med_medicineLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        inv_med_medicineLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        inv_med_medicineLabel1.setText("REMOVE MEDICINE");
+
+        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
         minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -267,7 +274,7 @@ public class deleteMedicine extends javax.swing.JFrame {
             }
         });
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit (1).png"))); // NOI18N
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (2).png"))); // NOI18N
         exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -275,32 +282,27 @@ public class deleteMedicine extends javax.swing.JFrame {
             }
         });
 
-        inv_med_medicineLabel1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        inv_med_medicineLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        inv_med_medicineLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_med_medicineLabel1.setText("REMOVE MEDICINE");
-
         javax.swing.GroupLayout homebarLayout = new javax.swing.GroupLayout(homebar);
         homebar.setLayout(homebarLayout);
         homebarLayout.setHorizontalGroup(
             homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homebarLayout.createSequentialGroup()
                 .addComponent(inv_med_medicineLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exitButton)
                 .addContainerGap())
         );
         homebarLayout.setVerticalGroup(
             homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(inv_med_medicineLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
             .addGroup(homebarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(minimizeButton))
-                .addContainerGap(13, Short.MAX_VALUE))
-            .addComponent(inv_med_medicineLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -407,15 +409,6 @@ public class deleteMedicine extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_removeActionPerformed
 
-    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
-        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
-        frame.setExtendedState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_minimizeButtonMouseClicked
-
-    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
-        dispose();
-    }//GEN-LAST:event_exitButtonMouseClicked
-
     private void inv_md_searchIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inv_md_searchIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if ("".equals(inv_md_searchID.getText())) {
@@ -467,6 +460,15 @@ public class deleteMedicine extends javax.swing.JFrame {
     private void inv_md_searchIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inv_md_searchIDKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_inv_md_searchIDKeyReleased
+
+    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
+        frame.setExtendedState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_minimizeButtonMouseClicked
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+        dispose();
+    }//GEN-LAST:event_exitButtonMouseClicked
 
     /**
      * @param args the command line arguments

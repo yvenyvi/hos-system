@@ -29,8 +29,6 @@ public class Signup extends javax.swing.JFrame {
 
         framePanel = new javax.swing.JPanel();
         imagePanel = new javax.swing.JPanel();
-        minimizeButton = new javax.swing.JLabel();
-        exitButton = new javax.swing.JLabel();
         nuLogo = new javax.swing.JLabel();
         nubImage = new javax.swing.JLabel();
         signupLogoLabel = new javax.swing.JLabel();
@@ -43,6 +41,8 @@ public class Signup extends javax.swing.JFrame {
         su_loginButton = new javax.swing.JButton();
         su_EmailLabel = new javax.swing.JLabel();
         su_txtEmail = new javax.swing.JTextField();
+        minimizeButton = new javax.swing.JLabel();
+        exitButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -53,26 +53,6 @@ public class Signup extends javax.swing.JFrame {
 
         imagePanel.setBackground(new java.awt.Color(53, 64, 142));
         imagePanel.setLayout(null);
-
-        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize-sign (1).png"))); // NOI18N
-        minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                minimizeButtonMouseClicked(evt);
-            }
-        });
-        imagePanel.add(minimizeButton);
-        minimizeButton.setBounds(350, 10, 45, 26);
-
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit (1).png"))); // NOI18N
-        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitButtonMouseClicked(evt);
-            }
-        });
-        imagePanel.add(exitButton);
-        exitButton.setBounds(390, 10, 45, 26);
 
         nuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/left (1).png"))); // NOI18N
         nuLogo.setText("jLabel2");
@@ -177,6 +157,26 @@ public class Signup extends javax.swing.JFrame {
         });
         framePanel.add(su_txtEmail);
         su_txtEmail.setBounds(40, 280, 380, 50);
+
+        minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
+        minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeButtonMouseClicked(evt);
+            }
+        });
+        framePanel.add(minimizeButton);
+        minimizeButton.setBounds(50, 0, 32, 40);
+
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close (2).png"))); // NOI18N
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
+            }
+        });
+        framePanel.add(exitButton);
+        exitButton.setBounds(10, 0, 32, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
