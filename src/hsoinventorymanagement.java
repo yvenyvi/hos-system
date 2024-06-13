@@ -108,6 +108,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
         inv_medTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        inv_medTable.setRowHeight(40);
         inv_medTable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_medTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
         inv_medTable.setShowGrid(false);
@@ -258,6 +259,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        inv_equipmentTable.setRowHeight(40);
         inv_equipmentTable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_equipmentTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
         inv_equipmentTable.setShowGrid(false);
@@ -411,6 +413,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
         inv_recent_medtable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        inv_recent_medtable.setRowHeight(40);
         inv_recent_medtable.setRowSelectionAllowed(false);
         inv_recent_medtable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_recent_medtable.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -468,6 +471,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
         inv_recent_equiptable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        inv_recent_equiptable.setRowHeight(40);
         inv_recent_equiptable.setRowSelectionAllowed(false);
         inv_recent_equiptable.setSelectionBackground(new java.awt.Color(51, 102, 0));
         inv_recent_equiptable.setSelectionForeground(new java.awt.Color(255, 255, 255));
