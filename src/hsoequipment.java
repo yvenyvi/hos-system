@@ -959,8 +959,8 @@ public class hsoequipment extends javax.swing.JFrame {
     }//GEN-LAST:event_eq_searchEquipmentKeyReleased
 
     private void EquipemtnExportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EquipemtnExportTableMouseClicked
-        MessageFormat header = new MessageFormat("Patient's Table Records");
-        MessageFormat footer = new MessageFormat("");
+        MessageFormat header = new MessageFormat("Borrorwer Table Records");
+        MessageFormat footer = new MessageFormat("National University Baliwag");
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.LANDSCAPE);
