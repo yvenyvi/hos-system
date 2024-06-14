@@ -964,7 +964,7 @@ public class hsoequipment extends javax.swing.JFrame {
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.LANDSCAPE);
-            eq_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
+            eq_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer);
         } catch (java.awt.print.PrinterException e) {
             JOptionPane.showMessageDialog(null, "Failed");
         }
