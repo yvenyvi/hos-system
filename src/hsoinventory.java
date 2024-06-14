@@ -564,9 +564,9 @@ public class hsoinventory extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(md_searchNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(md_searchName, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(md_searchName, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(md_searchMedicine)
+                .addComponent(md_searchMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(md_searchMedicineLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -582,10 +582,10 @@ public class hsoinventory extends javax.swing.JFrame {
             .addGroup(homebarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(md_searchMedicine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(md_searchMedicine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(md_searchMedicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(md_searchNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(md_searchName)
+                    .addComponent(md_searchName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EquipemtnExportTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1048,12 +1048,6 @@ public class hsoinventory extends javax.swing.JFrame {
         medpatients.setRowFilter(RowFilter.regexFilter(md_searchMedicine.getText()));
     }//GEN-LAST:event_md_searchMedicineKeyReleased
 
-    private void homeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeButtonMouseClicked
-        home home = new home();
-        home.show();
-        dispose();
-    }//GEN-LAST:event_homeButtonMouseClicked
-
     private void refreshButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshButtonMouseClicked
 
         DefaultTableModel medTable = (DefaultTableModel) md_meds.getModel();
@@ -1069,15 +1063,18 @@ public class hsoinventory extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshButtonMouseClicked
 
     private void EquipemtnExportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EquipemtnExportTableMouseClicked
-        MessageFormat header = new MessageFormat("Patient's Table Records");
-        MessageFormat footer = new MessageFormat("");
-        try {
-            PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
-            set.add(OrientationRequested.LANDSCAPE);
-            md_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        } catch (java.awt.print.PrinterException e) {
-            JOptionPane.showMessageDialog(null, "Failed");
-        }
+//        MessageFormat header = new MessageFormat("Patient's Table Records");
+//        MessageFormat footer = new MessageFormat("");
+//        try {
+//            PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
+//            set.add(OrientationRequested.LANDSCAPE);
+//            md_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+//        } catch (java.awt.print.PrinterException e) {
+//            JOptionPane.showMessageDialog(null, "Failed");
+//        }
+
+        printPatient print = new printPatient();
+        print.setVisible(true);
     }//GEN-LAST:event_EquipemtnExportTableMouseClicked
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
@@ -1109,6 +1106,12 @@ public class hsoinventory extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_exitButtonMouseClicked
+
+    private void homeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeButtonMouseClicked
+        home home = new home();
+        home.show();
+        dispose();
+    }//GEN-LAST:event_homeButtonMouseClicked
 
     /**
      * @param args the command line arguments
