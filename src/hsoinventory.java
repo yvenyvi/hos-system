@@ -1074,10 +1074,9 @@ public class hsoinventory extends javax.swing.JFrame {
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.LANDSCAPE);
-            md_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
-            JOptionPane.showMessageDialog(null, "/n" + "Printed Successfully");
+            md_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer);
         } catch (java.awt.print.PrinterException e) {
-            JOptionPane.showMessageDialog(null, "/n" + "Failed");
+            JOptionPane.showMessageDialog(null, "Failed");
         }
     }//GEN-LAST:event_EquipemtnExportTableMouseClicked
 

@@ -876,12 +876,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
 
     private void exportMedicineTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exportMedicineTableMouseClicked
         MessageFormat header = new MessageFormat("Medicine Inventory Records");
-        MessageFormat footer = new MessageFormat("");
+        MessageFormat footer = new MessageFormat("National University Baliwag");
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.LANDSCAPE);
-            inv_medTable.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
-            JOptionPane.showMessageDialog(null, "Printed Successfully");
+            inv_medTable.print(JTable.PrintMode.FIT_WIDTH, header, footer);
         } catch (java.awt.print.PrinterException e) {
             JOptionPane.showMessageDialog(null, "Failed");
         }
@@ -889,12 +888,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
 
     private void exportEquipmentTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exportEquipmentTableMouseClicked
         MessageFormat header = new MessageFormat("Equipement Inventory Records");
-        MessageFormat footer = new MessageFormat("");
+        MessageFormat footer = new MessageFormat("National Univeristy Baliwag");
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.LANDSCAPE);
-            inv_medTable.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
-            JOptionPane.showMessageDialog(null, "Printed Successfully");
+            inv_medTable.print(JTable.PrintMode.FIT_WIDTH, header, footer);
         } catch (java.awt.print.PrinterException e) {
             JOptionPane.showMessageDialog(null, "Failed");
         }

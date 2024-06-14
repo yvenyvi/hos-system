@@ -965,9 +965,8 @@ public class hsoequipment extends javax.swing.JFrame {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.LANDSCAPE);
             eq_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, set, true);
-            JOptionPane.showMessageDialog(null, "/n" + "Printed Successfully");
         } catch (java.awt.print.PrinterException e) {
-            JOptionPane.showMessageDialog(null, "/n" + "Failed");
+            JOptionPane.showMessageDialog(null, "Failed");
         }
     }//GEN-LAST:event_EquipemtnExportTableMouseClicked
 
@@ -994,7 +993,7 @@ public class hsoequipment extends javax.swing.JFrame {
         equipPatientsTable.setRowCount(0);
 
         JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE: Reload", JOptionPane.INFORMATION_MESSAGE);
-        
+
         eq_loadPatientData();
         eq_loadData();
     }//GEN-LAST:event_refreshButtonMouseClicked
