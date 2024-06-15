@@ -317,9 +317,6 @@ public class hsoequipment extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 eq_searchIDKeyPressed(evt);
             }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                eq_searchIDKeyReleased(evt);
-            }
         });
 
         eq_searchIdLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
@@ -352,9 +349,6 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_searchPatientID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 eq_searchPatientIDKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                eq_searchPatientIDKeyReleased(evt);
             }
         });
 
@@ -962,14 +956,6 @@ public class hsoequipment extends javax.swing.JFrame {
         printBorrower print = new printBorrower();
         print.setVisible(true);
     }//GEN-LAST:event_EquipemtnExportTableMouseClicked
-
-    private void eq_searchIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchIDKeyReleased
-
-    }//GEN-LAST:event_eq_searchIDKeyReleased
-
-    private void eq_searchPatientIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchPatientIDKeyReleased
-
-    }//GEN-LAST:event_eq_searchPatientIDKeyReleased
 
     private void homeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeButtonMouseClicked
         home home = new home();

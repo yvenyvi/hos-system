@@ -54,8 +54,6 @@ public class hsoinventory extends javax.swing.JFrame {
         md_meds.getColumnModel().getColumn(2).setPreferredWidth(50);
         md_meds.getColumnModel().getColumn(3).setPreferredWidth(50);
         md_meds.getColumnModel().getColumn(4).setPreferredWidth(80);
-        md_meds.getColumnModel().getColumn(5).setPreferredWidth(80);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -137,14 +135,14 @@ public class hsoinventory extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "ITEM", "QUANTITY LEFT", "NO. DISPENSED", "YEAR EXPIRY", "MONTH EXPIRY"
+                "ID", "ITEM", "QUANTITY LEFT", "NO. DISPENSED", "EXPIRY"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -641,17 +639,17 @@ public class hsoinventory extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
 
             String item;
-            int initialquantity, year_expiry, month_expiry, id, disposedMeds;
+            int initialquantity, id, disposedMeds;
+            Date expiry;
 
             while (rs.next()) {
                 id = rs.getInt("md_id");
                 disposedMeds = rs.getInt("md_disposed");
                 item = rs.getString("md_item");
                 initialquantity = rs.getInt("md_quantity");
-                year_expiry = rs.getInt("md_year_expiry");
-                month_expiry = rs.getInt("md_month_expiry");
+                expiry = rs.getDate("md_expiry");
 
-                medTable.addRow(new Object[]{id, item, initialquantity, disposedMeds, year_expiry, month_expiry});
+                medTable.addRow(new Object[]{id, item, initialquantity, disposedMeds, expiry});
 
             }
         } catch (Exception e) {
@@ -1052,7 +1050,6 @@ public class hsoinventory extends javax.swing.JFrame {
 
         DefaultTableModel medTable = (DefaultTableModel) md_meds.getModel();
         DefaultTableModel medPatientsTable = (DefaultTableModel) md_patients.getModel();
-        
 
         medTable.setRowCount(0);
         medPatientsTable.setRowCount(0);
@@ -1063,16 +1060,6 @@ public class hsoinventory extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshButtonMouseClicked
 
     private void EquipemtnExportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EquipemtnExportTableMouseClicked
-//        MessageFormat header = new MessageFormat("Patient's Table Records");
-//        MessageFormat footer = new MessageFormat("");
-//        try {
-//            PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
-//            set.add(OrientationRequested.LANDSCAPE);
-//            md_patients.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-//        } catch (java.awt.print.PrinterException e) {
-//            JOptionPane.showMessageDialog(null, "Failed");
-//        }
-
         printPatient print = new printPatient();
         print.setVisible(true);
     }//GEN-LAST:event_EquipemtnExportTableMouseClicked
