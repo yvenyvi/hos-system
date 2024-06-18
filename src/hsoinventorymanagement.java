@@ -24,16 +24,12 @@ import javax.swing.table.TableRowSorter;
 
 public class hsoinventorymanagement extends javax.swing.JFrame {
 
-    Date date = new Date();
-
     public hsoinventorymanagement() {
         initComponents();
         loadData();
         eq_loadData();
         removed_medsLoadData();
         removed_equipsLoadData();
-
-//        showData("", "");
     }
 
     @SuppressWarnings("unchecked")
@@ -53,8 +49,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_med_removebtn = new javax.swing.JButton();
         inv_med_updatebtn = new javax.swing.JButton();
         fromDate = new com.toedter.calendar.JDateChooser();
-        exportMedicineTable1 = new javax.swing.JLabel();
-        exportMedicineTable2 = new javax.swing.JLabel();
+        frommed = new javax.swing.JLabel();
+        tomed = new javax.swing.JLabel();
         toDate = new com.toedter.calendar.JDateChooser();
         searchDate = new javax.swing.JButton();
         inv_equipment = new javax.swing.JPanel();
@@ -67,17 +63,29 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_equip_deletebtn = new javax.swing.JButton();
         inv_equip_updatebtn = new javax.swing.JButton();
         exportEquipmentTable = new javax.swing.JLabel();
-        exportMedicineTable3 = new javax.swing.JLabel();
+        fromequip = new javax.swing.JLabel();
         fromDate1 = new com.toedter.calendar.JDateChooser();
-        exportMedicineTable4 = new javax.swing.JLabel();
+        toequip = new javax.swing.JLabel();
         toDate1 = new com.toedter.calendar.JDateChooser();
         searchDateEquip = new javax.swing.JButton();
         int_delmedicine = new javax.swing.JPanel();
         inv_med_table1 = new javax.swing.JScrollPane();
         inv_recent_medtable = new javax.swing.JTable();
+        fromremoved = new javax.swing.JLabel();
+        revFromDate = new com.toedter.calendar.JDateChooser();
+        toremoved = new javax.swing.JLabel();
+        revToDate = new com.toedter.calendar.JDateChooser();
+        searchDateMedRemove = new javax.swing.JButton();
+        exportRemovedMeds = new javax.swing.JLabel();
         int_delequipments = new javax.swing.JPanel();
         inv_equip_table1 = new javax.swing.JScrollPane();
         inv_recent_equiptable = new javax.swing.JTable();
+        fromremovedequip = new javax.swing.JLabel();
+        revEquipFromDate = new com.toedter.calendar.JDateChooser();
+        toremovedequip = new javax.swing.JLabel();
+        revEquipToDate = new com.toedter.calendar.JDateChooser();
+        searchDateEquipRemove = new javax.swing.JButton();
+        exportRemovedEquip = new javax.swing.JLabel();
         homebar = new javax.swing.JPanel();
         homeButton = new javax.swing.JLabel();
         minimizeButton = new javax.swing.JLabel();
@@ -93,6 +101,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_frame.setBackground(new java.awt.Color(255, 255, 255));
 
         inv_inventorymanager.setForeground(new java.awt.Color(255, 255, 255));
+
+        inv_medicine.setBackground(new java.awt.Color(53, 64, 142));
 
         inv_medTable.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         inv_medTable.setForeground(new java.awt.Color(0, 0, 0));
@@ -188,21 +198,21 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         fromDate.setDateFormatString("yyyy-MM-dd");
         fromDate.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
 
-        exportMedicineTable1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        exportMedicineTable1.setForeground(new java.awt.Color(255, 255, 255));
-        exportMedicineTable1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exportMedicineTable1.setText("FROM:");
-        exportMedicineTable1.setToolTipText("");
-        exportMedicineTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exportMedicineTable1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        frommed.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        frommed.setForeground(new java.awt.Color(255, 255, 255));
+        frommed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        frommed.setText("FROM:");
+        frommed.setToolTipText("");
+        frommed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        frommed.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        exportMedicineTable2.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        exportMedicineTable2.setForeground(new java.awt.Color(255, 255, 255));
-        exportMedicineTable2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exportMedicineTable2.setText("TO:");
-        exportMedicineTable2.setToolTipText("");
-        exportMedicineTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exportMedicineTable2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        tomed.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        tomed.setForeground(new java.awt.Color(255, 255, 255));
+        tomed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tomed.setText("TO:");
+        tomed.setToolTipText("");
+        tomed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tomed.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         toDate.setForeground(new java.awt.Color(0, 0, 0));
         toDate.setDateFormatString("yyyy-MM-dd");
@@ -236,8 +246,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                     .addComponent(inv_med_insertbtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(inv_med_removebtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fromDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(exportMedicineTable1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(exportMedicineTable2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(frommed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tomed, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(exportMedicineTable, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(searchDate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -257,11 +267,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(inv_med_removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exportMedicineTable1)
+                .addComponent(frommed)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fromDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(exportMedicineTable2)
+                .addComponent(tomed)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(toDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -293,6 +303,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
 
         inv_inventorymanager.addTab("MEDICINE INVENTORY", inv_medicine);
+
+        inv_equipment.setBackground(new java.awt.Color(53, 64, 142));
 
         inv_equipmentTable.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         inv_equipmentTable.setForeground(new java.awt.Color(0, 0, 0));
@@ -383,25 +395,25 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
         });
 
-        exportMedicineTable3.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        exportMedicineTable3.setForeground(new java.awt.Color(255, 255, 255));
-        exportMedicineTable3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exportMedicineTable3.setText("FROM:");
-        exportMedicineTable3.setToolTipText("");
-        exportMedicineTable3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exportMedicineTable3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        fromequip.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        fromequip.setForeground(new java.awt.Color(255, 255, 255));
+        fromequip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fromequip.setText("FROM:");
+        fromequip.setToolTipText("");
+        fromequip.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fromequip.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         fromDate1.setForeground(new java.awt.Color(0, 0, 0));
         fromDate1.setDateFormatString("yyyy-MM-dd");
         fromDate1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
 
-        exportMedicineTable4.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        exportMedicineTable4.setForeground(new java.awt.Color(255, 255, 255));
-        exportMedicineTable4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exportMedicineTable4.setText("TO:");
-        exportMedicineTable4.setToolTipText("");
-        exportMedicineTable4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exportMedicineTable4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        toequip.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        toequip.setForeground(new java.awt.Color(255, 255, 255));
+        toequip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        toequip.setText("TO:");
+        toequip.setToolTipText("");
+        toequip.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        toequip.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         toDate1.setForeground(new java.awt.Color(0, 0, 0));
         toDate1.setDateFormatString("yyyy-MM-dd");
@@ -439,8 +451,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inv_med_infopanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(toDate1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                     .addComponent(fromDate1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(exportMedicineTable3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(exportMedicineTable4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(fromequip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(toequip, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(exportEquipmentTable)))
                         .addGap(0, 81, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -459,11 +471,11 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(inv_equip_deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exportMedicineTable3)
+                .addComponent(fromequip)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fromDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(exportMedicineTable4)
+                .addComponent(toequip)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(toDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -495,6 +507,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
 
         inv_inventorymanager.addTab("EQUIPMENT INVENTORY", inv_equipment);
+
+        int_delmedicine.setBackground(new java.awt.Color(53, 64, 142));
 
         inv_recent_medtable.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         inv_recent_medtable.setForeground(new java.awt.Color(0, 0, 0));
@@ -531,11 +545,74 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_recent_medtable.getTableHeader().setReorderingAllowed(false);
         inv_med_table1.setViewportView(inv_recent_medtable);
 
+        fromremoved.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        fromremoved.setForeground(new java.awt.Color(255, 255, 255));
+        fromremoved.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fromremoved.setText("FROM:");
+        fromremoved.setToolTipText("");
+        fromremoved.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fromremoved.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        revFromDate.setForeground(new java.awt.Color(0, 0, 0));
+        revFromDate.setDateFormatString("yyyy-MM-dd");
+        revFromDate.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+
+        toremoved.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        toremoved.setForeground(new java.awt.Color(255, 255, 255));
+        toremoved.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        toremoved.setText("TO:");
+        toremoved.setToolTipText("");
+        toremoved.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        toremoved.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        revToDate.setForeground(new java.awt.Color(0, 0, 0));
+        revToDate.setDateFormatString("yyyy-MM-dd");
+        revToDate.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+
+        searchDateMedRemove.setBackground(new java.awt.Color(51, 102, 0));
+        searchDateMedRemove.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        searchDateMedRemove.setForeground(new java.awt.Color(255, 255, 255));
+        searchDateMedRemove.setText("SEARCH");
+        searchDateMedRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchDateMedRemoveActionPerformed(evt);
+            }
+        });
+
+        exportRemovedMeds.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        exportRemovedMeds.setForeground(new java.awt.Color(255, 255, 255));
+        exportRemovedMeds.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exportRemovedMeds.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/diskette (1).png"))); // NOI18N
+        exportRemovedMeds.setText("SAVE TABLE:");
+        exportRemovedMeds.setToolTipText("Export medicine inventory");
+        exportRemovedMeds.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exportRemovedMeds.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        exportRemovedMeds.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exportRemovedMedsMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout int_delmedicineLayout = new javax.swing.GroupLayout(int_delmedicine);
         int_delmedicine.setLayout(int_delmedicineLayout);
         int_delmedicineLayout.setHorizontalGroup(
             int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1288, Short.MAX_VALUE)
+            .addGroup(int_delmedicineLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(int_delmedicineLayout.createSequentialGroup()
+                        .addComponent(fromremoved, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(toremoved, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(int_delmedicineLayout.createSequentialGroup()
+                        .addComponent(revFromDate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(revToDate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchDateMedRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(exportRemovedMeds, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(801, Short.MAX_VALUE))
             .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delmedicineLayout.createSequentialGroup()
                     .addContainerGap()
@@ -544,15 +621,31 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
         int_delmedicineLayout.setVerticalGroup(
             int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGroup(int_delmedicineLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchDateMedRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(exportRemovedMeds))
+                    .addGroup(int_delmedicineLayout.createSequentialGroup()
+                        .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fromremoved)
+                            .addComponent(toremoved))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(revFromDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(revToDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(676, Short.MAX_VALUE))
             .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(int_delmedicineLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(inv_med_table1)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, int_delmedicineLayout.createSequentialGroup()
+                    .addContainerGap(75, Short.MAX_VALUE)
+                    .addComponent(inv_med_table1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
         inv_inventorymanager.addTab("RECENTLY DELETED MEDICINE", int_delmedicine);
+
+        int_delequipments.setBackground(new java.awt.Color(53, 64, 142));
 
         inv_recent_equiptable.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         inv_recent_equiptable.setForeground(new java.awt.Color(0, 0, 0));
@@ -589,11 +682,74 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         inv_recent_equiptable.getTableHeader().setReorderingAllowed(false);
         inv_equip_table1.setViewportView(inv_recent_equiptable);
 
+        fromremovedequip.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        fromremovedequip.setForeground(new java.awt.Color(255, 255, 255));
+        fromremovedequip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fromremovedequip.setText("FROM:");
+        fromremovedequip.setToolTipText("");
+        fromremovedequip.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fromremovedequip.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        revEquipFromDate.setForeground(new java.awt.Color(0, 0, 0));
+        revEquipFromDate.setDateFormatString("yyyy-MM-dd");
+        revEquipFromDate.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+
+        toremovedequip.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        toremovedequip.setForeground(new java.awt.Color(255, 255, 255));
+        toremovedequip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        toremovedequip.setText("TO:");
+        toremovedequip.setToolTipText("");
+        toremovedequip.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        toremovedequip.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        revEquipToDate.setForeground(new java.awt.Color(0, 0, 0));
+        revEquipToDate.setDateFormatString("yyyy-MM-dd");
+        revEquipToDate.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+
+        searchDateEquipRemove.setBackground(new java.awt.Color(51, 102, 0));
+        searchDateEquipRemove.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        searchDateEquipRemove.setForeground(new java.awt.Color(255, 255, 255));
+        searchDateEquipRemove.setText("SEARCH");
+        searchDateEquipRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchDateEquipRemoveActionPerformed(evt);
+            }
+        });
+
+        exportRemovedEquip.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        exportRemovedEquip.setForeground(new java.awt.Color(255, 255, 255));
+        exportRemovedEquip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exportRemovedEquip.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/diskette (1).png"))); // NOI18N
+        exportRemovedEquip.setText("SAVE TABLE:");
+        exportRemovedEquip.setToolTipText("Export medicine inventory");
+        exportRemovedEquip.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exportRemovedEquip.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        exportRemovedEquip.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exportRemovedEquipMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout int_delequipmentsLayout = new javax.swing.GroupLayout(int_delequipments);
         int_delequipments.setLayout(int_delequipmentsLayout);
         int_delequipmentsLayout.setHorizontalGroup(
             int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1288, Short.MAX_VALUE)
+            .addGroup(int_delequipmentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(int_delequipmentsLayout.createSequentialGroup()
+                        .addComponent(fromremovedequip, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(toremovedequip, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(int_delequipmentsLayout.createSequentialGroup()
+                        .addComponent(revEquipFromDate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(revEquipToDate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchDateEquipRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(exportRemovedEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(801, Short.MAX_VALUE))
             .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delequipmentsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -602,11 +758,25 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         );
         int_delequipmentsLayout.setVerticalGroup(
             int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGroup(int_delequipmentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchDateEquipRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(exportRemovedEquip))
+                    .addGroup(int_delequipmentsLayout.createSequentialGroup()
+                        .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fromremovedequip)
+                            .addComponent(toremovedequip))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(revEquipFromDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(revEquipToDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(676, Short.MAX_VALUE))
             .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(int_delequipmentsLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(inv_equip_table1)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, int_delequipmentsLayout.createSequentialGroup()
+                    .addContainerGap(75, Short.MAX_VALUE)
+                    .addComponent(inv_equip_table1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
@@ -1049,6 +1219,54 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchDateEquipActionPerformed
 
+    private void searchDateMedRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDateMedRemoveActionPerformed
+        try {
+            inv_recent_medtable.setModel(new DefaultTableModel(null, new Object[]{"ID", "DATE ADDED", "ITEM", "QUANTITY LEFT", "NO. DISPENSED", "EXPIRY", "REMARKS", "TOTAL QUANTITY"}));
+            SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+            String fDate = date.format(revFromDate.getDate());
+            String tDate = date.format(revToDate.getDate());
+            showRemovedData(fDate, tDate);
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_searchDateMedRemoveActionPerformed
+
+    private void exportRemovedMedsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exportRemovedMedsMouseClicked
+        MessageFormat header = new MessageFormat("Removed Medicine Records");
+        MessageFormat footer = new MessageFormat("National University Baliwag");
+        try {
+            PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
+            set.add(OrientationRequested.LANDSCAPE);
+            inv_recent_medtable.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        } catch (java.awt.print.PrinterException e) {
+            JOptionPane.showMessageDialog(null, "Failed");
+        }
+    }//GEN-LAST:event_exportRemovedMedsMouseClicked
+
+    private void searchDateEquipRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDateEquipRemoveActionPerformed
+        try {
+            inv_recent_equiptable.setModel(new DefaultTableModel(null, new Object[]{"ID", "DATE ADDED", "ITEM", "QUANTITY LEFT", "NO. DISPENSED", "ITEM EXPIRY", "REMARKS", "TOTAL QUANTITY"}));
+            SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+            String fDate = date.format(revEquipFromDate.getDate());
+            String tDate = date.format(revEquipToDate.getDate());
+            showRemovedEquipData(fDate, tDate);
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_searchDateEquipRemoveActionPerformed
+
+    private void exportRemovedEquipMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exportRemovedEquipMouseClicked
+        MessageFormat header = new MessageFormat("Removed Equipment Records");
+        MessageFormat footer = new MessageFormat("National University Baliwag");
+        try {
+            PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
+            set.add(OrientationRequested.LANDSCAPE);
+            inv_recent_equiptable.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        } catch (java.awt.print.PrinterException e) {
+            JOptionPane.showMessageDialog(null, "Failed");
+        }
+    }//GEN-LAST:event_exportRemovedEquipMouseClicked
+
     public static Connection getConnection() {
         Connection con = null;
         try {
@@ -1107,7 +1325,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             System.out.println("e.getMessage()");
         }
     }
-    
+
     public void showData(String d1, String d2) {
         Connection con = getConnection();
         PreparedStatement st;
@@ -1145,6 +1363,87 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
 
         } catch (Exception e) {
             System.out.println("e.getMessage()");
+        }
+    }
+
+    public void showRemovedData(String d1, String d2) {
+        Connection con = getConnection();
+        PreparedStatement st;
+        ResultSet rs;
+
+        try {
+
+            if (d1.equals("") || d2.equals("")) {
+                st = con.prepareStatement("SELECT * FROM `removed_medicine`");
+            } else {
+                st = con.prepareStatement("SELECT * FROM `removed_medicine` WHERE `md_date`BETWEEN ? AND ?");
+                st.setString(1, d1);
+                st.setString(2, d2);
+            }
+
+            rs = st.executeQuery();
+            DefaultTableModel revmedTable = (DefaultTableModel) inv_recent_medtable.getModel();
+
+            String item, remarks;
+            int initialquantity, id, disposedMeds, total;
+            Date date, expiry;
+            while (rs.next()) {
+                id = rs.getInt("md_id");
+                date = rs.getDate("md_date");
+                disposedMeds = rs.getInt("md_dispensed");
+                item = rs.getString("md_item");
+                initialquantity = rs.getInt("md_quantity");
+                expiry = rs.getDate("md_expiry");
+                remarks = rs.getString("md_remarks");
+                total = rs.getInt("md_totalquantity");
+
+                revmedTable.addRow(new Object[]{id, date, item, initialquantity, disposedMeds, expiry, remarks, total});
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("ewie.getMessage()");
+        }
+    }
+
+    public void showRemovedEquipData(String d1, String d2) {
+        Connection con = getConnection();
+        PreparedStatement st;
+        ResultSet rs;
+
+        try {
+
+            if (d1.equals("") || d2.equals("")) {
+                st = con.prepareStatement("SELECT * FROM `removed_equipment`");
+            } else {
+                st = con.prepareStatement("SELECT * FROM `removed_equipment` WHERE `eq_date`BETWEEN ? AND ?");
+                st.setString(1, d1);
+                st.setString(2, d2);
+            }
+
+            rs = st.executeQuery();
+            DefaultTableModel revEquipTable = (DefaultTableModel) inv_recent_equiptable.getModel();
+
+            String item, remarks;
+            int initialquantity, disposed, id, totalquantity;
+            String date, expiry;
+
+            while (rs.next()) {
+                id = rs.getInt("eq_id");
+                date = rs.getString("eq_date");
+                item = rs.getString("eq_item");
+                initialquantity = rs.getInt("eq_quantity");
+                disposed = rs.getInt("eq_dispensed");
+                expiry = rs.getString("eq_expiry");
+                remarks = rs.getString("eq_remarks");
+                totalquantity = rs.getInt("eq_totalquantity");
+
+                revEquipTable.addRow(new Object[]{id, date, item, initialquantity, disposed, expiry, remarks, totalquantity});
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("wie.getMessage()");
         }
     }
 
@@ -1189,12 +1488,14 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     private javax.swing.JLabel exitButton;
     private javax.swing.JLabel exportEquipmentTable;
     private javax.swing.JLabel exportMedicineTable;
-    private javax.swing.JLabel exportMedicineTable1;
-    private javax.swing.JLabel exportMedicineTable2;
-    private javax.swing.JLabel exportMedicineTable3;
-    private javax.swing.JLabel exportMedicineTable4;
+    private javax.swing.JLabel exportRemovedEquip;
+    private javax.swing.JLabel exportRemovedMeds;
     private com.toedter.calendar.JDateChooser fromDate;
     private com.toedter.calendar.JDateChooser fromDate1;
+    private javax.swing.JLabel fromequip;
+    private javax.swing.JLabel frommed;
+    private javax.swing.JLabel fromremoved;
+    private javax.swing.JLabel fromremovedequip;
     private javax.swing.JLabel homeButton;
     private javax.swing.JPanel homebar;
     private javax.swing.JPanel int_delequipments;
@@ -1227,9 +1528,19 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     private javax.swing.JLabel minimizeButton;
     private javax.swing.JLabel refreshButton;
     private javax.swing.JLabel resizeButton;
+    private com.toedter.calendar.JDateChooser revEquipFromDate;
+    private com.toedter.calendar.JDateChooser revEquipToDate;
+    private com.toedter.calendar.JDateChooser revFromDate;
+    private com.toedter.calendar.JDateChooser revToDate;
     private javax.swing.JButton searchDate;
     private javax.swing.JButton searchDateEquip;
+    private javax.swing.JButton searchDateEquipRemove;
+    private javax.swing.JButton searchDateMedRemove;
     private com.toedter.calendar.JDateChooser toDate;
     private com.toedter.calendar.JDateChooser toDate1;
+    private javax.swing.JLabel toequip;
+    private javax.swing.JLabel tomed;
+    private javax.swing.JLabel toremoved;
+    private javax.swing.JLabel toremovedequip;
     // End of variables declaration//GEN-END:variables
 }

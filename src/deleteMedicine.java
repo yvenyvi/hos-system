@@ -354,7 +354,7 @@ public class deleteMedicine extends javax.swing.JFrame {
                     if (rs.next()) {
                         notFound = 1;
 
-                        sql = "INSERT INTO removed_medicine (md_id, md_date, md_item, md_quantity, md_dispensed, md_expiry, md_remarks, md_totalquantity) VALUES (?,?,?,?,?,?,?,?,?)";
+                        sql = "INSERT INTO removed_medicine (md_id, md_date, md_item, md_quantity, md_dispensed, md_expiry, md_remarks, md_totalquantity) VALUES (?,?,?,?,?,?,?,?)";
                         PreparedStatement pst = con.prepareStatement(sql);
                         pst.setString(1, ID);
                         pst.setString(2, formattedDate);
