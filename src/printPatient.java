@@ -142,14 +142,14 @@ public class printPatient extends javax.swing.JFrame {
 
             },
             new String [] {
-                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DESIGNATION", "DEPARTMENT", "TIME", "MEDICATION"
+                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DEPARTMENT", "TIME", "MEDICATION"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -233,7 +233,7 @@ public class printPatient extends javax.swing.JFrame {
 
     private void searchDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDateActionPerformed
         try {
-            md_patients.setModel(new DefaultTableModel(null, new Object[] {"PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DESIGNATION", "DEPARTMENT", "TIME", "MEDICATION" }));
+            md_patients.setModel(new DefaultTableModel(null, new Object[] {"PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DEPARTMENT", "TIME", "MEDICATION" }));
             SimpleDateFormat date = new SimpleDateFormat ("yyyy-MM-dd");
             String fDate = date.format(fromDate.getDate());
             String tDate = date.format(toDate.getDate());
@@ -292,7 +292,7 @@ public class printPatient extends javax.swing.JFrame {
             rs = st.executeQuery();
             DefaultTableModel patientTable = (DefaultTableModel) md_patients.getModel();
             
-            String med_patientID, med_fname, med_time, med_department, med_gender, med_designation, med_med;
+            String med_patientID, med_fname, med_time, med_department, med_gender, med_med;
             int med_id;
             java.util.Date formattedDate;
             while (rs.next()) {
@@ -301,12 +301,11 @@ public class printPatient extends javax.swing.JFrame {
                 med_patientID = rs.getString("md_patient_id");
                 med_fname = rs.getString("md_fname");
                 med_gender = rs.getString("md_sex");
-                med_designation = rs.getString("md_designation");
                 med_time = rs.getString("md_time");
                 med_department = rs.getString("md_department");
                 med_med = rs.getString("md_medication");
 
-                patientTable.addRow(new Object[]{med_id, med_patientID, formattedDate, med_fname, med_gender, med_designation, med_department, med_time, med_med});
+                patientTable.addRow(new Object[]{med_id, med_patientID, formattedDate, med_fname, med_gender, med_department, med_time, med_med});
 
             }
             

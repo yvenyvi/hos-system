@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
@@ -42,10 +43,9 @@ public class hsoinventory extends javax.swing.JFrame {
         md_patients.getColumnModel().getColumn(2).setPreferredWidth(100);
         md_patients.getColumnModel().getColumn(3).setPreferredWidth(180);
         md_patients.getColumnModel().getColumn(4).setPreferredWidth(50);
-        md_patients.getColumnModel().getColumn(5).setPreferredWidth(150);
-        md_patients.getColumnModel().getColumn(6).setPreferredWidth(180);
-        md_patients.getColumnModel().getColumn(7).setPreferredWidth(100);
-        md_patients.getColumnModel().getColumn(8).setPreferredWidth(120);
+        md_patients.getColumnModel().getColumn(5).setPreferredWidth(200);
+        md_patients.getColumnModel().getColumn(6).setPreferredWidth(100);
+        md_patients.getColumnModel().getColumn(7).setPreferredWidth(150);
     }
 
     public void adjust_mdMedsColumn() {
@@ -69,7 +69,6 @@ public class hsoinventory extends javax.swing.JFrame {
         md_id = new javax.swing.JTextField();
         md_fname = new javax.swing.JTextField();
         md_txtTime = new javax.swing.JTextField();
-        md_designation = new javax.swing.JTextField();
         md_medication = new javax.swing.JTextField();
         md_fnameLabel = new javax.swing.JLabel();
         md_medicationLabel = new javax.swing.JLabel();
@@ -78,7 +77,6 @@ public class hsoinventory extends javax.swing.JFrame {
         md_departmentLabel = new javax.swing.JLabel();
         md_idLabel = new javax.swing.JLabel();
         md_genderLabel = new javax.swing.JLabel();
-        md_designationLabel = new javax.swing.JLabel();
         md_timebtn = new javax.swing.JButton();
         md_department = new javax.swing.JComboBox<>();
         md_gender = new javax.swing.JComboBox<>();
@@ -168,6 +166,11 @@ public class hsoinventory extends javax.swing.JFrame {
         md_id.setForeground(new java.awt.Color(0, 0, 0));
         md_id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         md_id.setToolTipText("EX: 2021-123456");
+        md_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                md_idKeyReleased(evt);
+            }
+        });
 
         md_fname.setBackground(new java.awt.Color(255, 255, 255));
         md_fname.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
@@ -181,11 +184,6 @@ public class hsoinventory extends javax.swing.JFrame {
         md_txtTime.setForeground(new java.awt.Color(0, 0, 0));
         md_txtTime.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         md_txtTime.setToolTipText("Click the button beside this field for the time selector to show up.");
-
-        md_designation.setBackground(new java.awt.Color(255, 255, 255));
-        md_designation.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        md_designation.setForeground(new java.awt.Color(0, 0, 0));
-        md_designation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         md_medication.setEditable(false);
         md_medication.setBackground(new java.awt.Color(255, 255, 255));
@@ -228,11 +226,6 @@ public class hsoinventory extends javax.swing.JFrame {
         md_genderLabel.setForeground(new java.awt.Color(255, 255, 255));
         md_genderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         md_genderLabel.setText("SEX:");
-
-        md_designationLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
-        md_designationLabel.setForeground(new java.awt.Color(255, 255, 255));
-        md_designationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        md_designationLabel.setText("DESIGNATION:");
 
         md_timebtn.setBackground(new java.awt.Color(255, 255, 255));
         md_timebtn.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
@@ -280,6 +273,9 @@ public class hsoinventory extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 md_searchIDKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                md_searchIDKeyTyped(evt);
+            }
         });
 
         md_searchIdLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
@@ -301,6 +297,9 @@ public class hsoinventory extends javax.swing.JFrame {
         md_searchPatientId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 md_searchPatientIdKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                md_searchPatientIdKeyTyped(evt);
             }
         });
 
@@ -325,7 +324,7 @@ public class hsoinventory extends javax.swing.JFrame {
                     .addComponent(md_id)
                     .addComponent(md_fname)
                     .addComponent(md_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(md_department, 0, 1, Short.MAX_VALUE)
+                    .addComponent(md_department, 0, 0, Short.MAX_VALUE)
                     .addComponent(md_idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                     .addComponent(md_dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(md_fnameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -339,9 +338,7 @@ public class hsoinventory extends javax.swing.JFrame {
                                 .addComponent(md_txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(md_timebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(md_designation, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(md_medication, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(md_designationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(md_timeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(md_genderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
@@ -408,13 +405,9 @@ public class hsoinventory extends javax.swing.JFrame {
                         .addComponent(md_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(md_submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(md_departmentLabel)
-                    .addComponent(md_designationLabel))
+                .addComponent(md_departmentLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(md_department, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(md_designation, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(md_department, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
             .addGroup(md_infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
@@ -440,14 +433,14 @@ public class hsoinventory extends javax.swing.JFrame {
 
             },
             new String [] {
-                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DESIGNATION", "DEPARTMENT", "TIME", "MEDICATION"
+                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DEPARTMENT", "TIME", "MEDICATION"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -675,7 +668,7 @@ public class hsoinventory extends javax.swing.JFrame {
             String sql = "SELECT * FROM medicine_takers";
             ResultSet rs = st.executeQuery(sql);
 
-            String med_patientID, med_fname, med_time, med_department, med_gender, med_designation, med_med;
+            String med_patientID, med_fname, med_time, med_department, med_gender, med_med;
             int med_id;
             Date formattedDate;
             while (rs.next()) {
@@ -684,12 +677,11 @@ public class hsoinventory extends javax.swing.JFrame {
                 med_patientID = rs.getString("md_patient_id");
                 med_fname = rs.getString("md_fname");
                 med_gender = rs.getString("md_sex");
-                med_designation = rs.getString("md_designation");
                 med_time = rs.getString("md_time");
                 med_department = rs.getString("md_department");
                 med_med = rs.getString("md_medication");
 
-                medPatientTable.addRow(new Object[]{med_id, med_patientID, formattedDate, med_fname, med_gender, med_designation, med_department, med_time, med_med});
+                medPatientTable.addRow(new Object[]{med_id, med_patientID, formattedDate, med_fname, med_gender, med_department, med_time, med_med});
 
             }
         } catch (Exception e) {
@@ -774,7 +766,7 @@ public class hsoinventory extends javax.swing.JFrame {
             pass = "";
 
             Connection con = DriverManager.getConnection(url, user, pass);
-            PreparedStatement st = con.prepareStatement("INSERT INTO medicine_takers(md_patient_id, md_date, md_fname, md_sex, md_designation, md_department, md_time, md_medication) VALUES (?,?,?,?,?,?,?,?)");
+            PreparedStatement st = con.prepareStatement("INSERT INTO medicine_takers(md_patient_id, md_date, md_fname, md_sex, md_department, md_time, md_medication) VALUES (?,?,?,?,?,?,?)");
 
             Date med_date = md_date.getDate();
             String formattedDate;
@@ -805,10 +797,9 @@ public class hsoinventory extends javax.swing.JFrame {
                 String med_time = md_txtTime.getText().toUpperCase();
                 String med_department = md_department.getSelectedItem().toString();
                 String med_gender = md_gender.getSelectedItem().toString();
-                String med_designation = md_designation.getText();
                 String med_med = md_medication.getText();
 
-                query = "INSERT INTO medicine_takers (md_patient_id, md_date, md_fname, md_sex, md_designation, md_department, md_time, md_medication) " + "VALUES ('" + med_patientID + "', '" + formattedDate + "', '" + med_fname + "','" + med_gender + "' , '" + med_designation + "', '" + med_department + "', '" + med_time + "', '" + med_med + "')";
+                query = "INSERT INTO medicine_takers (md_patient_id, md_date, md_fname, md_sex, md_department, md_time, md_medication) " + "VALUES ('" + med_patientID + "', '" + formattedDate + "', '" + med_fname + "','" + med_gender + "' , '" + med_department + "', '" + med_time + "', '" + med_med + "')";
                 st.executeUpdate(query);
 
                 disposedMedicine();
@@ -830,7 +821,6 @@ public class hsoinventory extends javax.swing.JFrame {
                 md_txtTime.setText("");
                 md_department.setSelectedItem(null);
                 md_gender.setSelectedItem(null);
-                md_designation.setText("");
                 md_medication.setText("");
                 md_searchID.setText("");
 
@@ -929,7 +919,6 @@ public class hsoinventory extends javax.swing.JFrame {
                             md_date.setDate(rs.getDate("md_date"));
                             md_id.setText(rs.getString("md_patient_id"));
                             md_gender.setSelectedItem(rs.getString("md_sex"));
-                            md_designation.setText(rs.getString("md_designation"));
                             md_department.setSelectedItem(rs.getString("md_department"));
                             md_txtTime.setText(rs.getString("md_time"));
                             notFound = 1;
@@ -956,7 +945,7 @@ public class hsoinventory extends javax.swing.JFrame {
     }//GEN-LAST:event_md_searchPatientIdKeyPressed
 
     private void eq_updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eq_updatebtnActionPerformed
-        String patientID, fname, gender, designation, department, medicine, time;
+        String patientID, fname, gender, department, medicine, time;
         Date date = md_date.getDate();
         String formattedDate;
         if (date != null) {
@@ -973,7 +962,6 @@ public class hsoinventory extends javax.swing.JFrame {
         fname = md_fname.getText();
         gender = (String) md_gender.getSelectedItem();
         department = (String) md_department.getSelectedItem();
-        designation = md_designation.getText();
         medicine = md_medication.getText();
         time = md_txtTime.getText();
         ID = md_searchPatientId.getText();
@@ -1001,7 +989,7 @@ public class hsoinventory extends javax.swing.JFrame {
 
             while (rs.next()) {
                 String updateSql = "UPDATE medicine_takers SET md_patient_id = '" + patientID + "', md_date = '" + formattedDate + "', "
-                        + "md_fname = '" + fname + "', md_sex = '" + gender + "', md_designation = '" + designation + "', md_department = '" + department + "',"
+                        + "md_fname = '" + fname + "', md_sex = '" + gender + "', md_department = '" + department + "',"
                         + "md_time= '" + time + "',md_medication = '" + medicine + "' WHERE md_id = " + ID;
                 stUpdate.executeUpdate(updateSql);
 
@@ -1100,6 +1088,35 @@ public class hsoinventory extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_homeButtonMouseClicked
 
+    private void md_idKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_idKeyReleased
+        JTextField textField = (JTextField) evt.getComponent();
+        String text = textField.getText();
+
+        if (text.length() > 11) {
+            textField.setText(text.substring(0, 11));
+        }
+
+        if (text.length() == 4) {
+            textField.setText(text + "-");
+        }
+
+        if (!text.matches("\\d{0,4}-?\\d{0,6}")) {
+            textField.setText("");
+        }
+    }//GEN-LAST:event_md_idKeyReleased
+
+    private void md_searchIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchIDKeyTyped
+        if (!Character.isDigit(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_md_searchIDKeyTyped
+
+    private void md_searchPatientIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchPatientIdKeyTyped
+        if (!Character.isDigit(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_md_searchPatientIdKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -1154,8 +1171,6 @@ public class hsoinventory extends javax.swing.JFrame {
     private javax.swing.JLabel md_dateLabel;
     private javax.swing.JComboBox<String> md_department;
     private javax.swing.JLabel md_departmentLabel;
-    private javax.swing.JTextField md_designation;
-    private javax.swing.JLabel md_designationLabel;
     private javax.swing.JTextField md_fname;
     private javax.swing.JLabel md_fnameLabel;
     private javax.swing.JPanel md_frame;
@@ -1186,7 +1201,4 @@ public class hsoinventory extends javax.swing.JFrame {
     private javax.swing.JLabel resizeButton;
     // End of variables declaration//GEN-END:variables
 
-    String setSearchName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
@@ -39,12 +40,11 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_patients.getColumnModel().getColumn(0).setPreferredWidth(50);
         eq_patients.getColumnModel().getColumn(1).setPreferredWidth(100);
         eq_patients.getColumnModel().getColumn(2).setPreferredWidth(100);
-        eq_patients.getColumnModel().getColumn(3).setPreferredWidth(180);
+        eq_patients.getColumnModel().getColumn(3).setPreferredWidth(200);
         eq_patients.getColumnModel().getColumn(4).setPreferredWidth(50);
-        eq_patients.getColumnModel().getColumn(5).setPreferredWidth(150);
+        eq_patients.getColumnModel().getColumn(5).setPreferredWidth(200);
         eq_patients.getColumnModel().getColumn(6).setPreferredWidth(150);
         eq_patients.getColumnModel().getColumn(7).setPreferredWidth(80);
-        eq_patients.getColumnModel().getColumn(8).setPreferredWidth(80);
         eq_patients.getColumnModel().getColumn(8).setPreferredWidth(80);
     }
 
@@ -71,7 +71,6 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_id = new javax.swing.JTextField();
         eq_fname = new javax.swing.JTextField();
         eq_txtTimeBorrowed = new javax.swing.JTextField();
-        eq_designation = new javax.swing.JTextField();
         eq_equipment = new javax.swing.JTextField();
         eq_fnameLabel = new javax.swing.JLabel();
         eq_equipmentLabel = new javax.swing.JLabel();
@@ -80,7 +79,6 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_departmentLabel = new javax.swing.JLabel();
         eq_idLabel = new javax.swing.JLabel();
         eq_genderLabel = new javax.swing.JLabel();
-        eq_designationLabel = new javax.swing.JLabel();
         eq_date = new com.toedter.calendar.JDateChooser();
         eq_timeBorrowedbtn = new javax.swing.JButton();
         eq_department = new javax.swing.JComboBox<>();
@@ -125,14 +123,14 @@ public class hsoequipment extends javax.swing.JFrame {
 
             },
             new String [] {
-                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DESIGNATION", "DEPARTMENT", "TIME BORROWED", "TIME RETURNED", "EQUIPMENT"
+                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DEPARTMENT", "TIME BORROWED", "TIME RETURNED", "EQUIPMENT"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -191,6 +189,11 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_id.setForeground(new java.awt.Color(0, 0, 0));
         eq_id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         eq_id.setToolTipText("EX: 2021-123456");
+        eq_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                eq_idKeyReleased(evt);
+            }
+        });
 
         eq_fname.setBackground(new java.awt.Color(255, 255, 255));
         eq_fname.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
@@ -204,11 +207,6 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_txtTimeBorrowed.setForeground(new java.awt.Color(0, 0, 0));
         eq_txtTimeBorrowed.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         eq_txtTimeBorrowed.setToolTipText("Click the button beside this field for the time selector to show up.");
-
-        eq_designation.setBackground(new java.awt.Color(255, 255, 255));
-        eq_designation.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        eq_designation.setForeground(new java.awt.Color(0, 0, 0));
-        eq_designation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         eq_equipment.setEditable(false);
         eq_equipment.setBackground(new java.awt.Color(255, 255, 255));
@@ -251,11 +249,6 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_genderLabel.setForeground(new java.awt.Color(255, 255, 255));
         eq_genderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         eq_genderLabel.setText("SEX:");
-
-        eq_designationLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
-        eq_designationLabel.setForeground(new java.awt.Color(255, 255, 255));
-        eq_designationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eq_designationLabel.setText("DESIGNATION:");
 
         eq_date.setBackground(new java.awt.Color(255, 255, 255));
         eq_date.setForeground(new java.awt.Color(0, 0, 0));
@@ -317,6 +310,9 @@ public class hsoequipment extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 eq_searchIDKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                eq_searchIDKeyTyped(evt);
+            }
         });
 
         eq_searchIdLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
@@ -349,6 +345,9 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_searchPatientID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 eq_searchPatientIDKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                eq_searchPatientIDKeyTyped(evt);
             }
         });
 
@@ -401,23 +400,16 @@ public class hsoequipment extends javax.swing.JFrame {
                                 .addComponent(eq_txtTimeBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(eq_timeBorrowedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(92, 92, 92)
                         .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(md_infoPanelLayout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(eq_designation)
-                                    .addComponent(eq_designationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
-                                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(eq_searchIdLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(eq_searchID, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addGap(45, 45, 45))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
-                                        .addComponent(eq_submitbtn)
-                                        .addGap(60, 60, 60)))))))
+                                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(eq_searchIdLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(eq_searchID, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(45, 45, 45))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
+                                .addComponent(eq_submitbtn)
+                                .addGap(60, 60, 60)))))
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(md_infoPanelLayout.createSequentialGroup()
                         .addGap(175, 175, 175)
@@ -456,15 +448,12 @@ public class hsoequipment extends javax.swing.JFrame {
             .addGroup(md_infoPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(eq_designationLabel)
                     .addComponent(eq_genderLabel)
                     .addComponent(eq_idLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(eq_id, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(eq_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eq_designation, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(eq_gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(eq_dateLabel)
@@ -669,7 +658,7 @@ public class hsoequipment extends javax.swing.JFrame {
             pass = "";
 
             Connection con = DriverManager.getConnection(url, user, pass);
-            PreparedStatement st = con.prepareStatement("INSERT INTO equipment_borrowers(eq_patient_id, eq_date, eq_fname, eq_gender, eq_designation, eq_department, eq_timeBorrowed, eq_equipment) VALUES (?,?,?,?,?,?,?,?)");
+            PreparedStatement st = con.prepareStatement("INSERT INTO equipment_borrowers(eq_patient_id, eq_date, eq_fname, eq_gender, eq_department, eq_timeBorrowed, eq_equipment) VALUES (?,?,?,?,?,?,?,?)");
 
             Date med_date = eq_date.getDate();
             String formattedDate;
@@ -701,10 +690,9 @@ public class hsoequipment extends javax.swing.JFrame {
                 String equip_timeReturned = eq_txtTimeReturned.getText().toUpperCase();
                 String equip_department = eq_department.getSelectedItem().toString();
                 String equip_gender = eq_gender.getSelectedItem().toString();
-                String equip_designation = eq_designation.getText();
                 String equip_equipment = eq_equipment.getText();
 
-                query = "INSERT INTO equipment_borrowers(eq_patient_id, eq_date, eq_fname, eq_gender, eq_designation, eq_department, eq_timeBorrowed, eq_timeReturned, eq_equipment) " + "VALUES ('" + equip_patientID + "', '" + formattedDate + "', '" + equip_fname + "','" + equip_gender + "' , '" + equip_designation + "', '" + equip_department + "', '" + equip_timeBorrowed + "', '" + equip_timeReturned + "', '" + equip_equipment + "')";
+                query = "INSERT INTO equipment_borrowers(eq_patient_id, eq_date, eq_fname, eq_gender, eq_department, eq_timeBorrowed, eq_timeReturned, eq_equipment) " + "VALUES ('" + equip_patientID + "', '" + formattedDate + "', '" + equip_fname + "','" + equip_gender + "' , '" + equip_department + "', '" + equip_timeBorrowed + "', '" + equip_timeReturned + "', '" + equip_equipment + "')";
                 st.executeUpdate(query);
 
                 DefaultTableModel equipPatientTable = (DefaultTableModel) eq_patients.getModel();
@@ -727,7 +715,6 @@ public class hsoequipment extends javax.swing.JFrame {
                 eq_txtTimeReturned.setText("");
                 eq_department.setSelectedItem(null);
                 eq_gender.setSelectedItem(null);
-                eq_designation.setText("");
                 eq_equipment.setText("");
                 eq_searchID.setText("");
 
@@ -741,7 +728,7 @@ public class hsoequipment extends javax.swing.JFrame {
     }//GEN-LAST:event_eq_submitbtnActionPerformed
 
     private void eq_updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eq_updatebtnActionPerformed
-        String patientID, fname, gender, designation, timeBorrowed, department, equipment, timeReturned;
+        String patientID, fname, gender, timeBorrowed, department, equipment, timeReturned;
         Date date = eq_date.getDate();
         String formattedDate;
         if (date != null) {
@@ -781,13 +768,12 @@ public class hsoequipment extends javax.swing.JFrame {
                         fname = eq_fname.getText();
                         gender = (String) eq_gender.getSelectedItem();
                         department = (String) eq_department.getSelectedItem();
-                        designation = eq_designation.getText();
                         equipment = eq_equipment.getText();
                         timeReturned = eq_txtTimeReturned.getText();
                         timeBorrowed = eq_txtTimeBorrowed.getText();
 
                         String updateSql = "UPDATE equipment_borrowers SET eq_patient_id = '" + patientID + "', eq_date = '" + formattedDate + "', "
-                                + "eq_fname = '" + fname + "', eq_gender = '" + gender + "', eq_designation = '" + designation + "', eq_department = '" + department + "',eq_timeBorrowed = '" + timeBorrowed + "',"
+                                + "eq_fname = '" + fname + "', eq_gender = '" + gender + "', eq_department = '" + department + "',eq_timeBorrowed = '" + timeBorrowed + "',"
                                 + "eq_timeReturned = '" + timeReturned + "',eq_equipment = '" + equipment + "' WHERE eq_id = " + ID;
                         stUpdate.executeUpdate(updateSql);
 
@@ -852,7 +838,6 @@ public class hsoequipment extends javax.swing.JFrame {
                         eq_txtTimeBorrowed.setText(rs.getString("eq_timeBorrowed"));
                         eq_gender.setSelectedItem(rs.getString("eq_gender"));
                         eq_department.setSelectedItem(rs.getString("eq_department"));
-                        eq_designation.setText(rs.getString("eq_designation"));
                         eq_equipment.setText(rs.getString("eq_equipment"));
                         notFound = 1;
 
@@ -1007,6 +992,35 @@ public class hsoequipment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exitButtonMouseClicked
 
+    private void eq_idKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_idKeyReleased
+        JTextField textField = (JTextField) evt.getComponent();
+        String text = textField.getText();
+
+        if (text.length() > 11) {
+            textField.setText(text.substring(0, 11));
+        }
+
+        if (text.length() == 4) {
+            textField.setText(text + "-");
+        }
+
+        if (!text.matches("\\d{0,4}-?\\d{0,6}")) {
+            textField.setText("");
+        }
+    }//GEN-LAST:event_eq_idKeyReleased
+
+    private void eq_searchIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchIDKeyTyped
+        if (!Character.isDigit(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_eq_searchIDKeyTyped
+
+    private void eq_searchPatientIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchPatientIDKeyTyped
+        if (!Character.isDigit(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_eq_searchPatientIDKeyTyped
+
     public void borrowedEquipment() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -1156,7 +1170,7 @@ public class hsoequipment extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
 
             int id;
-            String patientID, fname, gender, designation, timeBorrowed, department, equipment, timeReturned;
+            String patientID, fname, gender, timeBorrowed, department, equipment, timeReturned;
             Date date;
             while (rs.next()) {
                 id = rs.getInt("eq_id");
@@ -1164,13 +1178,12 @@ public class hsoequipment extends javax.swing.JFrame {
                 patientID = rs.getString("eq_patient_id");
                 fname = rs.getString("eq_fname");
                 gender = rs.getString("eq_gender");
-                designation = rs.getString("eq_designation");
                 timeBorrowed = rs.getString("eq_timeBorrowed");
                 timeReturned = rs.getString("eq_timeReturned");
                 department = rs.getString("eq_department");
                 equipment = rs.getString("eq_equipment");
 
-                equipTable.addRow(new Object[]{id, patientID, date, fname, gender, designation, department, timeBorrowed, timeReturned, equipment});
+                equipTable.addRow(new Object[]{id, patientID, date, fname, gender, department, timeBorrowed, timeReturned, equipment});
 
             }
         } catch (Exception e) {
@@ -1258,8 +1271,6 @@ public class hsoequipment extends javax.swing.JFrame {
     private javax.swing.JLabel eq_dateLabel;
     private javax.swing.JComboBox<String> eq_department;
     private javax.swing.JLabel eq_departmentLabel;
-    private javax.swing.JTextField eq_designation;
-    private javax.swing.JLabel eq_designationLabel;
     private javax.swing.JTextField eq_equipment;
     private javax.swing.JLabel eq_equipmentLabel;
     private javax.swing.JTable eq_equipments;

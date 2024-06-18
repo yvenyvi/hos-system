@@ -129,6 +129,8 @@ public class addMedicine extends javax.swing.JFrame {
         inv_med_quantity.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         inv_med_quantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
+        inv_med_expiry.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout inv_med_infopanelLayout = new javax.swing.GroupLayout(inv_med_infopanel);
         inv_med_infopanel.setLayout(inv_med_infopanelLayout);
         inv_med_infopanelLayout.setHorizontalGroup(

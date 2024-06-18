@@ -205,6 +205,7 @@ public class Signup extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement st = con.createStatement();
+
             if ("".equals(su_txtUsername.getText())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Username is required to proceed.", "ERROR: Missing Username.", JOptionPane.ERROR_MESSAGE);
             } else if ("".equals(su_txtEmail.getText())) {
@@ -216,6 +217,20 @@ public class Signup extends javax.swing.JFrame {
                 email = su_txtEmail.getText();
                 password = su_txtPassword.getText();
 
+                query = "SELECT * FROM user WHERE username='" + username + "'";
+                ResultSet rs = st.executeQuery(query);
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(new JFrame(), "Username already exists. Please choose a different username.", "ERROR: Username Exists.", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                query = "SELECT * FROM user WHERE email='" + email + "'";
+                rs = st.executeQuery(query);
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(new JFrame(), "Email already exists. Please choose a different email.", "ERROR: Email Exists.", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 query = "INSERT INTO user(username, email, password)" + "VALUES('" + username + "', '" + email + "', '" + password + "')";
 
                 st.execute(query);
@@ -224,7 +239,6 @@ public class Signup extends javax.swing.JFrame {
                 su_txtEmail.setText("");
                 su_txtPassword.setText("");
                 JOptionPane.showMessageDialog(null, "Account created successfully!", "Creation Successful!", JOptionPane.INFORMATION_MESSAGE);
-
             }
         } catch (Exception e) {
             System.out.println("Error!" + e.getMessage());
@@ -268,6 +282,7 @@ public class Signup extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection(url, user, pass);
                 Statement st = con.createStatement();
+
                 if ("".equals(su_txtUsername.getText())) {
                     JOptionPane.showMessageDialog(new JFrame(), "Username is required to proceed.", "ERROR: Missing Username.", JOptionPane.ERROR_MESSAGE);
                 } else if ("".equals(su_txtEmail.getText())) {
@@ -279,6 +294,20 @@ public class Signup extends javax.swing.JFrame {
                     email = su_txtEmail.getText();
                     password = su_txtPassword.getText();
 
+                    query = "SELECT * FROM user WHERE username='" + username + "'";
+                    ResultSet rs = st.executeQuery(query);
+                    if (rs.next()) {
+                        JOptionPane.showMessageDialog(new JFrame(), "Username already exists. Please choose a different username.", "ERROR: Username Exists.", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
+                    query = "SELECT * FROM user WHERE email='" + email + "'";
+                    rs = st.executeQuery(query);
+                    if (rs.next()) {
+                        JOptionPane.showMessageDialog(new JFrame(), "Email already exists. Please choose a different email.", "ERROR: Email Exists.", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
                     query = "INSERT INTO user(username, email, password)" + "VALUES('" + username + "', '" + email + "', '" + password + "')";
 
                     st.execute(query);
@@ -287,7 +316,6 @@ public class Signup extends javax.swing.JFrame {
                     su_txtEmail.setText("");
                     su_txtPassword.setText("");
                     JOptionPane.showMessageDialog(null, "Account created successfully!", "Creation Successful!", JOptionPane.INFORMATION_MESSAGE);
-
                 }
             } catch (Exception e) {
                 System.out.println("Error!" + e.getMessage());

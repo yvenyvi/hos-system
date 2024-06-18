@@ -154,14 +154,14 @@ public class printBorrower extends javax.swing.JFrame {
 
             },
             new String [] {
-                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DESIGNATION", "DEPARTMENT", "TIME BORROWED", "TIME RETURNED", "EQUIPMENT"
+                "PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DEPARTMENT", "TIME BORROWED", "TIME RETURNED", "EQUIPMENT"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -231,7 +231,7 @@ public class printBorrower extends javax.swing.JFrame {
 
     private void searchDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDateActionPerformed
         try {
-            eq_patients.setModel(new DefaultTableModel(null, new Object[]{"PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DESIGNATION", "DEPARTMENT", "TIME BORROWED", "TIME RETURNED", "MEDICATION"}));
+            eq_patients.setModel(new DefaultTableModel(null, new Object[]{"PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DEPARTMENT", "TIME BORROWED", "TIME RETURNED", "MEDICATION"}));
             SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
             String fDate = date.format(fromDate.getDate());
             String tDate = date.format(toDate.getDate());
@@ -290,7 +290,7 @@ public class printBorrower extends javax.swing.JFrame {
             DefaultTableModel borrowerTable = (DefaultTableModel) eq_patients.getModel();
 
             int id;
-            String patientID, fname, gender, designation, timeBorrowed, department, equipment, timeReturned;
+            String patientID, fname, gender, timeBorrowed, department, equipment, timeReturned;
             java.util.Date date;
             while (rs.next()) {
                 id = rs.getInt("eq_id");
@@ -298,13 +298,12 @@ public class printBorrower extends javax.swing.JFrame {
                 patientID = rs.getString("eq_patient_id");
                 fname = rs.getString("eq_fname");
                 gender = rs.getString("eq_gender");
-                designation = rs.getString("eq_designation");
                 timeBorrowed = rs.getString("eq_timeBorrowed");
                 timeReturned = rs.getString("eq_timeReturned");
                 department = rs.getString("eq_department");
                 equipment = rs.getString("eq_equipment");
 
-                borrowerTable.addRow(new Object[]{id, patientID, date, fname, gender, designation, department, timeBorrowed, timeReturned, equipment});
+                borrowerTable.addRow(new Object[]{id, patientID, date, fname, gender, department, timeBorrowed, timeReturned, equipment});
 
             }
 

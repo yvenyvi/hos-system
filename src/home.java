@@ -15,7 +15,6 @@ public class home extends javax.swing.JFrame {
     private void initComponents() {
 
         imagePanel = new javax.swing.JPanel();
-        logoutLabel = new javax.swing.JLabel();
         medicineLabel = new javax.swing.JLabel();
         inventoryLabel = new javax.swing.JLabel();
         equipmentLabel = new javax.swing.JLabel();
@@ -26,7 +25,6 @@ public class home extends javax.swing.JFrame {
         medicineBtn = new javax.swing.JButton();
         inventoryBtn = new javax.swing.JButton();
         equipmentBtn = new javax.swing.JButton();
-        logoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -35,21 +33,17 @@ public class home extends javax.swing.JFrame {
         imagePanel.setBackground(new java.awt.Color(255, 255, 255));
         imagePanel.setLayout(null);
 
-        logoutLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        imagePanel.add(logoutLabel);
-        logoutLabel.setBounds(390, 370, 150, 50);
-
         medicineLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imagePanel.add(medicineLabel);
-        medicineLabel.setBounds(130, 260, 150, 50);
+        medicineLabel.setBounds(130, 260, 160, 60);
 
         inventoryLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imagePanel.add(inventoryLabel);
-        inventoryLabel.setBounds(390, 260, 150, 60);
+        inventoryLabel.setBounds(250, 350, 160, 60);
 
         equipmentLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imagePanel.add(equipmentLabel);
-        equipmentLabel.setBounds(120, 370, 160, 50);
+        equipmentLabel.setBounds(370, 260, 160, 60);
 
         minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
         minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -75,7 +69,7 @@ public class home extends javax.swing.JFrame {
         imagePanel.add(nutxt);
         nutxt.setBounds(110, 30, 450, 120);
 
-        nub.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MEDICINE.png"))); // NOI18N
+        nub.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MEDICINE (1).png"))); // NOI18N
         imagePanel.add(nub);
         nub.setBounds(0, -110, 750, 720);
 
@@ -87,7 +81,7 @@ public class home extends javax.swing.JFrame {
             }
         });
         imagePanel.add(medicineBtn);
-        medicineBtn.setBounds(130, 263, 150, 50);
+        medicineBtn.setBounds(130, 263, 160, 50);
 
         inventoryBtn.setText("INVENTORY");
         inventoryBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -97,7 +91,7 @@ public class home extends javax.swing.JFrame {
             }
         });
         imagePanel.add(inventoryBtn);
-        inventoryBtn.setBounds(390, 260, 150, 50);
+        inventoryBtn.setBounds(250, 350, 160, 60);
 
         equipmentBtn.setText("EQUIPMENT");
         equipmentBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,17 +101,7 @@ public class home extends javax.swing.JFrame {
             }
         });
         imagePanel.add(equipmentBtn);
-        equipmentBtn.setBounds(120, 370, 170, 60);
-
-        logoutBtn.setText("LOGOUT");
-        logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutBtnActionPerformed(evt);
-            }
-        });
-        imagePanel.add(logoutBtn);
-        logoutBtn.setBounds(390, 370, 150, 50);
+        equipmentBtn.setBounds(370, 260, 160, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,16 +136,6 @@ public class home extends javax.swing.JFrame {
         equipment.show();
         dispose();
     }//GEN-LAST:event_equipmentBtnActionPerformed
-
-    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
-        
-        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to Logout?", "Logout", JOptionPane.YES_NO_OPTION);
-        if (confirm == JOptionPane.YES_OPTION) {
-            SignUpLogIn login = new SignUpLogIn();
-            login.show();
-            dispose();
-        }
-    }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((JLabel) evt.getSource());
@@ -218,8 +192,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel imagePanel;
     private javax.swing.JButton inventoryBtn;
     private javax.swing.JLabel inventoryLabel;
-    private javax.swing.JButton logoutBtn;
-    private javax.swing.JLabel logoutLabel;
     private javax.swing.JButton medicineBtn;
     private javax.swing.JLabel medicineLabel;
     private javax.swing.JLabel minimizeButton;

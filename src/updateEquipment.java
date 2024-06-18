@@ -79,6 +79,7 @@ public class updateEquipment extends javax.swing.JFrame {
 
         inv_equip_date.setBackground(new java.awt.Color(255, 255, 255));
         inv_equip_date.setForeground(new java.awt.Color(0, 0, 0));
+        inv_equip_date.setDateFormatString("yyyy-MM-dd");
         inv_equip_date.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
 
         inv_equip_dateLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N

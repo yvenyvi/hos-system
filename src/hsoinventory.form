@@ -121,9 +121,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="md_timebtn" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="md_designation" alignment="1" max="32767" attributes="0"/>
                                   <Component id="md_medication" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="md_designationLabel" alignment="0" max="32767" attributes="0"/>
                                   <Component id="md_timeLabel" alignment="0" max="32767" attributes="0"/>
                                   <Component id="md_genderLabel" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -211,15 +209,9 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="md_departmentLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="md_designationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="md_departmentLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="md_department" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="md_designation" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="md_department" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -331,6 +323,9 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="toolTipText" type="java.lang.String" value="EX: 2021-123456"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="md_idKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="md_fname">
               <Properties>
@@ -361,20 +356,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="toolTipText" type="java.lang.String" value="Click the button beside this field for the time selector to show up."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="md_designation">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Monospaced" size="12" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="md_medication">
@@ -475,18 +456,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="SEX:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="md_designationLabel">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Monospaced" size="18" style="3"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="DESIGNATION:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="md_timebtn">
@@ -623,6 +592,7 @@
               </Properties>
               <Events>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="md_searchIDKeyPressed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="md_searchIDKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="md_searchIdLabel">
@@ -670,6 +640,7 @@
               </Properties>
               <Events>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="md_searchPatientIdKeyPressed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="md_searchPatientIdKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="eq_updatebtn">
@@ -716,19 +687,62 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="9" rowCount="0">
+                  <Table columnCount="8" rowCount="0">
                     <Column editable="false" title="PATIENT NO." type="java.lang.Integer"/>
                     <Column editable="false" title="STUDENT ID" type="java.lang.Object"/>
                     <Column editable="false" title="DATE" type="java.lang.Object"/>
                     <Column editable="false" title="NAME" type="java.lang.Object"/>
                     <Column editable="false" title="SEX" type="java.lang.Object"/>
-                    <Column editable="false" title="DESIGNATION" type="java.lang.Object"/>
                     <Column editable="false" title="DEPARTMENT" type="java.lang.Object"/>
                     <Column editable="false" title="TIME" type="java.lang.Object"/>
                     <Column editable="false" title="MEDICATION" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="autoResizeMode" type="int" value="1"/>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Default Cursor"/>
                 </Property>
