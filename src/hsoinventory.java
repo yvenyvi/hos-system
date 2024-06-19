@@ -1,5 +1,4 @@
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -8,20 +7,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class hsoinventory extends javax.swing.JFrame {
@@ -33,6 +28,7 @@ public class hsoinventory extends javax.swing.JFrame {
         loadData();
         loadPatientData();
         md_date.setMinSelectableDate(date);
+        md_date.setDate(date);
         adjust_mdPatientsColumn();
         adjust_mdMedsColumn();
     }
@@ -177,6 +173,11 @@ public class hsoinventory extends javax.swing.JFrame {
         md_fname.setForeground(new java.awt.Color(0, 0, 0));
         md_fname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         md_fname.setToolTipText("EX: Cruz, Juan Pogi A.");
+        md_fname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                md_fnameKeyTyped(evt);
+            }
+        });
 
         md_txtTime.setEditable(false);
         md_txtTime.setBackground(new java.awt.Color(255, 255, 255));
@@ -480,9 +481,6 @@ public class hsoinventory extends javax.swing.JFrame {
 
         md_searchName.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         md_searchName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                md_searchNameKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 md_searchNameKeyReleased(evt);
             }
@@ -808,7 +806,7 @@ public class hsoinventory extends javax.swing.JFrame {
                 DefaultTableModel medPatientTable = (DefaultTableModel) md_patients.getModel();
                 DefaultTableModel medTable = (DefaultTableModel) md_meds.getModel();
 
-                JOptionPane.showMessageDialog(null, "Patient recording successful", "UPDATE: Recorded", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Patient recording successful", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
 
                 medPatientTable.setRowCount(0);
                 medTable.setRowCount(0);
@@ -840,7 +838,7 @@ public class hsoinventory extends javax.swing.JFrame {
     private void md_searchIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if ("".equals(md_searchID.getText())) {
-                JOptionPane.showMessageDialog(null, "Id of medicine is required to proceed.", "ERROR: Medicine id", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Id of medicine is required to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
                 String url, user, pass, ID;
                 int notFound = 0;
@@ -857,7 +855,7 @@ public class hsoinventory extends javax.swing.JFrame {
 
                     ID = md_searchID.getText();
                     if ("".equals(ID)) {
-                        JOptionPane.showMessageDialog(new JFrame(), "ID of the medicine is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(new JFrame(), "ID of the medicine is required to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
                     } else {
                         String sql = "SELECT * FROM medicine_inventory WHERE md_id = " + ID;
                         ResultSet rs = st.executeQuery(sql);
@@ -876,7 +874,7 @@ public class hsoinventory extends javax.swing.JFrame {
                                 }
                             }
                         } else {
-                            JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERRORD", JOptionPane.ERROR_MESSAGE);
                         }
                     }
 
@@ -890,7 +888,7 @@ public class hsoinventory extends javax.swing.JFrame {
     private void md_searchPatientIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchPatientIdKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if ("".equals(md_searchPatientId.getText())) {
-                JOptionPane.showMessageDialog(null, "Id of medicine is required to proceed.", "ERROR: Medicine id", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Id of patient is required to proceed.", "ERROR", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 String url, user, pass, ID;
                 int notFound = 0;
@@ -907,7 +905,7 @@ public class hsoinventory extends javax.swing.JFrame {
 
                     ID = md_searchPatientId.getText();
                     if ("".equals(ID)) {
-                        JOptionPane.showMessageDialog(new JFrame(), "ID of the patient is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(new JFrame(), "ID of the patient is required to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
                     } else {
                         String sql = "SELECT * FROM medicine_takers WHERE md_id = " + ID;
                         ResultSet rs = st.executeQuery(sql);
@@ -933,7 +931,7 @@ public class hsoinventory extends javax.swing.JFrame {
                                 }
                             }
                         } else {
-                            JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
 
@@ -957,7 +955,6 @@ public class hsoinventory extends javax.swing.JFrame {
         String url, user, pass, ID;
         int notFound = 0;
 
-        // Get the values from the fields
         patientID = md_id.getText();
         fname = md_fname.getText();
         gender = (String) md_gender.getSelectedItem();
@@ -968,7 +965,7 @@ public class hsoinventory extends javax.swing.JFrame {
 
         // Check if any of the fields are empty
         if (ID.isEmpty() || patientID.isEmpty() || fname.isEmpty() || gender.isEmpty() || department.isEmpty() || medicine.isEmpty() || time.isEmpty()) {
-            JOptionPane.showMessageDialog(new JFrame(), "ERROR: Select ID of patient to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(new JFrame(), "Select ID of patient to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -1009,29 +1006,19 @@ public class hsoinventory extends javax.swing.JFrame {
             rs.close();
             st.close();
             if (notFound == 0) {
-                JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             System.out.println("Error " + e.getMessage());
         }
     }//GEN-LAST:event_eq_updatebtnActionPerformed
 
-    private void md_searchNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchNameKeyPressed
-
-    }//GEN-LAST:event_md_searchNameKeyPressed
-
-    private void md_searchNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchNameKeyReleased
-        DefaultTableModel medPatientTable = (DefaultTableModel) md_patients.getModel();
-        TableRowSorter<DefaultTableModel> medpatients = new TableRowSorter<>(medPatientTable);
-        md_patients.setRowSorter(medpatients);
-        medpatients.setRowFilter(RowFilter.regexFilter(md_searchName.getText()));
-    }//GEN-LAST:event_md_searchNameKeyReleased
-
     private void md_searchMedicineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchMedicineKeyReleased
         DefaultTableModel inv_medsTable = (DefaultTableModel) md_meds.getModel();
         TableRowSorter<DefaultTableModel> medpatients = new TableRowSorter<>(inv_medsTable);
         md_meds.setRowSorter(medpatients);
-        medpatients.setRowFilter(RowFilter.regexFilter(md_searchMedicine.getText()));
+        RowFilter<TableModel, Integer> filter = RowFilter.regexFilter("(?i)" + md_searchMedicine.getText());
+        medpatients.setRowFilter(filter);
     }//GEN-LAST:event_md_searchMedicineKeyReleased
 
     private void refreshButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshButtonMouseClicked
@@ -1116,6 +1103,21 @@ public class hsoinventory extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_md_searchPatientIdKeyTyped
+
+    private void md_searchNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_searchNameKeyReleased
+        DefaultTableModel medPatientTable = (DefaultTableModel) md_patients.getModel();
+        TableRowSorter<DefaultTableModel> medpatients = new TableRowSorter<>(medPatientTable);
+        md_patients.setRowSorter(medpatients);
+        RowFilter<TableModel, Integer> filter = RowFilter.regexFilter("(?i)" + md_searchName.getText());
+        medpatients.setRowFilter(filter);
+    }//GEN-LAST:event_md_searchNameKeyReleased
+
+    private void md_fnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_md_fnameKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_md_fnameKeyTyped
 
     /**
      * @param args the command line arguments

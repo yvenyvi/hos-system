@@ -17,6 +17,7 @@ public class addEquipment extends javax.swing.JFrame {
     public addEquipment() {
         initComponents();
         inv_equip_date.setMinSelectableDate(date);
+        inv_equip_date.setDate(date);
     }
 
     @SuppressWarnings("unchecked")

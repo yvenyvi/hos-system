@@ -18,6 +18,7 @@ public class addMedicine extends javax.swing.JFrame {
         initComponents();
         inv_med_date.setMinSelectableDate(date);
         inv_med_expiry.setMinSelectableDate(date);
+        inv_med_date.setDate(date);
     }
 
     @SuppressWarnings("unchecked")

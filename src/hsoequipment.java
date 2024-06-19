@@ -1,4 +1,3 @@
-
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -7,20 +6,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class hsoequipment extends javax.swing.JFrame {
@@ -32,6 +27,7 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_loadData();
         eq_loadPatientData();
         eq_date.setMinSelectableDate(date);
+        eq_date.setDate(date);
         adjust_eqPatientsColumn();
         adjust_eqEquipsColumn();
     }
@@ -84,17 +80,18 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_department = new javax.swing.JComboBox<>();
         eq_gender = new javax.swing.JComboBox<>();
         eq_submitbtn = new javax.swing.JButton();
-        eq_timeLabel1 = new javax.swing.JLabel();
-        eq_txtTimeReturned = new javax.swing.JTextField();
         eq_searchID = new javax.swing.JTextField();
         eq_searchIdLabel = new javax.swing.JLabel();
-        eq_timeReturnedbtn = new javax.swing.JButton();
         labelblocker1 = new javax.swing.JLabel();
         labelblocker2 = new javax.swing.JLabel();
         labelblocker3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        eq_timeLabel1 = new javax.swing.JLabel();
+        eq_timeReturnedbtn = new javax.swing.JButton();
+        eq_txtTimeReturned = new javax.swing.JTextField();
+        eq_searchPatientLabel = new javax.swing.JLabel();
         eq_searchPatientID = new javax.swing.JTextField();
         eq_updatebtn = new javax.swing.JButton();
-        eq_searchPatientLabel = new javax.swing.JLabel();
         homebar = new javax.swing.JPanel();
         eq_searchName = new javax.swing.JTextField();
         eq_searchNameLabel = new javax.swing.JLabel();
@@ -200,6 +197,11 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_fname.setForeground(new java.awt.Color(0, 0, 0));
         eq_fname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         eq_fname.setToolTipText("EX: Cruz, Juan Pogi A.");
+        eq_fname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                eq_fnameKeyTyped(evt);
+            }
+        });
 
         eq_txtTimeBorrowed.setEditable(false);
         eq_txtTimeBorrowed.setBackground(new java.awt.Color(255, 255, 255));
@@ -291,17 +293,6 @@ public class hsoequipment extends javax.swing.JFrame {
             }
         });
 
-        eq_timeLabel1.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
-        eq_timeLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        eq_timeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eq_timeLabel1.setText("TIME RETUNED:");
-
-        eq_txtTimeReturned.setBackground(new java.awt.Color(255, 255, 255));
-        eq_txtTimeReturned.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        eq_txtTimeReturned.setForeground(new java.awt.Color(0, 0, 0));
-        eq_txtTimeReturned.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        eq_txtTimeReturned.setToolTipText("");
-
         eq_searchID.setBackground(new java.awt.Color(255, 255, 255));
         eq_searchID.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         eq_searchID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -320,6 +311,13 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_searchIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         eq_searchIdLabel.setText("Equipment ID:");
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        eq_timeLabel1.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
+        eq_timeLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        eq_timeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eq_timeLabel1.setText("TIME RETUNED:");
+
         eq_timeReturnedbtn.setBackground(new java.awt.Color(255, 255, 255));
         eq_timeReturnedbtn.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         eq_timeReturnedbtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -332,6 +330,18 @@ public class hsoequipment extends javax.swing.JFrame {
                 eq_timeReturnedbtnActionPerformed(evt);
             }
         });
+
+        eq_txtTimeReturned.setBackground(new java.awt.Color(255, 255, 255));
+        eq_txtTimeReturned.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        eq_txtTimeReturned.setForeground(new java.awt.Color(0, 0, 0));
+        eq_txtTimeReturned.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        eq_txtTimeReturned.setText("");
+        eq_txtTimeReturned.setToolTipText("");
+
+        eq_searchPatientLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
+        eq_searchPatientLabel.setForeground(new java.awt.Color(0, 0, 0));
+        eq_searchPatientLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eq_searchPatientLabel.setText("Patient ID:");
 
         eq_searchPatientID.setBackground(new java.awt.Color(255, 255, 255));
         eq_searchPatientID.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
@@ -362,10 +372,48 @@ public class hsoequipment extends javax.swing.JFrame {
             }
         });
 
-        eq_searchPatientLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
-        eq_searchPatientLabel.setForeground(new java.awt.Color(255, 255, 255));
-        eq_searchPatientLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eq_searchPatientLabel.setText("Patient ID:");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(eq_timeLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(eq_searchPatientLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(eq_searchPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(eq_txtTimeReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eq_timeReturnedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(eq_updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(eq_timeLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(eq_timeReturnedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eq_txtTimeReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(eq_searchPatientLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eq_searchPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(eq_updatebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
+        );
 
         javax.swing.GroupLayout md_infoPanelLayout = new javax.swing.GroupLayout(md_infoPanel);
         md_infoPanel.setLayout(md_infoPanelLayout);
@@ -391,39 +439,27 @@ public class hsoequipment extends javax.swing.JFrame {
                             .addComponent(eq_gender, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(eq_genderLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(eq_timeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(eq_timeLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, md_infoPanelLayout.createSequentialGroup()
-                                .addComponent(eq_txtTimeReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(eq_timeReturnedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, md_infoPanelLayout.createSequentialGroup()
                                 .addComponent(eq_txtTimeBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(eq_timeBorrowedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(92, 92, 92)
+                                .addComponent(eq_timeBorrowedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(eq_searchID, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(eq_searchIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
-                                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(eq_searchIdLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(eq_searchID, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(45, 45, 45))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
-                                .addComponent(eq_submitbtn)
-                                .addGap(60, 60, 60)))))
+                            .addGroup(md_infoPanelLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(md_infoPanelLayout.createSequentialGroup()
+                                .addGap(107, 107, 107)
+                                .addComponent(eq_submitbtn)))))
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(md_infoPanelLayout.createSequentialGroup()
                         .addGap(175, 175, 175)
-                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(eq_updatebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelblocker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelblocker3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(134, 134, 134)
                         .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(eq_searchPatientLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(eq_searchPatientID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelblocker1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                            .addComponent(labelblocker2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)))
+                            .addComponent(labelblocker1, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                            .addComponent(labelblocker2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)))
                     .addGroup(md_infoPanelLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
@@ -432,63 +468,61 @@ public class hsoequipment extends javax.swing.JFrame {
         md_infoPanelLayout.setVerticalGroup(
             md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(md_infoPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelblocker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eq_searchPatientLabel)
                     .addComponent(labelblocker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eq_searchPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelblocker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eq_updatebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29))
+                .addComponent(labelblocker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(md_infoPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(eq_genderLabel)
-                    .addComponent(eq_idLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eq_id, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eq_gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(eq_dateLabel)
-                    .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(eq_timeLabel)
-                        .addComponent(eq_searchIdLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(eq_txtTimeBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eq_timeBorrowedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eq_searchID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(eq_date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(md_infoPanelLayout.createSequentialGroup()
-                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(eq_fnameLabel)
-                            .addComponent(eq_timeLabel1))
+                        .addGap(31, 31, 31)
+                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(eq_genderLabel)
+                            .addComponent(eq_idLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(eq_timeReturnedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(eq_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(eq_txtTimeReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(eq_submitbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(eq_id, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eq_gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(eq_dateLabel)
+                            .addComponent(eq_timeLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(eq_txtTimeBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(eq_timeBorrowedbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(eq_date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(md_infoPanelLayout.createSequentialGroup()
+                                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(eq_fnameLabel)
+                                    .addComponent(eq_searchIdLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(eq_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(eq_searchID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(eq_departmentLabel)
                     .addComponent(eq_equipmentLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eq_department, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eq_equipment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(md_infoPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(md_infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(eq_department, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eq_equipment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, md_infoPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(eq_submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))))
         );
 
         homebar.setBackground(new java.awt.Color(255, 255, 255));
@@ -583,9 +617,9 @@ public class hsoequipment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eq_searchNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eq_searchName, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eq_searchName, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eq_searchEquipment)
+                .addComponent(eq_searchEquipment, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eq_searchEquipmentLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -632,7 +666,7 @@ public class hsoequipment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(md_infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -752,11 +786,11 @@ public class hsoequipment extends javax.swing.JFrame {
 
             ID = eq_searchPatientID.getText();
             if ("".equals(ID)) {
-                JOptionPane.showMessageDialog(new JFrame(), "Patient id is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(new JFrame(), "Patient id is required to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
 
                 if ("".equals(eq_searchID.getText())) {
-                    JOptionPane.showMessageDialog(null, "Equipment ID required to proceed.", "Error: ID", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Equipment ID required to proceed.", "Error", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     String sql = "SELECT * FROM equipment_borrowers WHERE eq_id = " + ID;
                     ResultSet rs = st.executeQuery(sql);
@@ -797,7 +831,7 @@ public class hsoequipment extends javax.swing.JFrame {
                     rs.close();
                     st.close();
                     if (notFound == 0) {
-                        JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
@@ -810,7 +844,7 @@ public class hsoequipment extends javax.swing.JFrame {
     private void eq_searchPatientIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchPatientIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if ("".equals(eq_searchPatientID.getText())) {
-                JOptionPane.showMessageDialog(null, "Input a valid patient number to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Input a valid patient number to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
                 String url, user, pass, ID;
                 int notFound = 0;
@@ -852,7 +886,7 @@ public class hsoequipment extends javax.swing.JFrame {
                             }
                         }
                     } else {
-                        JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR", JOptionPane.ERROR_MESSAGE);
                     }
 
                 } catch (Exception e) {
@@ -873,7 +907,7 @@ public class hsoequipment extends javax.swing.JFrame {
     private void eq_searchIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if ("".equals(eq_searchID.getText())) {
-                JOptionPane.showMessageDialog(null, "Input a valid patient number to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Input a valid patient number to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
                 String url, user, pass, ID;
                 int notFound = 0;
@@ -890,7 +924,7 @@ public class hsoequipment extends javax.swing.JFrame {
 
                     ID = eq_searchID.getText();
                     if ("".equals(ID)) {
-                        JOptionPane.showMessageDialog(new JFrame(), "ID of the equipment is required to proceed.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(new JFrame(), "ID of the equipment is required to proceed.", "ERROR", JOptionPane.ERROR_MESSAGE);
                     } else {
                         String sql = "SELECT * FROM equipment_inventory WHERE eq_id = " + ID;
                         ResultSet rs = st.executeQuery(sql);
@@ -909,7 +943,7 @@ public class hsoequipment extends javax.swing.JFrame {
                                 }
                             }
                         } else {
-                            JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR: ID", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(new JFrame(), "Invalid ID. Please select from the table.", "ERROR", JOptionPane.ERROR_MESSAGE);
                         }
                     }
 
@@ -927,14 +961,17 @@ public class hsoequipment extends javax.swing.JFrame {
         DefaultTableModel inv_equipBorrowerTable = (DefaultTableModel) eq_patients.getModel();
         TableRowSorter<DefaultTableModel> borrowersTable = new TableRowSorter<>(inv_equipBorrowerTable);
         eq_patients.setRowSorter(borrowersTable);
-        borrowersTable.setRowFilter(RowFilter.regexFilter(eq_searchName.getText()));
+        RowFilter<TableModel, Integer> filter = RowFilter.regexFilter("(?i)" + eq_searchName.getText());
+        borrowersTable.setRowFilter(filter);
+
     }//GEN-LAST:event_eq_searchNameKeyReleased
 
     private void eq_searchEquipmentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_searchEquipmentKeyReleased
         DefaultTableModel inv_equipTable = (DefaultTableModel) eq_equipments.getModel();
         TableRowSorter<DefaultTableModel> equipmentTable = new TableRowSorter<>(inv_equipTable);
         eq_equipments.setRowSorter(equipmentTable);
-        equipmentTable.setRowFilter(RowFilter.regexFilter(eq_searchEquipment.getText()));
+        RowFilter<TableModel, Integer> filter = RowFilter.regexFilter("(?i)" + eq_searchEquipment.getText());
+        equipmentTable.setRowFilter(filter);
     }//GEN-LAST:event_eq_searchEquipmentKeyReleased
 
     private void EquipemtnExportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EquipemtnExportTableMouseClicked
@@ -956,7 +993,7 @@ public class hsoequipment extends javax.swing.JFrame {
         equipTable.setRowCount(0);
         equipPatientsTable.setRowCount(0);
 
-        JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE: Reload", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
 
         eq_loadPatientData();
         eq_loadData();
@@ -1020,6 +1057,13 @@ public class hsoequipment extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_eq_searchPatientIDKeyTyped
+
+    private void eq_fnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_fnameKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_eq_fnameKeyTyped
 
     public void borrowedEquipment() {
         try {
@@ -1303,6 +1347,7 @@ public class hsoequipment extends javax.swing.JFrame {
     private javax.swing.JLabel exitButton;
     private javax.swing.JLabel homeButton;
     private javax.swing.JPanel homebar;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelblocker1;

@@ -20,6 +20,7 @@ import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class hsoinventorymanagement extends javax.swing.JFrame {
@@ -598,7 +599,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         int_delmedicineLayout.setHorizontalGroup(
             int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(int_delmedicineLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(388, 388, 388)
                 .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(int_delmedicineLayout.createSequentialGroup()
                         .addComponent(fromremoved, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -612,7 +613,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                         .addComponent(searchDateMedRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(exportRemovedMeds, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(801, Short.MAX_VALUE))
+                .addContainerGap(419, Short.MAX_VALUE))
             .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delmedicineLayout.createSequentialGroup()
                     .addContainerGap()
@@ -638,8 +639,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addContainerGap(676, Short.MAX_VALUE))
             .addGroup(int_delmedicineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, int_delmedicineLayout.createSequentialGroup()
-                    .addContainerGap(75, Short.MAX_VALUE)
-                    .addComponent(inv_med_table1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(75, 75, 75)
+                    .addComponent(inv_med_table1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -735,7 +736,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         int_delequipmentsLayout.setHorizontalGroup(
             int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(int_delequipmentsLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(391, 391, 391)
                 .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(int_delequipmentsLayout.createSequentialGroup()
                         .addComponent(fromremovedequip, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -749,7 +750,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                         .addComponent(searchDateEquipRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(exportRemovedEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(801, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
             .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(int_delequipmentsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -775,8 +776,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
                 .addContainerGap(676, Short.MAX_VALUE))
             .addGroup(int_delequipmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, int_delequipmentsLayout.createSequentialGroup()
-                    .addContainerGap(75, Short.MAX_VALUE)
-                    .addComponent(inv_equip_table1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(75, 75, 75)
+                    .addComponent(inv_equip_table1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -1080,7 +1081,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         equipTable.setRowCount(0);
         invRemovedEquipsTable.setRowCount(0);
 
-        JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE: Reload", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
 
         removed_equipsLoadData();
         removed_medsLoadData();
@@ -1126,22 +1127,26 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         DefaultTableModel inv_medicineTable = (DefaultTableModel) inv_medTable.getModel();
         TableRowSorter<DefaultTableModel> inv_meds = new TableRowSorter<>(inv_medicineTable);
         inv_medTable.setRowSorter(inv_meds);
-        inv_meds.setRowFilter(RowFilter.regexFilter(inv_searchName.getText()));
+        RowFilter<TableModel, Integer> filterPatient = RowFilter.regexFilter("(?i)" + inv_searchName.getText());
+        inv_meds.setRowFilter(filterPatient);
 
         DefaultTableModel inv_equipBorrowerTable = (DefaultTableModel) inv_equipmentTable.getModel();
         TableRowSorter<DefaultTableModel> inv_equipments = new TableRowSorter<>(inv_equipBorrowerTable);
         inv_equipmentTable.setRowSorter(inv_equipments);
-        inv_equipments.setRowFilter(RowFilter.regexFilter(inv_searchName.getText()));
+        RowFilter<TableModel, Integer> filterBorrower = RowFilter.regexFilter("(?i)" + inv_searchName.getText());
+        inv_equipments.setRowFilter(filterBorrower);
 
         DefaultTableModel inv_recentsMedsTable = (DefaultTableModel) inv_recent_medtable.getModel();
         TableRowSorter<DefaultTableModel> inv_recentmeds = new TableRowSorter<>(inv_recentsMedsTable);
         inv_recent_medtable.setRowSorter(inv_recentmeds);
-        inv_recentmeds.setRowFilter(RowFilter.regexFilter(inv_searchName.getText()));
+        RowFilter<TableModel, Integer> filterMeds = RowFilter.regexFilter("(?i)" + inv_searchName.getText());
+        inv_recentmeds.setRowFilter(filterMeds);
 
         DefaultTableModel inv_recentsEquipTable = (DefaultTableModel) inv_recent_equiptable.getModel();
         TableRowSorter<DefaultTableModel> inv_recentequip = new TableRowSorter<>(inv_recentsEquipTable);
         inv_recent_equiptable.setRowSorter(inv_recentequip);
-        inv_recentequip.setRowFilter(RowFilter.regexFilter(inv_searchName.getText()));
+        RowFilter<TableModel, Integer> filterEquips = RowFilter.regexFilter("(?i)" + inv_searchName.getText());
+        inv_recentequip.setRowFilter(filterEquips);;
 
     }//GEN-LAST:event_inv_searchNameKeyReleased
 
