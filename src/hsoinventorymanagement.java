@@ -31,6 +31,10 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         eq_loadData();
         removed_medsLoadData();
         removed_equipsLoadData();
+        adjust_mdMedsColumn();
+        adjust_mdDelMedsColumn();
+        adjust_mdEquipmentColumn();
+        adjust_mdDelEquipmentColumn();
     }
 
     @SuppressWarnings("unchecked")
@@ -902,6 +906,50 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void adjust_mdMedsColumn() {
+        inv_medTable.getColumnModel().getColumn(0).setPreferredWidth(50);
+        inv_medTable.getColumnModel().getColumn(1).setPreferredWidth(100);
+        inv_medTable.getColumnModel().getColumn(2).setPreferredWidth(200);
+        inv_medTable.getColumnModel().getColumn(3).setPreferredWidth(50);
+        inv_medTable.getColumnModel().getColumn(4).setPreferredWidth(50);
+        inv_medTable.getColumnModel().getColumn(5).setPreferredWidth(180);
+        inv_medTable.getColumnModel().getColumn(6).setPreferredWidth(200);
+        inv_medTable.getColumnModel().getColumn(7).setPreferredWidth(50);
+    }
+    
+    public void adjust_mdDelMedsColumn() {
+        inv_recent_medtable.getColumnModel().getColumn(0).setPreferredWidth(50);
+        inv_recent_medtable.getColumnModel().getColumn(1).setPreferredWidth(100);
+        inv_recent_medtable.getColumnModel().getColumn(2).setPreferredWidth(200);
+        inv_recent_medtable.getColumnModel().getColumn(3).setPreferredWidth(50);
+        inv_recent_medtable.getColumnModel().getColumn(4).setPreferredWidth(50);
+        inv_recent_medtable.getColumnModel().getColumn(5).setPreferredWidth(180);
+        inv_recent_medtable.getColumnModel().getColumn(6).setPreferredWidth(200);
+        inv_recent_medtable.getColumnModel().getColumn(7).setPreferredWidth(50);
+    }
+    
+     public void adjust_mdEquipmentColumn() {
+        inv_equipmentTable.getColumnModel().getColumn(0).setPreferredWidth(50);
+        inv_equipmentTable.getColumnModel().getColumn(1).setPreferredWidth(100);
+        inv_equipmentTable.getColumnModel().getColumn(2).setPreferredWidth(200);
+        inv_equipmentTable.getColumnModel().getColumn(3).setPreferredWidth(50);
+        inv_equipmentTable.getColumnModel().getColumn(4).setPreferredWidth(50);
+        inv_equipmentTable.getColumnModel().getColumn(5).setPreferredWidth(180);
+        inv_equipmentTable.getColumnModel().getColumn(6).setPreferredWidth(200);
+        inv_equipmentTable.getColumnModel().getColumn(7).setPreferredWidth(50);
+    }
+     
+     public void adjust_mdDelEquipmentColumn() {
+        inv_recent_equiptable.getColumnModel().getColumn(0).setPreferredWidth(50);
+        inv_recent_equiptable.getColumnModel().getColumn(1).setPreferredWidth(100);
+        inv_recent_equiptable.getColumnModel().getColumn(2).setPreferredWidth(200);
+        inv_recent_equiptable.getColumnModel().getColumn(3).setPreferredWidth(50);
+        inv_recent_equiptable.getColumnModel().getColumn(4).setPreferredWidth(50);
+        inv_recent_equiptable.getColumnModel().getColumn(5).setPreferredWidth(180);
+        inv_recent_equiptable.getColumnModel().getColumn(6).setPreferredWidth(200);
+        inv_recent_equiptable.getColumnModel().getColumn(7).setPreferredWidth(50);
+    }
+
     public void loadData() {
 
         try {
@@ -1083,6 +1131,8 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
 
+        inv_searchName.setText("");
+
         removed_equipsLoadData();
         removed_medsLoadData();
         loadData();
@@ -1168,12 +1218,12 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     }//GEN-LAST:event_exportMedicineTableMouseClicked
 
     private void exportEquipmentTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exportEquipmentTableMouseClicked
-        MessageFormat header = new MessageFormat("Equipement Inventory Records");
+        MessageFormat header = new MessageFormat("Equipment Inventory Records");
         MessageFormat footer = new MessageFormat("National Univeristy Baliwag");
         try {
             PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
             set.add(OrientationRequested.LANDSCAPE);
-            inv_medTable.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+            inv_equipmentTable.print(JTable.PrintMode.FIT_WIDTH, header, footer);
         } catch (java.awt.print.PrinterException e) {
             JOptionPane.showMessageDialog(null, "Failed");
         }

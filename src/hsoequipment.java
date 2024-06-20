@@ -1,3 +1,4 @@
+
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -341,7 +342,7 @@ public class hsoequipment extends javax.swing.JFrame {
         eq_searchPatientLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
         eq_searchPatientLabel.setForeground(new java.awt.Color(0, 0, 0));
         eq_searchPatientLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eq_searchPatientLabel.setText("Patient ID:");
+        eq_searchPatientLabel.setText("Borrower ID:");
 
         eq_searchPatientID.setBackground(new java.awt.Color(255, 255, 255));
         eq_searchPatientID.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
@@ -995,6 +996,16 @@ public class hsoequipment extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
 
+        eq_id.setText("");
+        eq_gender.setSelectedItem(null);
+        eq_searchID.setText("");
+        eq_fname.setText("");
+        eq_department.setSelectedItem(null);
+        eq_equipment.setText("");
+        eq_searchPatientID.setText("");
+        eq_txtTimeReturned.setText("");
+        eq_searchPatientID.setText("");
+        
         eq_loadPatientData();
         eq_loadData();
     }//GEN-LAST:event_refreshButtonMouseClicked
@@ -1060,7 +1071,7 @@ public class hsoequipment extends javax.swing.JFrame {
 
     private void eq_fnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eq_fnameKeyTyped
         char c = evt.getKeyChar();
-        if (Character.isDigit(c)){
+        if (Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_eq_fnameKeyTyped

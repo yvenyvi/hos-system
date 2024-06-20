@@ -1029,7 +1029,15 @@ public class hsoinventory extends javax.swing.JFrame {
         medTable.setRowCount(0);
         medPatientsTable.setRowCount(0);
         JOptionPane.showMessageDialog(null, "Reloading Successful.", "UPDATE: Reload", JOptionPane.INFORMATION_MESSAGE);
-
+        
+        md_id.setText("");
+        md_gender.setSelectedItem(null);
+        md_searchID.setText("");
+        md_fname.setText("");
+        md_department.setSelectedItem(null);
+        md_medication.setText("");
+        md_searchPatientId.setText("");
+        
         loadData();
         loadPatientData();
     }//GEN-LAST:event_refreshButtonMouseClicked
