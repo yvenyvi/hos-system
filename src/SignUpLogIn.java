@@ -34,7 +34,6 @@ public class SignUpLogIn extends javax.swing.JFrame {
         loginLogoLabel = new javax.swing.JLabel();
         lg_passwordLabel = new javax.swing.JLabel();
         lg_txtUsername = new javax.swing.JTextField();
-        lg_usernameLabel = new javax.swing.JLabel();
         lg_seePassword = new javax.swing.JCheckBox();
         lg_loginButton = new javax.swing.JButton();
         lg_signupLabel = new javax.swing.JLabel();
@@ -42,6 +41,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
         lg_txtPassword = new javax.swing.JPasswordField();
         minimizeButton = new javax.swing.JLabel();
         exitButton = new javax.swing.JLabel();
+        lg_usernameLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -77,7 +77,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
         lg_passwordLabel.setForeground(new java.awt.Color(0, 0, 0));
         lg_passwordLabel.setText("PASSWORD:");
         framePanel.add(lg_passwordLabel);
-        lg_passwordLabel.setBounds(480, 350, 110, 20);
+        lg_passwordLabel.setBounds(470, 340, 110, 50);
 
         lg_txtUsername.setBackground(new java.awt.Color(255, 255, 255));
         lg_txtUsername.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
@@ -89,13 +89,8 @@ public class SignUpLogIn extends javax.swing.JFrame {
             }
         });
         framePanel.add(lg_txtUsername);
-        lg_txtUsername.setBounds(480, 270, 380, 50);
-
-        lg_usernameLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        lg_usernameLabel.setForeground(new java.awt.Color(0, 0, 0));
-        lg_usernameLabel.setText("USERNAME:");
-        framePanel.add(lg_usernameLabel);
-        lg_usernameLabel.setBounds(480, 250, 110, 20);
+        lg_txtUsername.setBounds(580, 240, 280, 50);
+        lg_txtUsername.getAccessibleContext().setAccessibleDescription("");
 
         lg_seePassword.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         lg_seePassword.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,7 +102,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
             }
         });
         framePanel.add(lg_seePassword);
-        lg_seePassword.setBounds(740, 420, 130, 20);
+        lg_seePassword.setBounds(730, 400, 130, 20);
 
         lg_loginButton.setBackground(new java.awt.Color(53, 64, 142));
         lg_loginButton.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
@@ -120,7 +115,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
             }
         });
         framePanel.add(lg_loginButton);
-        lg_loginButton.setBounds(480, 430, 130, 30);
+        lg_loginButton.setBounds(580, 400, 130, 30);
 
         lg_signupLabel.setForeground(new java.awt.Color(102, 102, 102));
         lg_signupLabel.setText("Don't have an account? Sign up here:");
@@ -149,7 +144,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
             }
         });
         framePanel.add(lg_txtPassword);
-        lg_txtPassword.setBounds(480, 370, 380, 50);
+        lg_txtPassword.setBounds(580, 340, 280, 50);
 
         minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
         minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -170,6 +165,12 @@ public class SignUpLogIn extends javax.swing.JFrame {
         });
         framePanel.add(exitButton);
         exitButton.setBounds(860, 0, 32, 40);
+
+        lg_usernameLabel1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        lg_usernameLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        lg_usernameLabel1.setText("USERNAME:");
+        framePanel.add(lg_usernameLabel1);
+        lg_usernameLabel1.setBounds(480, 240, 100, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,19 +229,16 @@ public class SignUpLogIn extends javax.swing.JFrame {
                 while (rs.next()) {
                     passDb = rs.getString("password");
                     notFound = 1;
+                    if (notFound == 1 && password.equals(passDb)) {
 
+                        JOptionPane.showMessageDialog(new JFrame(), "Login successfull!", "Successful!", JOptionPane.INFORMATION_MESSAGE);
+                        new home(username).setVisible(true);
+                        this.setVisible(false);
+
+                    } else {
+                        JOptionPane.showMessageDialog(new JFrame(), "Incorrect email or password.", "ERROR: Incorrect Input.", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-                if (notFound == 1 && password.equals(passDb)) {
-                    home home = new home();
-
-                    JOptionPane.showMessageDialog(new JFrame(), "Login successfull!", "Successful!", JOptionPane.INFORMATION_MESSAGE);
-                    home.show();
-                    dispose();
-
-                } else {
-                    JOptionPane.showMessageDialog(new JFrame(), "Incorrect email or password.", "ERROR: Incorrect Input.", JOptionPane.ERROR_MESSAGE);
-                }
-
                 lg_txtUsername.setText("");
                 lg_txtPassword.setText("");
 
@@ -282,22 +280,18 @@ public class SignUpLogIn extends javax.swing.JFrame {
 
                     query = "SELECT * FROM user WHERE username = '" + username + "'";
                     ResultSet rs = st.executeQuery(query);
-                    while (rs.next()) {
+                    if (rs.next()) {
                         passDb = rs.getString("password");
-                        notFound = 1;
-
-                    }
-                    if (notFound == 1 && password.equals(passDb)) {
-                        home home = new home();
-
-                        JOptionPane.showMessageDialog(new JFrame(), "Login successfull!", "Successful!", JOptionPane.INFORMATION_MESSAGE);
-                        home.show();
-                        dispose();
-
+                        if (password.equals(passDb)) {
+                            JOptionPane.showMessageDialog(new JFrame(), "Login successfull!", "Successful!", JOptionPane.INFORMATION_MESSAGE);
+                            new home(username).setVisible(true);
+                            this.setVisible(false);
+                        } else {
+                            JOptionPane.showMessageDialog(new JFrame(), "Incorrect password.", "ERROR: Incorrect Input.", JOptionPane.ERROR_MESSAGE);
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(new JFrame(), "Incorrect email or password.", "ERROR: Incorrect Input.", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(new JFrame(), "Username not found.", "ERROR: Incorrect Input.", JOptionPane.ERROR_MESSAGE);
                     }
-
                     lg_txtUsername.setText("");
                     lg_txtPassword.setText("");
 
@@ -367,7 +361,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
     private javax.swing.JLabel lg_signupLabel;
     private javax.swing.JPasswordField lg_txtPassword;
     private javax.swing.JTextField lg_txtUsername;
-    private javax.swing.JLabel lg_usernameLabel;
+    private javax.swing.JLabel lg_usernameLabel1;
     private javax.swing.JLabel loginLogoLabel;
     private javax.swing.JLabel minimizeButton;
     private javax.swing.JLabel nuLogo;

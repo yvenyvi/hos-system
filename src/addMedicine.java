@@ -11,6 +11,13 @@ import javax.swing.SwingUtilities;
 
 public class addMedicine extends javax.swing.JFrame {
 
+    private String username;
+    
+    addMedicine(String username) {
+        this();
+        this.username = username;
+    }
+    
     hsoinventorymanagement hsoinventory = new hsoinventorymanagement();
     Date date = new Date();
 
@@ -38,8 +45,6 @@ public class addMedicine extends javax.swing.JFrame {
         inv_med_medicineLabel = new javax.swing.JLabel();
         inv_med_insertbtn = new javax.swing.JButton();
         inv_med_expiryLabel1 = new javax.swing.JLabel();
-        inv_med_disposedLabel = new javax.swing.JLabel();
-        inv_med_dispensed = new javax.swing.JSpinner();
         inv_med_quantity = new javax.swing.JSpinner();
         inv_med_expiry = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
@@ -119,14 +124,6 @@ public class addMedicine extends javax.swing.JFrame {
         inv_med_expiryLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         inv_med_expiryLabel1.setText("ITEM EXPIRY:");
 
-        inv_med_disposedLabel.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
-        inv_med_disposedLabel.setForeground(new java.awt.Color(255, 255, 255));
-        inv_med_disposedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_med_disposedLabel.setText("ITEM DISPENSED:");
-
-        inv_med_dispensed.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_med_dispensed.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
         inv_med_quantity.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         inv_med_quantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -137,43 +134,42 @@ public class addMedicine extends javax.swing.JFrame {
         inv_med_infopanelLayout.setHorizontalGroup(
             inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inv_med_infopanelLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inv_med_infopanelLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(inv_med_insertbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inv_med_expiry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inv_med_expiryLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inv_med_quantityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(inv_med_quantity))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(inv_med_infopanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(inv_med_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(inv_med_remarkLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_med_infopanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inv_med_quantityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addComponent(inv_med_quantity)
-                    .addComponent(inv_med_name)
-                    .addComponent(inv_med_itemLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(inv_med_dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inv_med_disposedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                    .addComponent(inv_med_dispensed, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inv_med_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33))
+                        .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inv_med_name)
+                            .addComponent(inv_med_itemLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(inv_med_dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inv_med_date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
+                        .addGap(33, 33, 33))))
             .addGroup(inv_med_infopanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inv_med_medicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(inv_med_medicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(inv_med_infopanelLayout.createSequentialGroup()
+                        .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inv_med_infopanelLayout.createSequentialGroup()
+                                .addGap(151, 151, 151)
+                                .addComponent(inv_med_insertbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(inv_med_infopanelLayout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(inv_med_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(inv_med_remarkLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(inv_med_infopanelLayout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inv_med_expiry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inv_med_expiryLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inv_med_infopanelLayout.setVerticalGroup(
             inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +178,7 @@ public class addMedicine extends javax.swing.JFrame {
                 .addComponent(inv_med_medicineLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_med_inventoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inv_med_dateLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(inv_med_itemLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -191,24 +187,22 @@ public class addMedicine extends javax.swing.JFrame {
                     .addComponent(inv_med_date, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inv_med_name, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(inv_med_expiryLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_med_expiry, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inv_med_disposedLabel)
-                    .addComponent(inv_med_quantityLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inv_med_dispensed, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inv_med_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(inv_med_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inv_med_infopanelLayout.createSequentialGroup()
+                        .addComponent(inv_med_expiryLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inv_med_expiry, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(inv_med_infopanelLayout.createSequentialGroup()
+                        .addComponent(inv_med_quantityLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inv_med_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(37, 37, 37)
                 .addComponent(inv_med_remarkLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_med_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(inv_med_insertbtn)
-                .addGap(40, 40, 40))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -233,7 +227,7 @@ public class addMedicine extends javax.swing.JFrame {
         inv_med_medicineLabel1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         inv_med_medicineLabel1.setForeground(new java.awt.Color(0, 0, 0));
         inv_med_medicineLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_med_medicineLabel1.setText("INSERT NEW MEDICINE");
+        inv_med_medicineLabel1.setText("ADD NEW MEDICINE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -270,10 +264,10 @@ public class addMedicine extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 733, Short.MAX_VALUE))
+                .addGap(0, 684, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 46, Short.MAX_VALUE)
+                    .addGap(0, 55, Short.MAX_VALUE)
                     .addComponent(inv_med_infopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -293,7 +287,7 @@ public class addMedicine extends javax.swing.JFrame {
             pass = "";
 
             Connection con = DriverManager.getConnection(url, user, pass);
-            PreparedStatement st = con.prepareStatement("INSERT INTO medicine_inventory(md_date, md_item, md_quantity, md_disposed, md_expiry, md_remarks) VALUES (?,?,?,?,?,?)");
+            PreparedStatement st = con.prepareStatement("INSERT INTO medicine_inventory(added_by, md_date, md_item, md_quantity, md_expiry, md_remarks) VALUES (?,?,?,?,?,?)");
 
             Date med_date = inv_med_date.getDate();
             Date med_expiry = inv_med_expiry.getDate();
@@ -315,16 +309,14 @@ public class addMedicine extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(new JFrame(), "Item name is required to proceed.", "ERROR: Item Name.", JOptionPane.ERROR_MESSAGE);
             } else if ("".equals(inv_med_quantity.getValue())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Item quantity is required to proceed.", "ERROR: Item Quantity.", JOptionPane.ERROR_MESSAGE);
-            } else if ("".equals(inv_med_dispensed.getValue())) {
-                JOptionPane.showMessageDialog(new JFrame(), "Item dispensed is required to proceed.", "ERROR: Item Quantity.", JOptionPane.ERROR_MESSAGE);
-            } else {
-                int md_quantity = (int) inv_med_quantity.getValue();
-                int md_disposed = (int) inv_med_dispensed.getValue();
+            }  else {
+                int md_quantity = (int) inv_med_quantity.getValue();               
                 String md_item = inv_med_name.getText().toUpperCase();
                 String md_remarks = inv_med_remark.getText();
                 int md_totalquantity = (int) inv_med_quantity.getValue();
+                String op = username;
 
-                query = "INSERT INTO medicine_inventory (md_date, md_item, md_quantity, md_disposed, md_expiry, md_remarks, md_totalquantity) " + "VALUES ('" + formattedDate + "', '" + md_item + "', '" + md_quantity + "','" + md_disposed + "', '" + expiryFormattedDate + "' , '" + md_remarks + "', '" + md_totalquantity + "')";
+                query = "INSERT INTO medicine_inventory (added_by, md_date, md_item, md_quantity, md_expiry, md_remarks, md_totalquantity) " + "VALUES ('"+op+"', '" + formattedDate + "', '" + md_item + "', '" + md_quantity + "', '" + expiryFormattedDate + "' , '" + md_remarks + "', '" + md_totalquantity + "')";
 
                 st.executeUpdate(query);
 
@@ -397,8 +389,6 @@ public class addMedicine extends javax.swing.JFrame {
     private javax.swing.JLabel exitButton;
     private com.toedter.calendar.JDateChooser inv_med_date;
     private javax.swing.JLabel inv_med_dateLabel;
-    private javax.swing.JSpinner inv_med_dispensed;
-    private javax.swing.JLabel inv_med_disposedLabel;
     private com.toedter.calendar.JDateChooser inv_med_expiry;
     private javax.swing.JLabel inv_med_expiryLabel1;
     private javax.swing.JPanel inv_med_infopanel;

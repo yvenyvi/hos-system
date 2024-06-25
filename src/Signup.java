@@ -43,6 +43,10 @@ public class Signup extends javax.swing.JFrame {
         su_txtEmail = new javax.swing.JTextField();
         minimizeButton = new javax.swing.JLabel();
         exitButton = new javax.swing.JLabel();
+        su_usernameLabel1 = new javax.swing.JLabel();
+        su_fName = new javax.swing.JTextField();
+        su_usernameLabel2 = new javax.swing.JLabel();
+        su_lName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -72,13 +76,13 @@ public class Signup extends javax.swing.JFrame {
         signupLogoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         signupLogoLabel.setText("SIGN UP");
         framePanel.add(signupLogoLabel);
-        signupLogoLabel.setBounds(90, 50, 280, 70);
+        signupLogoLabel.setBounds(90, 40, 280, 70);
 
         su_passwordLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         su_passwordLabel.setForeground(new java.awt.Color(0, 0, 0));
         su_passwordLabel.setText("PASSWORD:");
         framePanel.add(su_passwordLabel);
-        su_passwordLabel.setBounds(40, 370, 110, 20);
+        su_passwordLabel.setBounds(50, 460, 120, 20);
 
         su_txtPassword.setBackground(new java.awt.Color(255, 255, 255));
         su_txtPassword.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
@@ -90,7 +94,7 @@ public class Signup extends javax.swing.JFrame {
             }
         });
         framePanel.add(su_txtPassword);
-        su_txtPassword.setBounds(40, 390, 380, 50);
+        su_txtPassword.setBounds(170, 450, 220, 50);
 
         su_txtUsername.setBackground(new java.awt.Color(255, 255, 255));
         su_txtUsername.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
@@ -102,13 +106,13 @@ public class Signup extends javax.swing.JFrame {
             }
         });
         framePanel.add(su_txtUsername);
-        su_txtUsername.setBounds(40, 180, 380, 50);
+        su_txtUsername.setBounds(170, 290, 220, 50);
 
         su_usernameLabel.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         su_usernameLabel.setForeground(new java.awt.Color(0, 0, 0));
         su_usernameLabel.setText("USERNAME:");
         framePanel.add(su_usernameLabel);
-        su_usernameLabel.setBounds(40, 160, 110, 20);
+        su_usernameLabel.setBounds(50, 300, 100, 20);
 
         su_signupButton.setBackground(new java.awt.Color(53, 64, 142));
         su_signupButton.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
@@ -121,7 +125,7 @@ public class Signup extends javax.swing.JFrame {
             }
         });
         framePanel.add(su_signupButton);
-        su_signupButton.setBounds(40, 450, 130, 30);
+        su_signupButton.setBounds(170, 520, 220, 30);
 
         su_loginLabel.setForeground(new java.awt.Color(102, 102, 102));
         su_loginLabel.setText("Already have an account? Login here:");
@@ -144,7 +148,7 @@ public class Signup extends javax.swing.JFrame {
         su_EmailLabel.setForeground(new java.awt.Color(0, 0, 0));
         su_EmailLabel.setText("EMAIL:");
         framePanel.add(su_EmailLabel);
-        su_EmailLabel.setBounds(40, 260, 110, 20);
+        su_EmailLabel.setBounds(90, 380, 60, 20);
 
         su_txtEmail.setBackground(new java.awt.Color(255, 255, 255));
         su_txtEmail.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
@@ -156,7 +160,7 @@ public class Signup extends javax.swing.JFrame {
             }
         });
         framePanel.add(su_txtEmail);
-        su_txtEmail.setBounds(40, 280, 380, 50);
+        su_txtEmail.setBounds(170, 370, 220, 50);
 
         minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.png"))); // NOI18N
         minimizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -178,6 +182,42 @@ public class Signup extends javax.swing.JFrame {
         framePanel.add(exitButton);
         exitButton.setBounds(10, 0, 32, 40);
 
+        su_usernameLabel1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        su_usernameLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        su_usernameLabel1.setText("GIVEN NAME:");
+        framePanel.add(su_usernameLabel1);
+        su_usernameLabel1.setBounds(40, 140, 110, 20);
+
+        su_fName.setBackground(new java.awt.Color(255, 255, 255));
+        su_fName.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        su_fName.setForeground(new java.awt.Color(0, 0, 0));
+        su_fName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        su_fName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                su_fNameKeyPressed(evt);
+            }
+        });
+        framePanel.add(su_fName);
+        su_fName.setBounds(170, 130, 220, 50);
+
+        su_usernameLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        su_usernameLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        su_usernameLabel2.setText("LAST NAME:");
+        framePanel.add(su_usernameLabel2);
+        su_usernameLabel2.setBounds(50, 220, 110, 20);
+
+        su_lName.setBackground(new java.awt.Color(255, 255, 255));
+        su_lName.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        su_lName.setForeground(new java.awt.Color(0, 0, 0));
+        su_lName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        su_lName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                su_lNameKeyPressed(evt);
+            }
+        });
+        framePanel.add(su_lName);
+        su_lName.setBounds(170, 210, 220, 50);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,7 +234,7 @@ public class Signup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void su_signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_su_signupButtonActionPerformed
-        String username, email, password, query;
+        String fname, lname, username, email, password, query;
         String url, user, pass;
 
         url = "jdbc:MySQL://localhost:3306/hso_database";
@@ -208,6 +248,10 @@ public class Signup extends javax.swing.JFrame {
 
             if ("".equals(su_txtUsername.getText())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Username is required to proceed.", "ERROR: Missing Username.", JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(su_fName.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Given name is required to proceed.", "ERROR: Missing given name.", JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(su_lName.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Last name is required to proceed.", "ERROR: Missing Last name.", JOptionPane.ERROR_MESSAGE);
             } else if ("".equals(su_txtEmail.getText())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Email is required to proceed.", "ERROR: Missing Email.", JOptionPane.ERROR_MESSAGE);
             } else if ("".equals(su_txtPassword.getText())) {
@@ -216,6 +260,8 @@ public class Signup extends javax.swing.JFrame {
                 username = su_txtUsername.getText();
                 email = su_txtEmail.getText();
                 password = su_txtPassword.getText();
+                fname = su_fName.getText();
+                lname = su_lName.getText();
 
                 query = "SELECT * FROM user WHERE username='" + username + "'";
                 ResultSet rs = st.executeQuery(query);
@@ -231,7 +277,7 @@ public class Signup extends javax.swing.JFrame {
                     return;
                 }
 
-                query = "INSERT INTO user(username, email, password)" + "VALUES('" + username + "', '" + email + "', '" + password + "')";
+                query = "INSERT INTO user(fname, lname, username, email, password)" + "VALUES('" + fname + "', '" + lname + "', '" + username + "', '" + email + "', '" + password + "')";
 
                 st.execute(query);
 
@@ -271,7 +317,7 @@ public class Signup extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             su_txtUsername.requestFocus();
 
-            String username, email, password, query;
+            String fname, lname, username, email, password, query;
             String url, user, pass;
 
             url = "jdbc:MySQL://localhost:3306/hso_database";
@@ -285,6 +331,10 @@ public class Signup extends javax.swing.JFrame {
 
                 if ("".equals(su_txtUsername.getText())) {
                     JOptionPane.showMessageDialog(new JFrame(), "Username is required to proceed.", "ERROR: Missing Username.", JOptionPane.ERROR_MESSAGE);
+                } else if ("".equals(su_fName.getText())) {
+                    JOptionPane.showMessageDialog(new JFrame(), "Given name is required to proceed.", "ERROR: Missing given name.", JOptionPane.ERROR_MESSAGE);
+                } else if ("".equals(su_lName.getText())) {
+                    JOptionPane.showMessageDialog(new JFrame(), "Last name is required to proceed.", "ERROR: Missing Last name.", JOptionPane.ERROR_MESSAGE);
                 } else if ("".equals(su_txtEmail.getText())) {
                     JOptionPane.showMessageDialog(new JFrame(), "Email is required to proceed.", "ERROR: Missing Email.", JOptionPane.ERROR_MESSAGE);
                 } else if ("".equals(su_txtPassword.getText())) {
@@ -293,6 +343,8 @@ public class Signup extends javax.swing.JFrame {
                     username = su_txtUsername.getText();
                     email = su_txtEmail.getText();
                     password = su_txtPassword.getText();
+                    fname = su_fName.getText();
+                    lname = su_lName.getText();
 
                     query = "SELECT * FROM user WHERE username='" + username + "'";
                     ResultSet rs = st.executeQuery(query);
@@ -308,7 +360,7 @@ public class Signup extends javax.swing.JFrame {
                         return;
                     }
 
-                    query = "INSERT INTO user(username, email, password)" + "VALUES('" + username + "', '" + email + "', '" + password + "')";
+                    query = "INSERT INTO user(fname, lname, username, email, password)" + "VALUES('" + fname + "', '" + lname + "', '" + username + "', '" + email + "', '" + password + "')";
 
                     st.execute(query);
 
@@ -335,6 +387,14 @@ public class Signup extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_exitButtonMouseClicked
+
+    private void su_fNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_su_fNameKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_su_fNameKeyPressed
+
+    private void su_lNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_su_lNameKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_su_lNameKeyPressed
 
     /**
      * @param args the command line arguments
@@ -380,6 +440,8 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel nubImage;
     private javax.swing.JLabel signupLogoLabel;
     private javax.swing.JLabel su_EmailLabel;
+    private javax.swing.JTextField su_fName;
+    private javax.swing.JTextField su_lName;
     private javax.swing.JButton su_loginButton;
     private javax.swing.JLabel su_loginLabel;
     private javax.swing.JLabel su_passwordLabel;
@@ -388,5 +450,7 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JTextField su_txtPassword;
     private javax.swing.JTextField su_txtUsername;
     private javax.swing.JLabel su_usernameLabel;
+    private javax.swing.JLabel su_usernameLabel1;
+    private javax.swing.JLabel su_usernameLabel2;
     // End of variables declaration//GEN-END:variables
 }

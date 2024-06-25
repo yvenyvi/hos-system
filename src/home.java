@@ -6,8 +6,16 @@ import javax.swing.SwingUtilities;
 
 public class home extends javax.swing.JFrame {
 
+    private String username;
+
     public home() {
         initComponents();
+    }
+
+    home(String username) {
+        this();
+        userLabel.setText("User signed in: " + username);
+        this.username = username;
     }
 
     @SuppressWarnings("unchecked")
@@ -15,6 +23,7 @@ public class home extends javax.swing.JFrame {
     private void initComponents() {
 
         imagePanel = new javax.swing.JPanel();
+        userLabel = new javax.swing.JLabel();
         medicineLabel = new javax.swing.JLabel();
         inventoryLabel = new javax.swing.JLabel();
         equipmentLabel = new javax.swing.JLabel();
@@ -32,6 +41,12 @@ public class home extends javax.swing.JFrame {
 
         imagePanel.setBackground(new java.awt.Color(255, 255, 255));
         imagePanel.setLayout(null);
+
+        userLabel.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        userLabel.setForeground(new java.awt.Color(255, 255, 255));
+        userLabel.setText("User signed in:");
+        imagePanel.add(userLabel);
+        userLabel.setBounds(10, 470, 320, 30);
 
         medicineLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imagePanel.add(medicineLabel);
@@ -119,22 +134,22 @@ public class home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void medicineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicineBtnActionPerformed
-
-        hsoinventory medicine = new hsoinventory();
-        medicine.show();
-        dispose();
+        
+        hsoinventory medicine = new hsoinventory(username);
+        medicine.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_medicineBtnActionPerformed
 
     private void inventoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryBtnActionPerformed
-        hsoinventorymanagement inventory = new hsoinventorymanagement();
-        inventory.show();
-        dispose();
+        hsoinventorymanagement inventory = new hsoinventorymanagement(username);
+        inventory.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_inventoryBtnActionPerformed
 
     private void equipmentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipmentBtnActionPerformed
-        hsoequipment equipment = new hsoequipment();
-        equipment.show();
-        dispose();
+        hsoequipment equipment = new hsoequipment(username);
+        equipment.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_equipmentBtnActionPerformed
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
@@ -197,5 +212,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel minimizeButton;
     private javax.swing.JLabel nub;
     private javax.swing.JLabel nutxt;
+    private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
+
 }

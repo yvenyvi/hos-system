@@ -68,7 +68,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="homebar" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="dashboard" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="md_infoPanel" max="32767" attributes="0"/>
@@ -92,7 +92,7 @@
                           <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <Component id="dashboard" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -135,7 +135,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="md_searchIdLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="md_timeLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="md_timeLabel" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
                                   </Group>
@@ -150,24 +150,30 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="md_idLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="md_id" min="-2" pref="199" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="md_txtTime" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="md_txtTime" max="32767" attributes="0"/>
+                                          <Component id="md_medication" pref="150" max="32767" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="md_timebtn" pref="28" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="md_timebtn" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Component id="md_searchID" min="-2" pref="40" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="md_medication" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="md_searchID" min="-2" pref="40" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="md_id" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane2" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="552" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -176,10 +182,6 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="223" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="md_fnameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -219,7 +221,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="md_medication" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="md_searchID" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="md_searchIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="md_searchIdLabel" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -229,8 +231,13 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="209" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="9" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -305,6 +312,9 @@
                       <TableHeader reorderingAllowed="false" resizingAllowed="false"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="md_medsMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -642,6 +652,23 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eq_updatebtnActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Monospaced" size="10" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="SEE SYSTEM OPERATOR"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseClicked"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -660,7 +687,8 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="8" rowCount="0">
+                  <Table columnCount="9" rowCount="0">
+                    <Column editable="false" title="SYSTEM USER" type="java.lang.Object"/>
                     <Column editable="false" title="PATIENT NO." type="java.lang.Integer"/>
                     <Column editable="false" title="STUDENT ID" type="java.lang.Object"/>
                     <Column editable="false" title="DATE" type="java.lang.Object"/>
@@ -674,6 +702,11 @@
                 <Property name="autoResizeMode" type="int" value="1"/>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="80" minWidth="0" prefWidth="0" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -731,6 +764,9 @@
                   <TableHeader reorderingAllowed="false" resizingAllowed="false"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="md_patientsMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -751,12 +787,12 @@
                       <Component id="refreshButton" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="EquipemtnExportTable" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="md_searchNameLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="md_searchName" pref="343" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                      <Component id="md_searchMedicine" pref="343" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="md_searchName" pref="347" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
+                      <Component id="md_searchMedicine" pref="348" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="md_searchMedicineLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -771,27 +807,31 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="md_searchName" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
                           <Component id="md_searchMedicineLabel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="md_searchNameLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="homeButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="refreshButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="EquipemtnExportTable" alignment="0" max="32767" attributes="0"/>
                           <Component id="exitButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="resizeButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="minimizeButton" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="md_searchName" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                      <Component id="md_searchNameLabel" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="md_searchMedicine" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="9" max="32767" attributes="0"/>
-                      <Component id="md_searchMedicine" min="-2" pref="32" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -928,7 +968,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="dashboard">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="8e" green="40" red="35" type="rgb"/>
@@ -947,7 +987,7 @@
                           <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                           <Component id="welcomeLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="nameLabel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="logout" alignment="0" max="32767" attributes="0"/>
+                          <Component id="signout" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -968,8 +1008,8 @@
                       <Component id="equipment" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="inventory" min="-2" pref="80" max="-2" attributes="0"/>
-                      <EmptySpace pref="145" max="32767" attributes="0"/>
-                      <Component id="logout" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace pref="148" max="32767" attributes="0"/>
+                      <Component id="signout" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1016,6 +1056,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="inventoryMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="meds">
               <Properties>
@@ -1068,7 +1111,7 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="logout">
+            <Component class="javax.swing.JButton" name="signout">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8e" green="40" red="35" type="rgb"/>
@@ -1088,7 +1131,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signoutActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
