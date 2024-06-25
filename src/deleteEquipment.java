@@ -21,6 +21,13 @@ public class deleteEquipment extends javax.swing.JFrame {
         inv_equip_date.setMinSelectableDate(date);
     }
 
+    private String username;
+    
+    deleteEquipment(String username) {
+        this();
+        this.username = username;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,8 +43,6 @@ public class deleteEquipment extends javax.swing.JFrame {
         inv_equip_inventoryLabel = new javax.swing.JLabel();
         inv_equip_quantity = new javax.swing.JSpinner();
         inv_equip_quantityLabel = new javax.swing.JLabel();
-        inv_equip_quantityLabel1 = new javax.swing.JLabel();
-        inv_equip_dispensed = new javax.swing.JSpinner();
         inv_equip_txt = new javax.swing.JScrollPane();
         inv_equip_remark = new javax.swing.JTextArea();
         inv_equip_remarkLabel = new javax.swing.JLabel();
@@ -106,14 +111,6 @@ public class deleteEquipment extends javax.swing.JFrame {
         inv_equip_quantityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         inv_equip_quantityLabel.setText("TOTAL QUANTITY:");
 
-        inv_equip_quantityLabel1.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
-        inv_equip_quantityLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        inv_equip_quantityLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inv_equip_quantityLabel1.setText("ITEM DISPENSED:");
-
-        inv_equip_dispensed.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        inv_equip_dispensed.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
         inv_equip_remark.setBackground(new java.awt.Color(255, 255, 255));
         inv_equip_remark.setColumns(20);
         inv_equip_remark.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
@@ -163,46 +160,49 @@ public class deleteEquipment extends javax.swing.JFrame {
             .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inv_equip_txt)
-                    .addComponent(inv_equip_equipmentLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inv_equip_inventoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
+                        .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inv_equip_equipmentLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inv_equip_inventoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_equip_infopanelLayout.createSequentialGroup()
+                                .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inv_equip_name)
+                                    .addComponent(inv_equip_itemLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inv_equip_date, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                    .addComponent(inv_equip_dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(33, 33, 33))
                     .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
                         .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inv_equip_quantity)
-                            .addComponent(inv_equip_quantityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                            .addComponent(inv_equip_yearexpiryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(inv_equip_expiry))
                         .addGap(18, 18, 18)
                         .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inv_equip_quantityLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                            .addComponent(inv_equip_dispensed)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inv_equip_infopanelLayout.createSequentialGroup()
-                        .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inv_equip_name)
-                            .addComponent(inv_equip_itemLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inv_equip_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inv_equip_dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(inv_equip_remarkLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33))
+                            .addComponent(inv_equip_quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(inv_equip_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
                 .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
+                        .addGap(107, 107, 107)
                         .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inv_equip_expiry)
-                            .addComponent(inv_equip_yearexpiryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)))
+                            .addComponent(inv_equip_remarkLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inv_equip_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)))
                     .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(165, 165, 165)
                         .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(inv_eq_searchID)
                             .addComponent(inv_equip_quantityLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(inv_equip_deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         inv_equip_infopanelLayout.setVerticalGroup(
             inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(inv_equip_equipmentLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_equip_inventoryLabel)
@@ -216,31 +216,25 @@ public class deleteEquipment extends javax.swing.JFrame {
                         .addComponent(inv_equip_dateLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(inv_equip_date, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addComponent(inv_equip_yearexpiryLabel)
+                .addGap(20, 20, 20)
+                .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inv_equip_yearexpiryLabel)
+                    .addComponent(inv_equip_quantityLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_equip_expiry, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
-                        .addComponent(inv_equip_quantityLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inv_equip_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(inv_equip_infopanelLayout.createSequentialGroup()
-                        .addComponent(inv_equip_quantityLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inv_equip_dispensed, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45)
+                .addGroup(inv_equip_infopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inv_equip_expiry, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inv_equip_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addComponent(inv_equip_remarkLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inv_equip_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                .addGap(26, 26, 26)
+                .addComponent(inv_equip_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(inv_equip_quantityLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_eq_searchID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inv_equip_deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(85, 85, 85))
         );
 
         homebar.setBackground(new java.awt.Color(255, 255, 255));
@@ -302,11 +296,11 @@ public class deleteEquipment extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(homebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 760, Short.MAX_VALUE))
+                .addGap(0, 661, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 50, Short.MAX_VALUE)
-                    .addComponent(inv_equip_infopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 56, Short.MAX_VALUE)
+                    .addComponent(inv_equip_infopanel, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -347,12 +341,11 @@ public class deleteEquipment extends javax.swing.JFrame {
                         String sql = "SELECT * FROM equipment_inventory WHERE eq_id = " + ID;
                         ResultSet rs = st.executeQuery(sql);
 
-                        while (rs.next()) {
+                        while (rs.next()) {                            
                             inv_equip_name.setText(rs.getString("eq_item"));
                             inv_equip_date.setDate(rs.getDate("eq_date"));
                             inv_equip_expiry.setText(rs.getString("eq_expiry"));
-                            inv_equip_quantity.setValue(rs.getInt("eq_totalquantity"));
-                            inv_equip_dispensed.setValue(rs.getInt("eq_disposed"));
+                            inv_equip_quantity.setValue(rs.getInt("eq_totalquantity"));                            
                             inv_equip_remark.setText(rs.getString("eq_remarks"));
                             notFound = 1;
                             JOptionPane.showMessageDialog(null, "Equipment selected.", "INFORM: Selected", JOptionPane.INFORMATION_MESSAGE);
@@ -382,8 +375,9 @@ public class deleteEquipment extends javax.swing.JFrame {
         } else {
             formattedDate = "";
         }
-        String url, user, pass, ID;
+        String url, user, pass, ID, op;
         int notFound = 0;
+        op = username;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -409,13 +403,13 @@ public class deleteEquipment extends javax.swing.JFrame {
                     if (rs.next()) {
                         notFound = 1;
 
-                        sql = "INSERT INTO removed_equipment (eq_id, eq_date, eq_item, eq_quantity, eq_dispensed, eq_expiry, eq_remarks, eq_totalquantity) VALUES (?,?,?,?,?,?,?,?)";
+                        sql = "INSERT INTO removed_equipment (added_by, eq_id, eq_date, eq_item, eq_quantity, eq_expiry, eq_remarks, eq_totalquantity) VALUES (?,?,?,?,?,?,?,?)";
                         PreparedStatement pst = con.prepareStatement(sql);
-                        pst.setString(1, ID);
-                        pst.setString(2, formattedDate);
-                        pst.setString(3, inv_equip_name.getText());
-                        pst.setInt(4, (int) inv_equip_quantity.getValue() - (int) inv_equip_dispensed.getValue());
-                        pst.setInt(5, (int) inv_equip_dispensed.getValue());
+                        pst.setString(1, op);
+                        pst.setString(2, ID);
+                        pst.setString(3, formattedDate);
+                        pst.setString(4, inv_equip_name.getText());
+                        pst.setInt(5, (int) inv_equip_quantity.getValue());                       
                         pst.setString(6, inv_equip_expiry.getText());
                         pst.setString(7, inv_equip_remark.getText());
                         pst.setInt(8, (int) inv_equip_quantity.getValue());
@@ -428,7 +422,6 @@ public class deleteEquipment extends javax.swing.JFrame {
                         inv_equip_expiry.setText("");
                         inv_equip_remark.setText("");
                         inv_equip_quantity.setValue(0);
-                        inv_equip_dispensed.setValue(0);
 
                         inv_eq_searchID.setText("");
 
@@ -494,7 +487,6 @@ public class deleteEquipment extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser inv_equip_date;
     private javax.swing.JLabel inv_equip_dateLabel;
     private javax.swing.JButton inv_equip_deletebtn;
-    private javax.swing.JSpinner inv_equip_dispensed;
     private javax.swing.JLabel inv_equip_equipmentLabel;
     private javax.swing.JTextField inv_equip_expiry;
     private javax.swing.JPanel inv_equip_infopanel;
@@ -503,7 +495,6 @@ public class deleteEquipment extends javax.swing.JFrame {
     private javax.swing.JTextField inv_equip_name;
     private javax.swing.JSpinner inv_equip_quantity;
     private javax.swing.JLabel inv_equip_quantityLabel;
-    private javax.swing.JLabel inv_equip_quantityLabel1;
     private javax.swing.JLabel inv_equip_quantityLabel2;
     private javax.swing.JTextArea inv_equip_remark;
     private javax.swing.JLabel inv_equip_remarkLabel;
