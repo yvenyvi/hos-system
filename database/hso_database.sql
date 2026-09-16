@@ -84,6 +84,7 @@ CREATE TABLE equipment_borrowers (
   eq_department VARCHAR(100) NOT NULL,
   eq_date DATE NOT NULL,
   eq_timeBorrowed VARCHAR(20) NOT NULL,
+  eq_timeReturned VARCHAR(20) DEFAULT NULL,
   eq_equip_id INT NOT NULL,
   eq_equipment VARCHAR(255) NOT NULL,
   PRIMARY KEY (eq_id),
