@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -45,11 +47,7 @@ public class hsoequipment extends javax.swing.JFrame {
     private void sortPatientsByID() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/hso_database";
-            String user = "root";
-            String pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             String sql = "SELECT * FROM `equipment_borrowers` ORDER BY `equipment_borrowers`.`eq_id` DESC";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -847,7 +845,7 @@ public class hsoequipment extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             PreparedStatement st = con.prepareStatement("INSERT INTO equipment_borrowers(user, eq_patient_id,  eq_fname, eq_gender, eq_department,eq_date, eq_timeBorrowed,eq_equip_id, eq_equipment) VALUES (?,?,?,?,?,?,?,?,?)");
 
             Date med_date = eq_dateBorrowed.getDate();
@@ -947,7 +945,7 @@ public class hsoequipment extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             ID = eq_searchPatientID.getText();
@@ -1030,7 +1028,7 @@ public class hsoequipment extends javax.swing.JFrame {
                     user = "root";
                     pass = "";
 
-                    Connection con = DriverManager.getConnection(url, user, pass);
+                    Connection con = util.Database.getConnection();
                     Statement st = con.createStatement();
 
                     ID = eq_searchPatientID.getText();
@@ -1093,7 +1091,7 @@ public class hsoequipment extends javax.swing.JFrame {
                     user = "root";
                     pass = "";
 
-                    Connection con = DriverManager.getConnection(url, user, pass);
+                    Connection con = util.Database.getConnection();
                     Statement st = con.createStatement();
 
                     ID = eq_searchID.getText();
@@ -1277,7 +1275,7 @@ public class hsoequipment extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
             eq_searchID.setText(equipments.getValueAt(selectedRowIndex, 0).toString());
             ID = eq_searchID.getText();
@@ -1325,7 +1323,7 @@ public class hsoequipment extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             eq_searchPatientID.setText(borrowers.getValueAt(selectedRowIndex, 1).toString());
@@ -1393,7 +1391,7 @@ public class hsoequipment extends javax.swing.JFrame {
 
             ID = eq_searchID.getText();
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             String sql = "SELECT eq_quantity FROM equipment_inventory WHERE eq_id = '" + ID + "'";
@@ -1423,7 +1421,7 @@ public class hsoequipment extends javax.swing.JFrame {
 
             ID = eq_searchID.getText();
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             String sql = "SELECT eq_quantity, eq_totalquantity FROM equipment_inventory WHERE eq_id = '" + ID + "'";
@@ -1459,7 +1457,7 @@ public class hsoequipment extends javax.swing.JFrame {
 
             ID = eq_searchID.getText();
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             String sql = "SELECT eq_disposed FROM equipment_inventory WHERE eq_id = '" + ID + "'";
@@ -1489,7 +1487,7 @@ public class hsoequipment extends javax.swing.JFrame {
 
             ID = eq_searchID.getText();
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             String sql = "SELECT eq_disposed FROM equipment_inventory WHERE eq_id = '" + ID + "'";
@@ -1522,7 +1520,7 @@ public class hsoequipment extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel equipTable = (DefaultTableModel) eq_patients.getModel();
@@ -1566,7 +1564,7 @@ public class hsoequipment extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel invequipTable = (DefaultTableModel) eq_equipments.getModel();

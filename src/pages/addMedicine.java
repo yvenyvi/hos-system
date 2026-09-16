@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.util.Date;
 import java.sql.Connection;
@@ -286,7 +288,7 @@ public class addMedicine extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             PreparedStatement st = con.prepareStatement("INSERT INTO medicine_inventory(added_by, md_date, md_item, md_quantity, md_expiry, md_remarks) VALUES (?,?,?,?,?,?)");
 
             Date med_date = inv_med_date.getDate();

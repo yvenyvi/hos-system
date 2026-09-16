@@ -1,3 +1,5 @@
+package pages;
+
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -233,14 +235,18 @@ public class printPatient extends javax.swing.JFrame {
 
     private void searchDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDateActionPerformed
         try {
+            if (fromDate.getDate() == null || toDate.getDate() == null) {
+                showData("", "");
+                return;
+            }
             md_patients.setModel(new DefaultTableModel(null, new Object[] {"PATIENT NO.", "STUDENT ID", "DATE", "NAME", "SEX", "DEPARTMENT", "TIME", "MEDICATION" }));
             SimpleDateFormat date = new SimpleDateFormat ("yyyy-MM-dd");
             String fDate = date.format(fromDate.getDate());
             String tDate = date.format(toDate.getDate());
             showData(fDate, tDate);
         } catch (Exception e) {
-        
-    }
+            JOptionPane.showMessageDialog(null, "Please select valid dates.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_searchDateActionPerformed
 
     private void saveTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveTableMouseClicked
@@ -266,9 +272,9 @@ public class printPatient extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-             con = DriverManager.getConnection(url, user, pass);            
+             con = util.Database.getConnection();            
         } catch (Exception ex) {
-            System.out.println("ex.getMessage()");
+            System.out.println(ex.getMessage());
         }
         
         return con;
@@ -310,7 +316,7 @@ public class printPatient extends javax.swing.JFrame {
             }
             
         } catch (Exception e) {
-            System.out.println("e.getMessage()");
+            System.out.println(e.getMessage());
         }
     }
     

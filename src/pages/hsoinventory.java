@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -39,11 +41,7 @@ public class hsoinventory extends javax.swing.JFrame {
     private void sortMedicineByExpiry() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/hso_database";
-            String user = "root";
-            String pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             String sql = "SELECT * FROM medicine_inventory ORDER BY md_expiry ASC";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -69,11 +67,7 @@ public class hsoinventory extends javax.swing.JFrame {
     private void sortPatientsByID() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/hso_database";
-            String user = "root";
-            String pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             String sql = "SELECT * FROM `medicine_takers` ORDER BY `md_id` DESC";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -813,7 +807,7 @@ public class hsoinventory extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel medTable = (DefaultTableModel) md_meds.getModel();
@@ -852,7 +846,7 @@ public class hsoinventory extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel medPatientTable = (DefaultTableModel) md_patients.getModel();
@@ -895,7 +889,7 @@ public class hsoinventory extends javax.swing.JFrame {
 
             ID = md_searchID.getText();
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             String sql = "SELECT md_quantity FROM medicine_inventory WHERE md_id = '" + ID + "'";
@@ -925,7 +919,7 @@ public class hsoinventory extends javax.swing.JFrame {
 
             ID = md_searchID.getText();
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             String sql = "SELECT md_disposed FROM medicine_inventory WHERE md_id = '" + ID + "'";
@@ -1060,7 +1054,7 @@ public class hsoinventory extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             String sql = "SELECT * FROM medicine_takers WHERE md_id = " + ID;
@@ -1118,7 +1112,7 @@ public class hsoinventory extends javax.swing.JFrame {
                     user = "root";
                     pass = "";
 
-                    Connection con = DriverManager.getConnection(url, user, pass);
+                    Connection con = util.Database.getConnection();
                     Statement st = con.createStatement();
 
                     ID = md_searchPatientId.getText();
@@ -1181,7 +1175,7 @@ public class hsoinventory extends javax.swing.JFrame {
                     user = "root";
                     pass = "";
 
-                    Connection con = DriverManager.getConnection(url, user, pass);
+                    Connection con = util.Database.getConnection();
                     Statement st = con.createStatement();
 
                     ID = md_searchID.getText();
@@ -1227,7 +1221,7 @@ public class hsoinventory extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             PreparedStatement st = con.prepareStatement("INSERT INTO medicine_takers(user, md_patient_id, md_date, md_fname, md_sex, md_department, md_time, md_medication) VALUES (?,?,?,?,?,?,?,?)");
 
             Date med_date = md_date.getDate();
@@ -1353,7 +1347,7 @@ public class hsoinventory extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             md_searchPatientId.setText(patients.getValueAt(selectedRowIndex, 1).toString());
@@ -1408,7 +1402,7 @@ public class hsoinventory extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             md_searchID.setText(meds.getValueAt(selectedRowIndex, 0).toString());

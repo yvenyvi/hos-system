@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -53,12 +55,12 @@ public class SignUpLogIn extends javax.swing.JFrame {
         imagePanel.setBackground(new java.awt.Color(53, 64, 142));
         imagePanel.setLayout(null);
 
-        nuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/left (1).png"))); // NOI18N
+        nuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left (1).png"))); // NOI18N
         nuLogo.setText("jLabel2");
         imagePanel.add(nuLogo);
         nuLogo.setBounds(0, 0, 440, 230);
 
-        nubImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bulldogs.jpg"))); // NOI18N
+        nubImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bulldogs.jpg"))); // NOI18N
         nubImage.setText("jLabel1");
         imagePanel.add(nubImage);
         nubImage.setBounds(-330, 230, 770, 370);
@@ -214,7 +216,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
             if ("".equals(lg_txtUsername.getText())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Username is required to proceed.", "ERROR: Missing Username.", JOptionPane.ERROR_MESSAGE);
@@ -226,18 +228,17 @@ public class SignUpLogIn extends javax.swing.JFrame {
 
                 query = "SELECT * FROM user WHERE username = '" + username + "'";
                 ResultSet rs = st.executeQuery(query);
-                while (rs.next()) {
+                if (rs.next()) {
                     passDb = rs.getString("password");
-                    notFound = 1;
-                    if (notFound == 1 && password.equals(passDb)) {
-
+                    if (password.equals(passDb)) {
                         JOptionPane.showMessageDialog(new JFrame(), "Login successfull!", "Successful!", JOptionPane.INFORMATION_MESSAGE);
                         new home(username).setVisible(true);
                         this.setVisible(false);
-
                     } else {
                         JOptionPane.showMessageDialog(new JFrame(), "Incorrect email or password.", "ERROR: Incorrect Input.", JOptionPane.ERROR_MESSAGE);
                     }
+                } else {
+                    JOptionPane.showMessageDialog(new JFrame(), "Username not found.", "ERROR: Incorrect Input.", JOptionPane.ERROR_MESSAGE);
                 }
                 lg_txtUsername.setText("");
                 lg_txtPassword.setText("");
@@ -268,7 +269,7 @@ public class SignUpLogIn extends javax.swing.JFrame {
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass);
+                Connection con = util.Database.getConnection();
                 Statement st = con.createStatement();
                 if ("".equals(lg_txtUsername.getText())) {
                     JOptionPane.showMessageDialog(new JFrame(), "Username is required to proceed.", "ERROR: Missing Username.", JOptionPane.ERROR_MESSAGE);

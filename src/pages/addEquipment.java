@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.util.Date;
 import java.sql.Connection;
@@ -297,7 +299,7 @@ public class addEquipment extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             PreparedStatement st = con.prepareStatement("INSERT INTO equipment_inventory(added_by, eq_date, eq_item, eq_quantity, eq_expiry, eq_remarks) VALUES (?,?,?,?,?,?)");
 
             Date equip_date = inv_equip_date.getDate();

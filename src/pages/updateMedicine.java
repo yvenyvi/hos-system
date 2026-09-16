@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.awt.event.KeyEvent;
 import java.util.Date;
@@ -337,7 +339,7 @@ public class updateMedicine extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             ID = inv_md_searchID.getText();
@@ -409,7 +411,7 @@ public class updateMedicine extends javax.swing.JFrame {
                     user = "root";
                     pass = "";
 
-                    Connection con = DriverManager.getConnection(url, user, pass);
+                    Connection con = util.Database.getConnection();
                     Statement st = con.createStatement();
 
                     ID = inv_md_searchID.getText();

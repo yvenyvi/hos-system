@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -52,11 +54,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     private void sortMedicineByExpiry() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/hso_database";
-            String user = "root";
-            String pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             String sql = "SELECT * FROM medicine_inventory ORDER BY md_expiry ASC";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -86,11 +84,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     private void sortExpiredMedicineByExpiry() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/hso_database";
-            String user = "root";
-            String pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             String sql = "SELECT * FROM removed_medicine ORDER BY md_expiry DESC";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
@@ -120,11 +114,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
     private void moveExpiredMedicines() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/hso_database";
-            String user = "root";
-            String pass = "";
-
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
 
             // Get today's date
             Date currentDate = new Date();
@@ -183,7 +173,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel invequipTable = (DefaultTableModel) inv_equipmentTable.getModel();
@@ -223,7 +213,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel invequipTable = (DefaultTableModel) inv_equipmentTable.getModel();
@@ -1342,7 +1332,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel invmedTable = (DefaultTableModel) inv_medTable.getModel();
@@ -1382,7 +1372,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel invequipTable = (DefaultTableModel) inv_equipmentTable.getModel();
@@ -1423,7 +1413,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel invRemovedMedsTable = (DefaultTableModel) inv_recent_medtable.getModel();
@@ -1462,7 +1452,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             DefaultTableModel invRemovedEquipTable = (DefaultTableModel) inv_recent_equiptable.getModel();
@@ -1776,9 +1766,9 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             user = "root";
             pass = "";
 
-            con = DriverManager.getConnection(url, user, pass);
+            con = util.Database.getConnection();
         } catch (Exception ex) {
-            System.out.println("ex.getMessage()");
+            System.out.println(ex.getMessage());
         }
         return con;
     }
@@ -1821,7 +1811,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            System.out.println("e.getMessage()");
+            System.out.println(e.getMessage());
         }
     }
 
@@ -1862,7 +1852,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            System.out.println("e.getMessage()");
+            System.out.println(e.getMessage());
         }
     }
 
@@ -1903,7 +1893,7 @@ public class hsoinventorymanagement extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            System.out.println("ewie.getMessage()");
+            System.out.println(e.getMessage());
         }
     }
 

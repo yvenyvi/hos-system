@@ -1,3 +1,5 @@
+package pages;
+
 
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -58,12 +60,12 @@ public class Signup extends javax.swing.JFrame {
         imagePanel.setBackground(new java.awt.Color(53, 64, 142));
         imagePanel.setLayout(null);
 
-        nuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/left (1).png"))); // NOI18N
+        nuLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left (1).png"))); // NOI18N
         nuLogo.setText("jLabel2");
         imagePanel.add(nuLogo);
         nuLogo.setBounds(0, 0, 440, 230);
 
-        nubImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bulldogs.jpg"))); // NOI18N
+        nubImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bulldogs.jpg"))); // NOI18N
         nubImage.setText("jLabel1");
         imagePanel.add(nubImage);
         nubImage.setBounds(-330, 230, 770, 370);
@@ -243,7 +245,7 @@ public class Signup extends javax.swing.JFrame {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, pass);
+            Connection con = util.Database.getConnection();
             Statement st = con.createStatement();
 
             if ("".equals(su_txtUsername.getText())) {
@@ -326,7 +328,7 @@ public class Signup extends javax.swing.JFrame {
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass);
+                Connection con = util.Database.getConnection();
                 Statement st = con.createStatement();
 
                 if ("".equals(su_txtUsername.getText())) {
