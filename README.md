@@ -24,7 +24,7 @@ This is a comprehensive desktop application developed for managing medical inven
 - **GUI Framework:** Java Swing (AWT/Swing)
 - **Database:** MySQL
 - **Architecture:** Object-Oriented Programming (OOP)
-- **Build Tool:** Apache Ant / NetBeans / VS Code
+- **Build Tool:** Apache Ant / NetBeans / NetBeans
 
 ---
 
