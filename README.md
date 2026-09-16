@@ -9,7 +9,7 @@ This is a comprehensive desktop application developed for managing medical inven
 
 ---
 
-## ?? Features
+## Features
 
 - **User Authentication:** Secure login and sign-up functionality for staff.
 - **Dynamic Dashboard:** A modern, data-driven home dashboard displaying real-time analytics (total medicines, equipment, patients, and borrowers).
@@ -18,7 +18,7 @@ This is a comprehensive desktop application developed for managing medical inven
 - **Record Management:** Keep track of patients who received medication and borrowers who used equipment.
 - **Report Generation:** Built-in table printing functionality to generate physical records of inventory and transactions.
 
-## ??? Tech Stack
+## Tech Stack
 
 - **Language:** Java (JDK 8+)
 - **GUI Framework:** Java Swing (AWT/Swing)
@@ -28,7 +28,7 @@ This is a comprehensive desktop application developed for managing medical inven
 
 ---
 
-## ?? Getting Started
+## Getting Started
 
 ### Prerequisites
 - **Java Development Kit (JDK)** 8 or newer installed and configured.
@@ -51,7 +51,8 @@ This is a comprehensive desktop application developed for managing medical inven
      \\\
    - **Note:** The application connects to MySQL using the credentials defined in src/database.properties. By default, it expects:
      - URL: jdbc:mysql://localhost:3306/hso_database
-     - Username: oot
+     - Username: 
+oot
      - Password: password
      *(Change the password in src/database.properties if your local MySQL root user has a different password!)*
 
@@ -59,7 +60,7 @@ This is a comprehensive desktop application developed for managing medical inven
    - **In VS Code:** Open the folder, let the Java Extension compile the project, and run the SignUpLogIn.java file as a Java application.
    - **In NetBeans:** Open the project folder, click "Clean and Build", and then "Run Project".
 
-## ?? Project Structure
+## Project Structure
 
 - src/pages/ - Contains all the UI pages (Login, Dashboard, Inventory, etc.).
 - src/util/ - Contains helper classes like the Database.java connection manager.
